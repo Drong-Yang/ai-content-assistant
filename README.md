@@ -1,11 +1,14 @@
-# AI 内容运营助手
+# 社媒内容生产 Agent 工作流
 
-基于 **Vue 3 + FastAPI + LangGraph + PostgreSQL** 的内容创作工作流：输入方向 → 生成选题 → 人工选题 → 写稿 → 人工审核 / 驳回重写 → 生成配图。
+
+**选题 / 撰写 / 配图的人机协同**
+
+基于 Vue 3 + FastAPI + LangGraph 1.0 + PostgreSQL 的选题 / 撰写 / 审稿 / 配图 Agent 工作流，支持 AI 出选题、人在环审稿、中断续跑；基于状态图编排把「AI 出方案、人拍板」固化为可中断、可恢复、可回看的有状态流程。
 
 ## 功能与边界
 
 - 注册、登录与按用户隔离的工作流历史。
-- LangGraph 人工中断与恢复，PostgreSQL 保存检查点；刷新页面或重启应用后恢复任务。
+- 7 节点工作流、选题与审稿 2 处人在环，PostgreSQL 保存检查点；刷新页面或重启应用后恢复任务。
 - 流式写稿、审核反馈重写、失败节点重试、图片部分失败状态保留。
 - 支持火山方舟文本与图片 API，也提供明确标识的模拟文本和 SVG 配图。
 - 当前用于本地演示，不会自动发布到小红书或其他平台；生产部署需要额外配置 HTTPS、访问控制和服务运维。
@@ -19,6 +22,8 @@ Python **3.13**（与 pyproject.toml / uv.lock 一致）、Node.js 22、npm、Do
 下载或克隆本仓库后，在仓库根目录执行。无需外部工作区脚本。
 
 ### 1. 配置与数据库
+
+`.env`、日志、生成图片和数据库包含本机配置或用户数据，请勿提交到仓库。
 
 复制 `.env.example` 为 `.env`（PowerShell：`Copy-Item .env.example .env`；macOS/Linux：`cp .env.example .env`）。
 
@@ -80,7 +85,7 @@ cd frontend
 npm run build
 ```
 
-GitHub Actions 为集成测试启动独立 PostgreSQL 服务，并验证前端构建。模拟测试通过不代表真实文本、图片 API 本次已验收。
+GitHub Actions 为集成测试启动独立 PostgreSQL 服务，并验证前端构建；[验证记录](docs/VALIDATION.md)记录本地检查的范围。模拟测试通过不代表真实文本、图片 API 本次已验收。
 
 ## 目录
 
@@ -95,8 +100,4 @@ test_reproduction.py 工作流、隔离与图片接口回归
 uv.lock              Python 依赖锁
 ```
 
-## 来源与凭据
-
-本项目基于 `graph_xiaohongshu` 教学项目进行本地改造，保留原代码中的说明。当前材料中未找到上游 LICENSE，因此未擅自添加覆盖全部代码的开源授权；公开分发和授权前应确认上游条款。
-
-`.env`、日志、虚拟环境、生成图片与数据库不属于源码。请勿提交真实密钥、用户数据或本机运行记录。
+本项目基于 `graph_xiaohongshu` 教学项目改造，实现内容生产流程的人机协同与持久化恢复，保留原代码中的说明。

@@ -1,0 +1,19 @@
+name: ai-content-assistant
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: aicontent
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - content-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d aicontent"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+volumes:
+  content-postgres:

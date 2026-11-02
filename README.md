@@ -51,9 +51,9 @@ Vue 3 · FastAPI · LangGraph 1.0 · PostgreSQL · 火山方舟
 
 以下为项目演示过程截图。截图中的耗时、Token 与模型标识对应单次运行，不作为性能基准或费用承诺。
 
-### 创作成果与历史记录
+### 创作结果与历史记录
 
-![创作成果页面：工作流进度、历史任务与最终文章](docs/assets/demo-overview.png)
+![创作结果页面：工作流进度、历史任务与最终文章](docs/assets/demo-overview.png)
 
 <details>
 <summary>展开查看配图、版本对比、节点指标与流式日志</summary>

@@ -1,0 +1,33 @@
+{
+  "date_utc": "2026-11-01T23:26:31.281976+00:00",
+  "model": "ep-20261007192246-pdxsw",
+  "baseline_commit": "5838eda",
+  "prompt_version": "revision-v2-quality-v2",
+  "tasks": 20,
+  "inference_control": "Same current model, temperature and thinking mode for both arms; legacy PROMPT ablation, not historical runtime replay.",
+  "dataset_sha256": "c0e719b2716815492c32c58f3482f8b932dc3fa1888e0a7fe7e4cb5b427374a1",
+  "human_review_status": "pending",
+  "note": "Single generation per case; mechanical checks only; not a production estimate.",
+  "legacy": {
+    "succeeded": 20,
+    "failed": 0,
+    "all_rules_passed": 3,
+    "rule_items_passed": 13,
+    "rule_items_total": 40,
+    "total_tokens": 8965,
+    "calls": 20,
+    "median_duration_ms": 7620.805,
+    "auto_revisions": 0
+  },
+  "upgraded": {
+    "succeeded": 20,
+    "failed": 0,
+    "all_rules_passed": 18,
+    "rule_items_passed": 38,
+    "rule_items_total": 40,
+    "total_tokens": 43107,
+    "calls": 52,
+    "median_duration_ms": 11095.865,
+    "auto_revisions": 6
+  }
+}

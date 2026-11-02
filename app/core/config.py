@@ -6,6 +6,7 @@ from pathlib import Path
 from functools import lru_cache
 from typing import Literal
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic import Field
 
 
 class Settings(BaseSettings):
@@ -20,6 +21,11 @@ class Settings(BaseSettings):
     # 应用配置
     app_name: str = "AI内容运营助手"
     debug: bool = True
+    quality_enabled: bool = True
+    quality_max_auto_per_review: int = Field(default=1, ge=0, le=2)
+    quality_max_auto_total: int = Field(default=3, ge=0, le=5)
+    quality_token_budget: int = Field(default=30000, ge=1000, le=100000)
+    quality_timeout_seconds: float = Field(default=45, gt=0, le=120)
     
     # 数据库配置 (SQLAlchemy AsyncIO)
     database_url: str = "postgresql+asyncpg://postgres:password@localhost:5432/aicontent"

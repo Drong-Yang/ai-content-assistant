@@ -1,0 +1,182 @@
+{
+  "id": "audience_tone_01",
+  "category": "audience_tone",
+  "input": {
+    "id": "audience_tone_01",
+    "category": "audience_tone",
+    "topic": "AI辅助周报整理",
+    "direction": "面向刚毕业的职场新人介绍周报整理。语气务实友好，避免夸张承诺。控制在180—280个非空白字符。",
+    "previous_article": "# AI辅助周报整理\n周报案例甲：周五先归类10条记录，再人工核对。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+    "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。",
+    "brief": {
+      "audience": "刚毕业的职场新人",
+      "tone": "务实友好，避免夸张承诺",
+      "min_chars": 180,
+      "max_chars": 280,
+      "required_sections": [],
+      "preserve_phrases": []
+    },
+    "human_rubric": [
+      "读者能否理解并按步骤操作",
+      "原文案例与数字是否保留",
+      "反馈是否落实且未引入无依据承诺"
+    ]
+  },
+  "outputs": {
+    "legacy": {
+      "content": "# 打工人速进！AI帮我把周报从2小时缩到5分钟\n家人们谁懂啊😅上周三赶周报熬到10点的阴影还没散，这周我居然5分钟就搞定了？！\n\n之前我写周报真的是酷刑：翻30+聊天记录、扒10个文档、凑800字还要显得没摸鱼，每次都要耗2小时，写完脑子直接宕机。\n\n直到我试了AI辅助周报，亲测真的香！给你们上实操👇\n### 第一步：喂原始素材\n把这周的零散记录直接丢进去——什么项目进度、对接的需求、踩的小坑，不用整理，想到啥粘啥，我上次粘了快20条碎碎念都行。\n### 第二步：提明确要求\n比如“按「项目进展/问题复盘/下周计划」分类，控制在1000字内，要突出XX项目的成果，语气专业但不生硬”，越具体出来的效果越准。\n### 第三步：微调润色\n出来的初稿改个3处细节就行，比如加个具体的数字、改个你平时的说话习惯，整个过程最多10分钟。\n\n我上周用这个方法，本来要2小时的周报，连输入带修改花了5分27秒，交上去还被主管夸“逻辑清晰重点突出”🤫\n\n对了别直接抄！AI只是帮你搭框架填内容，核心的成果亮点还是要自己补，不然很容易撞模板哦。\n\n你们平时写周报要花多久？有没有更绝的AI用法？评论区唠唠！",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": false,
+          "issue": "正文长度不符合要求",
+          "evidence": "非空白字符数=476，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 9540.02,
+      "total_tokens": 527,
+      "calls": 1,
+      "usage": [
+        {
+          "input_tokens": 167,
+          "output_tokens": 360,
+          "total_tokens": 527,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api"
+        }
+      ]
+    },
+    "upgraded": {
+      "content": "# 刚入职怕周报写不好？AI帮你搭把手呀✨\n刚毕业的小伙伴是不是一到周五就头疼周报？对着零散的工作记录，不知道怎么梳理才清晰😮‍💨 给大家分享个实用小方法哦。\n\n可以试试AI辅助整理，比如你有10条零散的工作记录，先统一收集好，让AI帮你按工作类型归类，比如项目推进、日常事务、问题复盘这些类别，之后一定要自己人工核对一遍，确保内容准确，还要注意别把公司隐私信息上传到AI工具里哦，安全第一～\n\n这样整理效率会高不少，也不容易漏项，大家可以试试看呀！你们平时写周报有啥小技巧不？",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": true,
+          "issue": "",
+          "evidence": "非空白字符数=232，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 8344.48,
+      "total_tokens": 1565,
+      "calls": 2,
+      "usage": [
+        {
+          "node_name": "write_draft",
+          "duration_ms": 4029.07,
+          "start_time": "2026-11-02T07:23:14.218499",
+          "end_time": "2026-11-02T07:23:18.247571",
+          "input_tokens": 350,
+          "output_tokens": 155,
+          "total_tokens": 505,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "f7327eb2fc7d4a90a43ff7270eab2e8e",
+          "source": "human"
+        },
+        {
+          "node_name": "quality_check",
+          "duration_ms": 4315.22,
+          "start_time": "2026-11-02T07:23:18.247656",
+          "end_time": "2026-11-02T07:23:22.562878",
+          "input_tokens": 855,
+          "output_tokens": 205,
+          "total_tokens": 1060,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "f7327eb2fc7d4a90a43ff7270eab2e8e"
+        }
+      ],
+      "quality_history": [
+        {
+          "version_id": "f7327eb2fc7d4a90a43ff7270eab2e8e",
+          "created_at": "2026-11-01T23:23:18.247605+00:00",
+          "checks": [
+            {
+              "criterion": "正文长度",
+              "passed": true,
+              "issue": "",
+              "evidence": "非空白字符数=232，范围=180—280",
+              "evidence_id": 0,
+              "suggestion": "将正文控制在180—280个非空白字符",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "受众匹配：内容贴合刚毕业职场新人的周报痛点与认知水平",
+              "passed": true,
+              "issue": "",
+              "evidence": "刚毕业的小伙伴是不是一到周五就头疼周报？",
+              "evidence_id": 3,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "需求与修改意见落实：保留原文案例与数字，语气务实友好无夸张承诺，符合要求",
+              "passed": true,
+              "issue": "",
+              "evidence": "可以试试AI辅助整理，比如你有10条零散的工作记录，先统一收集好，让AI帮你按工作类型归类，比如项目推进、日常事务、问题复盘这些类别，之后一定要自己人工核对一遍，确保内容准确，还要注意别把公司隐私信息上传到AI工具里哦，安全第一～",
+              "evidence_id": 5,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "建议可操作性：AI辅助周报整理的方法步骤清晰，有可落地的操作指引",
+              "passed": true,
+              "issue": "",
+              "evidence": "可以试试AI辅助整理，比如你有10条零散的工作记录，先统一收集好，让AI帮你按工作类型归类，比如项目推进、日常事务、问题复盘这些类别，之后一定要自己人工核对一遍，确保内容准确，还要注意别把公司隐私信息上传到AI工具里哦，安全第一～",
+              "evidence_id": 5,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            }
+          ],
+          "status": "passed",
+          "route": "manual",
+          "reason": ""
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "legacy",
+          "parent_version_id": null,
+          "content": "# AI辅助周报整理\n周报案例甲：周五先归类10条记录，再人工核对。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+          "source": "legacy",
+          "feedback": "",
+          "created_at": ""
+        },
+        {
+          "version_id": "f7327eb2fc7d4a90a43ff7270eab2e8e",
+          "parent_version_id": "legacy",
+          "content": "# 刚入职怕周报写不好？AI帮你搭把手呀✨\n刚毕业的小伙伴是不是一到周五就头疼周报？对着零散的工作记录，不知道怎么梳理才清晰😮‍💨 给大家分享个实用小方法哦。\n\n可以试试AI辅助整理，比如你有10条零散的工作记录，先统一收集好，让AI帮你按工作类型归类，比如项目推进、日常事务、问题复盘这些类别，之后一定要自己人工核对一遍，确保内容准确，还要注意别把公司隐私信息上传到AI工具里哦，安全第一～\n\n这样整理效率会高不少，也不容易漏项，大家可以试试看呀！你们平时写周报有啥小技巧不？",
+          "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。",
+          "source": "human",
+          "created_at": "2026-11-01T23:23:18.247592+00:00",
+          "metric": {
+            "node_name": "write_draft",
+            "duration_ms": 4029.07,
+            "start_time": "2026-11-02T07:23:14.218499",
+            "end_time": "2026-11-02T07:23:18.247571",
+            "input_tokens": 350,
+            "output_tokens": 155,
+            "total_tokens": 505,
+            "model": "ep-20261007192246-pdxsw",
+            "usage_source": "api",
+            "version_id": "f7327eb2fc7d4a90a43ff7270eab2e8e",
+            "source": "human"
+          }
+        }
+      ],
+      "auto_revisions": 0
+    }
+  }
+}

@@ -1,0 +1,277 @@
+{
+  "id": "audience_tone_04",
+  "category": "audience_tone",
+  "input": {
+    "id": "audience_tone_04",
+    "category": "audience_tone",
+    "topic": "AI辅助客户反馈分类",
+    "direction": "面向刚毕业的职场新人介绍客户反馈分类。语气务实友好，避免夸张承诺。控制在180—280个非空白字符。",
+    "previous_article": "# AI辅助客户反馈分类\n反馈案例丁：小周把12条意见分成3类。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+    "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。",
+    "brief": {
+      "audience": "刚毕业的职场新人",
+      "tone": "务实友好，避免夸张承诺",
+      "min_chars": 180,
+      "max_chars": 280,
+      "required_sections": [],
+      "preserve_phrases": []
+    },
+    "human_rubric": [
+      "读者能否理解并按步骤操作",
+      "原文案例与数字是否保留",
+      "反馈是否落实且未引入无依据承诺"
+    ]
+  },
+  "outputs": {
+    "upgraded": {
+      "content": "# AI辅助客户反馈分类\n刚入职的小伙伴是不是对着一堆客户反馈就头大？同是刚毕业的小周上周就碰到12条零散意见，用笨办法一条条捋，分了半小时还怕自己分错漏项😅\n\n其实可以试试用AI辅助分类，能省不少力：先把收集到的反馈整理好，记得删掉客户隐私信息再上传，让AI先粗分大类——像小周的12条意见很快就分成了3类，最后自己再人工复核一遍、调整下细节就好。\n\n新人刚上手别硬扛，善用工具能少走很多弯路～",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": true,
+          "issue": "",
+          "evidence": "非空白字符数=192，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 13555.0,
+      "total_tokens": 3045,
+      "calls": 4,
+      "usage": [
+        {
+          "node_name": "write_draft",
+          "duration_ms": 3224.79,
+          "start_time": "2026-11-02T07:23:25.770525",
+          "end_time": "2026-11-02T07:23:28.995315",
+          "input_tokens": 352,
+          "output_tokens": 123,
+          "total_tokens": 475,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "1a603eaa49564ee6bdf0799236290d1c",
+          "source": "human"
+        },
+        {
+          "node_name": "quality_check",
+          "duration_ms": 4111.18,
+          "start_time": "2026-11-02T07:23:28.995394",
+          "end_time": "2026-11-02T07:23:33.106579",
+          "input_tokens": 803,
+          "output_tokens": 210,
+          "total_tokens": 1013,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "1a603eaa49564ee6bdf0799236290d1c"
+        },
+        {
+          "node_name": "write_draft",
+          "duration_ms": 2872.47,
+          "start_time": "2026-11-02T07:23:33.106669",
+          "end_time": "2026-11-02T07:23:35.979141",
+          "input_tokens": 459,
+          "output_tokens": 137,
+          "total_tokens": 596,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "6946e98568bf4e81bb3f677bf95ba719",
+          "source": "auto"
+        },
+        {
+          "node_name": "quality_check",
+          "duration_ms": 3346.2,
+          "start_time": "2026-11-02T07:23:35.979226",
+          "end_time": "2026-11-02T07:23:39.325429",
+          "input_tokens": 817,
+          "output_tokens": 144,
+          "total_tokens": 961,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "6946e98568bf4e81bb3f677bf95ba719"
+        }
+      ],
+      "quality_history": [
+        {
+          "version_id": "1a603eaa49564ee6bdf0799236290d1c",
+          "created_at": "2026-11-01T23:23:28.995346+00:00",
+          "checks": [
+            {
+              "criterion": "正文长度",
+              "passed": false,
+              "issue": "正文长度不符合要求",
+              "evidence": "非空白字符数=173，范围=180—280",
+              "evidence_id": 0,
+              "suggestion": "将正文控制在180—280个非空白字符",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "受众匹配：内容贴合刚毕业职场新人的认知与场景需求",
+              "passed": true,
+              "issue": "",
+              "evidence": "刚入职的小伙伴是不是遇到客户反馈就头大？",
+              "evidence_id": 2,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "需求与修改意见落实：保留原文案例与数字，语气务实友好无夸张承诺，字符数符合180-280非空白字符要求",
+              "passed": true,
+              "issue": "",
+              "evidence": "刚毕业的小周上周就碰到12条零散意见，用笨办法分了半小时还怕错😅",
+              "evidence_id": 3,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "建议可操作性：AI辅助分类的操作步骤清晰可落地",
+              "passed": true,
+              "issue": "",
+              "evidence": "其实可以用AI辅助分类，效率高很多：先把收集到的反馈整理好，注意删掉客户隐私信息再上传，让AI先粗分大类，像小周的12条意见很快就分成了3类，最后自己再人工复核一遍调整细节就好。",
+              "evidence_id": 4,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            }
+          ],
+          "status": "needs_revision",
+          "route": "auto",
+          "reason": ""
+        },
+        {
+          "version_id": "6946e98568bf4e81bb3f677bf95ba719",
+          "created_at": "2026-11-01T23:23:35.979176+00:00",
+          "checks": [
+            {
+              "criterion": "正文长度",
+              "passed": true,
+              "issue": "",
+              "evidence": "非空白字符数=192，范围=180—280",
+              "evidence_id": 0,
+              "suggestion": "将正文控制在180—280个非空白字符",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "受众匹配度：内容贴合刚毕业职场新人的认知与场景",
+              "passed": true,
+              "issue": "",
+              "evidence": "",
+              "evidence_id": 0,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "需求落实：语气务实友好，无夸张承诺",
+              "passed": true,
+              "issue": "",
+              "evidence": "",
+              "evidence_id": 0,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "建议可操作性：AI辅助分类的操作步骤清晰可落地",
+              "passed": true,
+              "issue": "",
+              "evidence": "",
+              "evidence_id": 0,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            }
+          ],
+          "status": "passed",
+          "route": "manual",
+          "reason": ""
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "legacy",
+          "parent_version_id": null,
+          "content": "# AI辅助客户反馈分类\n反馈案例丁：小周把12条意见分成3类。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+          "source": "legacy",
+          "feedback": "",
+          "created_at": ""
+        },
+        {
+          "version_id": "1a603eaa49564ee6bdf0799236290d1c",
+          "parent_version_id": "legacy",
+          "content": "# AI辅助客户反馈分类\n刚入职的小伙伴是不是遇到客户反馈就头大？刚毕业的小周上周就碰到12条零散意见，用笨办法分了半小时还怕错😅\n\n其实可以用AI辅助分类，效率高很多：先把收集到的反馈整理好，注意删掉客户隐私信息再上传，让AI先粗分大类，像小周的12条意见很快就分成了3类，最后自己再人工复核一遍调整细节就好。\n\n新人刚上手别硬扛，善用工具能少走很多弯路～",
+          "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。",
+          "source": "human",
+          "created_at": "2026-11-01T23:23:28.995334+00:00",
+          "metric": {
+            "node_name": "write_draft",
+            "duration_ms": 3224.79,
+            "start_time": "2026-11-02T07:23:25.770525",
+            "end_time": "2026-11-02T07:23:28.995315",
+            "input_tokens": 352,
+            "output_tokens": 123,
+            "total_tokens": 475,
+            "model": "ep-20261007192246-pdxsw",
+            "usage_source": "api",
+            "version_id": "1a603eaa49564ee6bdf0799236290d1c",
+            "source": "human"
+          }
+        },
+        {
+          "version_id": "6946e98568bf4e81bb3f677bf95ba719",
+          "parent_version_id": "1a603eaa49564ee6bdf0799236290d1c",
+          "content": "# AI辅助客户反馈分类\n刚入职的小伙伴是不是对着一堆客户反馈就头大？同是刚毕业的小周上周就碰到12条零散意见，用笨办法一条条捋，分了半小时还怕自己分错漏项😅\n\n其实可以试试用AI辅助分类，能省不少力：先把收集到的反馈整理好，记得删掉客户隐私信息再上传，让AI先粗分大类——像小周的12条意见很快就分成了3类，最后自己再人工复核一遍、调整下细节就好。\n\n新人刚上手别硬扛，善用工具能少走很多弯路～",
+          "feedback": "用户修改意见：保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。\n质量检查建议：\n将正文控制在180—280个非空白字符",
+          "source": "auto",
+          "created_at": "2026-11-01T23:23:35.979160+00:00",
+          "metric": {
+            "node_name": "write_draft",
+            "duration_ms": 2872.47,
+            "start_time": "2026-11-02T07:23:33.106669",
+            "end_time": "2026-11-02T07:23:35.979141",
+            "input_tokens": 459,
+            "output_tokens": 137,
+            "total_tokens": 596,
+            "model": "ep-20261007192246-pdxsw",
+            "usage_source": "api",
+            "version_id": "6946e98568bf4e81bb3f677bf95ba719",
+            "source": "auto"
+          }
+        }
+      ],
+      "auto_revisions": 1
+    },
+    "legacy": {
+      "content": "# 救命！AI帮我把3天的反馈分类活缩成2小时😱\n做用户运营的姐妹谁懂啊😭上周我手里压了1200条客服后台反馈，按之前人工标分类，至少3天才能搞完，周报都要赶不上了！\n\n死马当活马医试了AI辅助分类，结果我人傻了：\n✅ 1200条全量分类只花2小时\n✅ 准确率冲到92%，比我之前人工带实习生做的还稳\n✅ 自动拆出「功能bug/服务吐槽/需求建议」8个细分维度，连“物流慢”这种模糊评价都能精准归到「配送问题」\n\n操作巨简单：把导出的反馈表丢给AI，先喂20条你手动标好的样本当规则，再让它批量跑，最后抽10%核对补标就行，新手也能直接上手🤙\n\n你们平时处理客户反馈要花多久？有没有更绝的偷懒技巧？评论区唠唠！",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": false,
+          "issue": "正文长度不符合要求",
+          "evidence": "非空白字符数=291，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 6643.43,
+      "total_tokens": 396,
+      "calls": 1,
+      "usage": [
+        {
+          "input_tokens": 168,
+          "output_tokens": 228,
+          "total_tokens": 396,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api"
+        }
+      ]
+    }
+  }
+}

@@ -1209,3 +1209,13 @@ body {
     gap: 8px;
   }
 }
+
+.editorial-brief label { display: block; margin: 12px 0; }
+.brief-length { display: flex; gap: 16px; }
+.quality-checks { padding-left: 20px; }
+.quality-checks li { margin: 12px 0; }
+.quality-checks p { margin: 4px 0; }
+.version-diff, .version-text { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 500px; overflow: auto; margin-top: 16px; }
+.diff-line { padding: 3px 6px; }
+.diff-line.added { background: #e6f4ea; color: #184d2a; }
+.diff-line.removed { background: #fce8e6; color: #8c2621; }

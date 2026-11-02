@@ -1,0 +1,214 @@
+{
+  "id": "preserve_original_03",
+  "category": "preserve_original",
+  "input": {
+    "id": "preserve_original_03",
+    "category": "preserve_original",
+    "topic": "AI辅助学习笔记",
+    "direction": "面向大学一年级学生介绍学习笔记。语气务实友好，避免夸张承诺。控制在180—280个非空白字符。保留原文中的完整案例句。",
+    "previous_article": "# AI辅助学习笔记\n学习案例丙：小陈用3张卡片回顾Python知识。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+    "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。",
+    "brief": {
+      "audience": "大学一年级学生",
+      "tone": "务实友好，避免夸张承诺",
+      "min_chars": 180,
+      "max_chars": 280,
+      "required_sections": [],
+      "preserve_phrases": [
+        "学习案例丙：小陈用3张卡片回顾Python知识。"
+      ]
+    },
+    "human_rubric": [
+      "读者能否理解并按步骤操作",
+      "原文案例与数字是否保留",
+      "反馈是否落实且未引入无依据承诺"
+    ]
+  },
+  "outputs": {
+    "legacy": {
+      "content": "# 谁还在死磕抄书式笔记啊🤯AI帮我把3小时笔记压缩成20分钟\n家人们谁懂啊！上周啃《传播学教程》，抄了3页重点转头就忘，翻笔记连核心框架都找不到😅\n\n抱着试试的心态甩给AI，结果直接惊了——\n✅ 120页教材重点，30秒生成三级框架\n✅ 我手写的3页零散笔记，一键补全「5W传播模式」关联考点\n✅ 自动生成15道自测题，错题直接定位对应知识点\n省下来的2小时40分钟，我直接多刷了两套真题+追了半集剧！\n\n👉 我的AI笔记三步法直接抄：\n1. 先丢原文/手写笔记图，让AI按「考点+考频」分层\n2. 加一句「用我笔记里的原句补全细节」，避免跑题\n3. 最后要「自测题+错题溯源」，学完直接检验\n\n对了！别直接用AI生成的成品，一定要自己过一遍补点个人思考，不然真的会变成“AI记了=我记了”的无效学习哦🤫\n\n你们平时记笔记最头疼啥？是抓不住重点还是整理太慢？评论区唠唠！",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": false,
+          "issue": "正文长度不符合要求",
+          "evidence": "非空白字符数=362，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "保留文本",
+          "passed": false,
+          "issue": "缺少：学习案例丙：小陈用3张卡片回顾Python知识。",
+          "evidence": "",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：学习案例丙：小陈用3张卡片回顾Python知识。",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 7866.02,
+      "total_tokens": 453,
+      "calls": 1,
+      "usage": [
+        {
+          "input_tokens": 167,
+          "output_tokens": 286,
+          "total_tokens": 453,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api"
+        }
+      ]
+    },
+    "upgraded": {
+      "content": "# AI辅助学习笔记\n刚上大一的小伙伴是不是还在为记笔记头疼？课上内容多来不及写，课后整理又费时间？其实可以试试用AI搭把手，效率能高不少～\n\n学习案例丙：小陈用3张卡片回顾Python知识。\n具体操作很简单：先把课本、课件、课堂录音这些材料收集好，用AI帮你做初步分类、提炼要点，省掉自己逐页翻的功夫。最后一定要人工复核一遍，既能加深印象，也能避免上传隐私信息，还能顺手把AI没get到的重点补进去。\n\n不用追求花里胡哨的功能，适合自己的节奏就好～大家平时记笔记有啥小妙招吗？",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": true,
+          "issue": "",
+          "evidence": "非空白字符数=232，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "保留文本",
+          "passed": true,
+          "issue": "",
+          "evidence": "学习案例丙：小陈用3张卡片回顾Python知识。",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：学习案例丙：小陈用3张卡片回顾Python知识。",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 10859.77,
+      "total_tokens": 1597,
+      "calls": 2,
+      "usage": [
+        {
+          "node_name": "write_draft",
+          "duration_ms": 5193.03,
+          "start_time": "2026-11-02T07:25:21.189450",
+          "end_time": "2026-11-02T07:25:26.382480",
+          "input_tokens": 364,
+          "output_tokens": 155,
+          "total_tokens": 519,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "7ffc0971ef88423898cf5a34717abb03",
+          "source": "human"
+        },
+        {
+          "node_name": "quality_check",
+          "duration_ms": 5666.53,
+          "start_time": "2026-11-02T07:25:26.382571",
+          "end_time": "2026-11-02T07:25:32.049097",
+          "input_tokens": 882,
+          "output_tokens": 196,
+          "total_tokens": 1078,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "7ffc0971ef88423898cf5a34717abb03"
+        }
+      ],
+      "quality_history": [
+        {
+          "version_id": "7ffc0971ef88423898cf5a34717abb03",
+          "created_at": "2026-11-01T23:25:26.382513+00:00",
+          "checks": [
+            {
+              "criterion": "正文长度",
+              "passed": true,
+              "issue": "",
+              "evidence": "非空白字符数=232，范围=180—280",
+              "evidence_id": 0,
+              "suggestion": "将正文控制在180—280个非空白字符",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "保留文本",
+              "passed": true,
+              "issue": "",
+              "evidence": "学习案例丙：小陈用3张卡片回顾Python知识。",
+              "evidence_id": 0,
+              "suggestion": "原样保留或加入：学习案例丙：小陈用3张卡片回顾Python知识。",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "受众匹配度：内容贴合大学一年级学生的认知与学习场景",
+              "passed": true,
+              "issue": "",
+              "evidence": "刚上大一的小伙伴是不是还在为记笔记头疼？",
+              "evidence_id": 2,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "需求与修改意见落实：保留指定案例句且语气务实友好、无夸张承诺",
+              "passed": true,
+              "issue": "",
+              "evidence": "学习案例丙：小陈用3张卡片回顾Python知识。",
+              "evidence_id": 5,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "建议可操作性：AI辅助记笔记的方法步骤清晰可落地",
+              "passed": true,
+              "issue": "",
+              "evidence": "具体操作很简单：先把课本、课件、课堂录音这些材料收集好，用AI帮你做初步分类、提炼要点，省掉自己逐页翻的功夫。",
+              "evidence_id": 6,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            }
+          ],
+          "status": "passed",
+          "route": "manual",
+          "reason": ""
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "legacy",
+          "parent_version_id": null,
+          "content": "# AI辅助学习笔记\n学习案例丙：小陈用3张卡片回顾Python知识。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+          "source": "legacy",
+          "feedback": "",
+          "created_at": ""
+        },
+        {
+          "version_id": "7ffc0971ef88423898cf5a34717abb03",
+          "parent_version_id": "legacy",
+          "content": "# AI辅助学习笔记\n刚上大一的小伙伴是不是还在为记笔记头疼？课上内容多来不及写，课后整理又费时间？其实可以试试用AI搭把手，效率能高不少～\n\n学习案例丙：小陈用3张卡片回顾Python知识。\n具体操作很简单：先把课本、课件、课堂录音这些材料收集好，用AI帮你做初步分类、提炼要点，省掉自己逐页翻的功夫。最后一定要人工复核一遍，既能加深印象，也能避免上传隐私信息，还能顺手把AI没get到的重点补进去。\n\n不用追求花里胡哨的功能，适合自己的节奏就好～大家平时记笔记有啥小妙招吗？",
+          "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。",
+          "source": "human",
+          "created_at": "2026-11-01T23:25:26.382500+00:00",
+          "metric": {
+            "node_name": "write_draft",
+            "duration_ms": 5193.03,
+            "start_time": "2026-11-02T07:25:21.189450",
+            "end_time": "2026-11-02T07:25:26.382480",
+            "input_tokens": 364,
+            "output_tokens": 155,
+            "total_tokens": 519,
+            "model": "ep-20261007192246-pdxsw",
+            "usage_source": "api",
+            "version_id": "7ffc0971ef88423898cf5a34717abb03",
+            "source": "human"
+          }
+        }
+      ],
+      "auto_revisions": 0
+    }
+  }
+}

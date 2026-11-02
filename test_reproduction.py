@@ -56,6 +56,10 @@ class WorkflowTests(unittest.TestCase):
             state=client.get('/api/v1/workflow/state/'+thread,headers=owner).json()
             self.assertEqual(state['values']['revision_count'],1)
             self.assertIn('增加API实例',state['values']['article_content'])
+            versions_before_restart = state['values']['article_versions']
+            self.assertGreaterEqual(len(versions_before_restart), 2)
+            self.assertEqual(versions_before_restart[-1]['source'], 'human')
+            self.assertTrue(state['values']['quality_history'])
             with patch('app.graph.nodes.visualizer.get_image_service') as image:
                 image.return_value.generate_images=unittest.mock.AsyncMock(return_value=['/static/partial-test.svg'])
                 r=client.post('/api/v1/workflow/resume/'+thread,headers=owner,json={'action':'approve'})
@@ -69,6 +73,8 @@ class WorkflowTests(unittest.TestCase):
             state=client.get('/api/v1/workflow/state/'+thread,headers=owner)
             self.assertEqual(state.status_code,200,state.text)
             self.assertEqual(state.json()['status'],'images_failed')
+            self.assertEqual(state.json()['values']['article_versions'], versions_before_restart)
+            self.assertTrue(state.json()['values']['quality_report'])
             r=client.post('/api/v1/workflow/retry/'+thread,headers=owner)
             self.assertEqual(r.status_code,200,r.text)
             self.assertTrue(r.json()['is_completed'],r.text)

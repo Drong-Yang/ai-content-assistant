@@ -1,0 +1,214 @@
+{
+  "id": "structure_length_03",
+  "category": "structure_length",
+  "input": {
+    "id": "structure_length_03",
+    "category": "structure_length",
+    "topic": "AI辅助学习笔记",
+    "direction": "面向第一次接触AI的行政助理介绍学习笔记。语气务实友好，避免夸张承诺。控制在180—280个非空白字符。必须包含栏目：三步清单。",
+    "previous_article": "# AI辅助学习笔记\n学习案例丙：小陈用3张卡片回顾Python知识。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+    "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。改成三步清单，使用“三步清单”作为栏目标题。",
+    "brief": {
+      "audience": "第一次接触AI的行政助理",
+      "tone": "务实友好，避免夸张承诺",
+      "min_chars": 180,
+      "max_chars": 280,
+      "required_sections": [
+        "三步清单"
+      ],
+      "preserve_phrases": []
+    },
+    "human_rubric": [
+      "读者能否理解并按步骤操作",
+      "原文案例与数字是否保留",
+      "反馈是否落实且未引入无依据承诺"
+    ]
+  },
+  "outputs": {
+    "legacy": {
+      "content": "# 三步清单｜AI辅助学习笔记，3天啃完半本专业书的偷懒技巧🤫\n前阵子赶资格证考试，抱着试试的心态用AI做笔记，居然3天啃完半本厚得像砖的专业教材，正确率还比之前手写笔记高了27%，直接惊到我！\n\n✨ 三步清单 ✨\n1️⃣ **喂料定位**：把教材章节/课堂录音转的文字丢给AI，指令写清「帮我提取核心考点+标注考频，删除废话案例」，10秒就能得到浓缩版框架，比自己划重点省1小时。\n2️⃣ **补全加工**：遇到看不懂的难点直接问，比如「用大一学生能懂的话解释XX理论+举2个生活例子」，AI补的通俗注解比教辅还好懂，直接粘到对应知识点下面。\n3️⃣ **输出自测**：最后让AI按知识点出10道填空+简答题，做完对照答案补漏，相当于自动生成专属模考卷，记忆效果直接翻倍。\n\n你们用AI做笔记踩过啥坑？评论区唠唠👇",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": false,
+          "issue": "正文长度不符合要求",
+          "evidence": "非空白字符数=344，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "必含栏目",
+          "passed": true,
+          "issue": "",
+          "evidence": "三步清单",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：三步清单",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 7361.37,
+      "total_tokens": 429,
+      "calls": 1,
+      "usage": [
+        {
+          "input_tokens": 181,
+          "output_tokens": 248,
+          "total_tokens": 429,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api"
+        }
+      ]
+    },
+    "upgraded": {
+      "content": "# AI辅助学习笔记\n行政岗的姐妹看过来～刚接触AI怕用不好？给大家分享同是行政助理的小陈实操案例：她靠AI整理3张卡片就高效回顾了Python入门知识，不用啃厚厚的资料，超适合碎片时间补技能👇\n\n## 三步清单\n1. 先收集零散学习材料：把平时记的知识点、截图里的重点都整理成可复制的文本，别直接传含公司隐私的文件哦\n2. 用AI做分类梳理：把材料喂给AI，让它按知识点归类，自动提炼成精简的卡片框架\n3. 人工复核补细节：AI整理完自己过一遍，补上手写的易错点，调整成自己习惯的表述，用着更顺手\n\n你平时用AI整理过什么类型的笔记呀？评论区聊聊～",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": true,
+          "issue": "",
+          "evidence": "非空白字符数=262，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "必含栏目",
+          "passed": true,
+          "issue": "",
+          "evidence": "三步清单",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：三步清单",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 9975.34,
+      "total_tokens": 1688,
+      "calls": 2,
+      "usage": [
+        {
+          "node_name": "write_draft",
+          "duration_ms": 5799.37,
+          "start_time": "2026-11-02T07:24:30.025928",
+          "end_time": "2026-11-02T07:24:35.825298",
+          "input_tokens": 373,
+          "output_tokens": 181,
+          "total_tokens": 554,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "0cdbedbbc4e44229b9d54175aa4fc6ed",
+          "source": "human"
+        },
+        {
+          "node_name": "quality_check",
+          "duration_ms": 4175.76,
+          "start_time": "2026-11-02T07:24:35.825394",
+          "end_time": "2026-11-02T07:24:40.001156",
+          "input_tokens": 926,
+          "output_tokens": 208,
+          "total_tokens": 1134,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "0cdbedbbc4e44229b9d54175aa4fc6ed"
+        }
+      ],
+      "quality_history": [
+        {
+          "version_id": "0cdbedbbc4e44229b9d54175aa4fc6ed",
+          "created_at": "2026-11-01T23:24:35.825333+00:00",
+          "checks": [
+            {
+              "criterion": "正文长度",
+              "passed": true,
+              "issue": "",
+              "evidence": "非空白字符数=262，范围=180—280",
+              "evidence_id": 0,
+              "suggestion": "将正文控制在180—280个非空白字符",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "必含栏目",
+              "passed": true,
+              "issue": "",
+              "evidence": "三步清单",
+              "evidence_id": 0,
+              "suggestion": "原样保留或加入：三步清单",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "受众匹配度：内容贴合第一次接触AI的行政助理的认知水平与工作/学习场景",
+              "passed": true,
+              "issue": "",
+              "evidence": "行政岗的姐妹看过来～刚接触AI怕用不好？",
+              "evidence_id": 2,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "需求与修改意见落实：已设置“三步清单”栏目标题且保留原文案例与数字",
+              "passed": true,
+              "issue": "",
+              "evidence": "## 三步清单",
+              "evidence_id": 4,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "建议可操作性：三步清单的操作步骤具体明确，新手可直接落地执行",
+              "passed": true,
+              "issue": "",
+              "evidence": "1. 先收集零散学习材料：把平时记的知识点、截图里的重点都整理成可复制的文本，别直接传含公司隐私的文件哦",
+              "evidence_id": 5,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            }
+          ],
+          "status": "passed",
+          "route": "manual",
+          "reason": ""
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "legacy",
+          "parent_version_id": null,
+          "content": "# AI辅助学习笔记\n学习案例丙：小陈用3张卡片回顾Python知识。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+          "source": "legacy",
+          "feedback": "",
+          "created_at": ""
+        },
+        {
+          "version_id": "0cdbedbbc4e44229b9d54175aa4fc6ed",
+          "parent_version_id": "legacy",
+          "content": "# AI辅助学习笔记\n行政岗的姐妹看过来～刚接触AI怕用不好？给大家分享同是行政助理的小陈实操案例：她靠AI整理3张卡片就高效回顾了Python入门知识，不用啃厚厚的资料，超适合碎片时间补技能👇\n\n## 三步清单\n1. 先收集零散学习材料：把平时记的知识点、截图里的重点都整理成可复制的文本，别直接传含公司隐私的文件哦\n2. 用AI做分类梳理：把材料喂给AI，让它按知识点归类，自动提炼成精简的卡片框架\n3. 人工复核补细节：AI整理完自己过一遍，补上手写的易错点，调整成自己习惯的表述，用着更顺手\n\n你平时用AI整理过什么类型的笔记呀？评论区聊聊～",
+          "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。改成三步清单，使用“三步清单”作为栏目标题。",
+          "source": "human",
+          "created_at": "2026-11-01T23:24:35.825319+00:00",
+          "metric": {
+            "node_name": "write_draft",
+            "duration_ms": 5799.37,
+            "start_time": "2026-11-02T07:24:30.025928",
+            "end_time": "2026-11-02T07:24:35.825298",
+            "input_tokens": 373,
+            "output_tokens": 181,
+            "total_tokens": 554,
+            "model": "ep-20261007192246-pdxsw",
+            "usage_source": "api",
+            "version_id": "0cdbedbbc4e44229b9d54175aa4fc6ed",
+            "source": "human"
+          }
+        }
+      ],
+      "auto_revisions": 0
+    }
+  }
+}

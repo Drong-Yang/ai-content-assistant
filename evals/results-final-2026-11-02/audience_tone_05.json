@@ -1,0 +1,182 @@
+{
+  "id": "audience_tone_05",
+  "category": "audience_tone",
+  "input": {
+    "id": "audience_tone_05",
+    "category": "audience_tone",
+    "topic": "AI辅助求职材料整理",
+    "direction": "面向刚毕业的职场新人介绍求职材料整理。语气务实友好，避免夸张承诺。控制在180—280个非空白字符。",
+    "previous_article": "# AI辅助求职材料整理\n求职案例戊：小杨按岗位归档5份材料。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+    "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。",
+    "brief": {
+      "audience": "刚毕业的职场新人",
+      "tone": "务实友好，避免夸张承诺",
+      "min_chars": 180,
+      "max_chars": 280,
+      "required_sections": [],
+      "preserve_phrases": []
+    },
+    "human_rubric": [
+      "读者能否理解并按步骤操作",
+      "原文案例与数字是否保留",
+      "反馈是否落实且未引入无依据承诺"
+    ]
+  },
+  "outputs": {
+    "legacy": {
+      "content": "# 谁懂啊！用AI整理求职材料，我3天投27家拿了5个面试🤯\n上周我那投了半个月简历只收到1个回复的冤种闺蜜，用AI整理了3天求职材料，直接投27家拿5个面试邀约！\n\n别不信，真不是玄学，是把AI用在了刀刃上：\n✅ JD关键词扒取：把岗位描述丢给AI，10秒扒出核心要求，简历精准踩点\n✅ 经历STAR改写：把你干巴巴的“做了XX”改成有数据有结果的STAR表述\n✅ 求职信定制：每投一家生成专属求职信，再也不是千篇一律的模板\n✅ 面试题库预测：根据岗位JD生成高频面试题+答题思路，提前准备\n\n我闺蜜之前简历投出去石沉大海，就是因为没踩中岗位关键词，AI一分析才发现，她投运营岗，简历里连“用户增长”“数据复盘”这些词都没提🤦‍♀️\n\n对了，别直接抄AI的内容！一定要自己改得符合真实经历，不然很容易被HR看出来哦～\n\n你们有没有用过AI改简历？效果咋样？评论区唠唠👇",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": false,
+          "issue": "正文长度不符合要求",
+          "evidence": "非空白字符数=367，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 7265.56,
+      "total_tokens": 435,
+      "calls": 1,
+      "usage": [
+        {
+          "input_tokens": 168,
+          "output_tokens": 267,
+          "total_tokens": 435,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api"
+        }
+      ]
+    },
+    "upgraded": {
+      "content": "# AI辅助求职材料整理\n刚毕业找工作的小伙伴，是不是攒了一堆简历、证书、项目报告，投岗位时翻半天找不到？\n\n给你说个实用小方法，求职案例里的小杨就是这么做的：按岗位归档5份材料，先把自己的所有求职相关材料收集齐，用AI帮忙做初步分类整理，省掉自己逐份归类的麻烦，最后一定要自己人工复核一遍，既能提高整理效率，也能避免不小心上传隐私信息，稳妥又省心～\n\n你们整理求职材料时最头疼啥问题呀？",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": true,
+          "issue": "",
+          "evidence": "非空白字符数=188，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 8282.53,
+      "total_tokens": 1484,
+      "calls": 2,
+      "usage": [
+        {
+          "node_name": "write_draft",
+          "duration_ms": 3889.39,
+          "start_time": "2026-11-02T07:23:53.235484",
+          "end_time": "2026-11-02T07:23:57.124872",
+          "input_tokens": 350,
+          "output_tokens": 123,
+          "total_tokens": 473,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "b87e3a3ee6ee4c2795679064a8e86d20",
+          "source": "human"
+        },
+        {
+          "node_name": "quality_check",
+          "duration_ms": 4392.96,
+          "start_time": "2026-11-02T07:23:57.124960",
+          "end_time": "2026-11-02T07:24:01.517918",
+          "input_tokens": 792,
+          "output_tokens": 219,
+          "total_tokens": 1011,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "b87e3a3ee6ee4c2795679064a8e86d20"
+        }
+      ],
+      "quality_history": [
+        {
+          "version_id": "b87e3a3ee6ee4c2795679064a8e86d20",
+          "created_at": "2026-11-01T23:23:57.124911+00:00",
+          "checks": [
+            {
+              "criterion": "正文长度",
+              "passed": true,
+              "issue": "",
+              "evidence": "非空白字符数=188，范围=180—280",
+              "evidence_id": 0,
+              "suggestion": "将正文控制在180—280个非空白字符",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "受众匹配度：内容贴合刚毕业职场新人的求职材料整理需求与认知水平",
+              "passed": true,
+              "issue": "",
+              "evidence": "刚毕业找工作的小伙伴，是不是攒了一堆简历、证书、项目报告，投岗位时翻半天找不到？",
+              "evidence_id": 2,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "需求与修改意见落实：保留原文案例与数字，语气务实友好无夸张承诺，字符数符合180-280非空白字符要求",
+              "passed": true,
+              "issue": "",
+              "evidence": "给你说个实用小方法，求职案例里的小杨就是这么做的：按岗位归档5份材料，先把自己的所有求职相关材料收集齐，用AI帮忙做初步分类整理，省掉自己逐份归类的麻烦，最后一定要自己人工复核一遍，既能提高整理效率，也能避免不小心上传隐私信息，稳妥又省心～",
+              "evidence_id": 3,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "建议可操作性：AI辅助求职材料整理的方法步骤清晰，可直接落地执行",
+              "passed": true,
+              "issue": "",
+              "evidence": "给你说个实用小方法，求职案例里的小杨就是这么做的：按岗位归档5份材料，先把自己的所有求职相关材料收集齐，用AI帮忙做初步分类整理，省掉自己逐份归类的麻烦，最后一定要自己人工复核一遍，既能提高整理效率，也能避免不小心上传隐私信息，稳妥又省心～",
+              "evidence_id": 3,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            }
+          ],
+          "status": "passed",
+          "route": "manual",
+          "reason": ""
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "legacy",
+          "parent_version_id": null,
+          "content": "# AI辅助求职材料整理\n求职案例戊：小杨按岗位归档5份材料。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+          "source": "legacy",
+          "feedback": "",
+          "created_at": ""
+        },
+        {
+          "version_id": "b87e3a3ee6ee4c2795679064a8e86d20",
+          "parent_version_id": "legacy",
+          "content": "# AI辅助求职材料整理\n刚毕业找工作的小伙伴，是不是攒了一堆简历、证书、项目报告，投岗位时翻半天找不到？\n\n给你说个实用小方法，求职案例里的小杨就是这么做的：按岗位归档5份材料，先把自己的所有求职相关材料收集齐，用AI帮忙做初步分类整理，省掉自己逐份归类的麻烦，最后一定要自己人工复核一遍，既能提高整理效率，也能避免不小心上传隐私信息，稳妥又省心～\n\n你们整理求职材料时最头疼啥问题呀？",
+          "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。",
+          "source": "human",
+          "created_at": "2026-11-01T23:23:57.124897+00:00",
+          "metric": {
+            "node_name": "write_draft",
+            "duration_ms": 3889.39,
+            "start_time": "2026-11-02T07:23:53.235484",
+            "end_time": "2026-11-02T07:23:57.124872",
+            "input_tokens": 350,
+            "output_tokens": 123,
+            "total_tokens": 473,
+            "model": "ep-20261007192246-pdxsw",
+            "usage_source": "api",
+            "version_id": "b87e3a3ee6ee4c2795679064a8e86d20",
+            "source": "human"
+          }
+        }
+      ],
+      "auto_revisions": 0
+    }
+  }
+}

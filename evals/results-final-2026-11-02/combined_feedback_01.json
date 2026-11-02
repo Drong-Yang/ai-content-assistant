@@ -1,0 +1,246 @@
+{
+  "id": "combined_feedback_01",
+  "category": "combined_feedback",
+  "input": {
+    "id": "combined_feedback_01",
+    "category": "combined_feedback",
+    "topic": "AI辅助周报整理",
+    "direction": "面向没有编程经验的运营人员介绍周报整理。语气务实友好，避免夸张承诺。控制在180—280个非空白字符。必须包含栏目：三步清单。保留原文中的完整案例句。",
+    "previous_article": "# AI辅助周报整理\n周报案例甲：周五先归类10条记录，再人工核对。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+    "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。改成三步清单，使用“三步清单”作为栏目标题。在有限篇幅里保留案例，优先给出操作步骤，删除空泛形容。",
+    "brief": {
+      "audience": "没有编程经验的运营人员",
+      "tone": "务实友好，避免夸张承诺",
+      "min_chars": 180,
+      "max_chars": 280,
+      "required_sections": [
+        "三步清单"
+      ],
+      "preserve_phrases": [
+        "周报案例甲：周五先归类10条记录，再人工核对。"
+      ]
+    },
+    "human_rubric": [
+      "读者能否理解并按步骤操作",
+      "原文案例与数字是否保留",
+      "反馈是否落实且未引入无依据承诺"
+    ]
+  },
+  "outputs": {
+    "legacy": {
+      "content": "# 打工人救命！AI整理周报快到离谱😭\n上周我帮运营岗闺蜜救急：她攒了37条零散工作记录（改海报、盯数据、对接博主全混在备忘录），用AI12分钟就出了结构化周报，还自动标了3项核心成果，比她自己抠2小时还清楚！\n\n## 三步清单\n1. **喂原始素材**：把微信聊天/备忘录/待办里的流水账（不用整理）直接丢给AI，加指令：「帮我按【项目推进/日常事务/待办协调】分类，保留具体数据」\n2. **套岗位模板**：补一句「按互联网运营周报格式优化，核心成果放最前面，量化数据加粗」，AI会自动把“改了海报”改成「迭代3版活动海报，点击率较上周提升12%」\n3. **调细节收尾**：最后说「删掉冗余内容，控制在300字内，加1句下周计划」，直接复制就能发\n\n你们平时写周报要花多久？评论区说下岗位，我发对应AI指令模板！",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": false,
+          "issue": "正文长度不符合要求",
+          "evidence": "非空白字符数=346，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "必含栏目",
+          "passed": true,
+          "issue": "",
+          "evidence": "三步清单",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：三步清单",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "保留文本",
+          "passed": false,
+          "issue": "缺少：周报案例甲：周五先归类10条记录，再人工核对。",
+          "evidence": "",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：周报案例甲：周五先归类10条记录，再人工核对。",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 6606.17,
+      "total_tokens": 445,
+      "calls": 1,
+      "usage": [
+        {
+          "input_tokens": 198,
+          "output_tokens": 247,
+          "total_tokens": 445,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api"
+        }
+      ]
+    },
+    "upgraded": {
+      "content": "# AI辅助周报整理\n做运营的小伙伴都懂，每天零散记录一堆，凑周报时翻聊天记录、工作笔记翻到眼花😮‍💨 不用懂编程，用普通AI工具就能省不少时间，亲测好用👇\n\n## 三步清单\n1. 先把本周零散的工作记录（比如沟通纪要、数据截图转的文字）统一复制到一处，去掉客户隐私等敏感内容\n2. 把整理好的内容发给AI，指令写清“按工作模块分类汇总，保留具体数据”，等它输出初版\n3. 对着原始记录人工核对细节，补入AI没抓到的重点调整表述\n\n周报案例甲：周五先归类10条记录，再人工核对。\n大家平时凑周报要花多久呀？欢迎评论区聊聊～",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": true,
+          "issue": "",
+          "evidence": "非空白字符数=246，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "必含栏目",
+          "passed": true,
+          "issue": "",
+          "evidence": "三步清单",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：三步清单",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "保留文本",
+          "passed": true,
+          "issue": "",
+          "evidence": "周报案例甲：周五先归类10条记录，再人工核对。",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：周报案例甲：周五先归类10条记录，再人工核对。",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 11938.35,
+      "total_tokens": 1716,
+      "calls": 2,
+      "usage": [
+        {
+          "node_name": "write_draft",
+          "duration_ms": 5037.33,
+          "start_time": "2026-11-02T07:25:41.280129",
+          "end_time": "2026-11-02T07:25:46.317459",
+          "input_tokens": 417,
+          "output_tokens": 175,
+          "total_tokens": 592,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "7b7d2dd824df41e1866c51d4190e0c0a",
+          "source": "human"
+        },
+        {
+          "node_name": "quality_check",
+          "duration_ms": 6900.81,
+          "start_time": "2026-11-02T07:25:46.317559",
+          "end_time": "2026-11-02T07:25:53.218366",
+          "input_tokens": 960,
+          "output_tokens": 164,
+          "total_tokens": 1124,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "7b7d2dd824df41e1866c51d4190e0c0a"
+        }
+      ],
+      "quality_history": [
+        {
+          "version_id": "7b7d2dd824df41e1866c51d4190e0c0a",
+          "created_at": "2026-11-01T23:25:46.317493+00:00",
+          "checks": [
+            {
+              "criterion": "正文长度",
+              "passed": true,
+              "issue": "",
+              "evidence": "非空白字符数=246，范围=180—280",
+              "evidence_id": 0,
+              "suggestion": "将正文控制在180—280个非空白字符",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "必含栏目",
+              "passed": true,
+              "issue": "",
+              "evidence": "三步清单",
+              "evidence_id": 0,
+              "suggestion": "原样保留或加入：三步清单",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "保留文本",
+              "passed": true,
+              "issue": "",
+              "evidence": "周报案例甲：周五先归类10条记录，再人工核对。",
+              "evidence_id": 0,
+              "suggestion": "原样保留或加入：周报案例甲：周五先归类10条记录，再人工核对。",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "受众匹配度：内容适配无编程经验的运营人员的认知与需求",
+              "passed": true,
+              "issue": "",
+              "evidence": "做运营的小伙伴都懂，每天零散记录一堆，凑周报时翻聊天记录、工作笔记翻到眼花😮‍💨 不用懂编程，用普通AI工具就能省不少时间，亲测好用👇",
+              "evidence_id": 2,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "需求与修改意见落实：包含三步清单栏目且以其为栏目标题，保留指定完整案例句",
+              "passed": true,
+              "issue": "",
+              "evidence": "## 三步清单",
+              "evidence_id": 3,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "建议可操作性：操作步骤具体明确，无空泛形容，读者可直接落地",
+              "passed": true,
+              "issue": "",
+              "evidence": "1. 先把本周零散的工作记录（比如沟通纪要、数据截图转的文字）统一复制到一处，去掉客户隐私等敏感内容",
+              "evidence_id": 4,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            }
+          ],
+          "status": "passed",
+          "route": "manual",
+          "reason": ""
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "legacy",
+          "parent_version_id": null,
+          "content": "# AI辅助周报整理\n周报案例甲：周五先归类10条记录，再人工核对。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+          "source": "legacy",
+          "feedback": "",
+          "created_at": ""
+        },
+        {
+          "version_id": "7b7d2dd824df41e1866c51d4190e0c0a",
+          "parent_version_id": "legacy",
+          "content": "# AI辅助周报整理\n做运营的小伙伴都懂，每天零散记录一堆，凑周报时翻聊天记录、工作笔记翻到眼花😮‍💨 不用懂编程，用普通AI工具就能省不少时间，亲测好用👇\n\n## 三步清单\n1. 先把本周零散的工作记录（比如沟通纪要、数据截图转的文字）统一复制到一处，去掉客户隐私等敏感内容\n2. 把整理好的内容发给AI，指令写清“按工作模块分类汇总，保留具体数据”，等它输出初版\n3. 对着原始记录人工核对细节，补入AI没抓到的重点调整表述\n\n周报案例甲：周五先归类10条记录，再人工核对。\n大家平时凑周报要花多久呀？欢迎评论区聊聊～",
+          "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。改成三步清单，使用“三步清单”作为栏目标题。在有限篇幅里保留案例，优先给出操作步骤，删除空泛形容。",
+          "source": "human",
+          "created_at": "2026-11-01T23:25:46.317479+00:00",
+          "metric": {
+            "node_name": "write_draft",
+            "duration_ms": 5037.33,
+            "start_time": "2026-11-02T07:25:41.280129",
+            "end_time": "2026-11-02T07:25:46.317459",
+            "input_tokens": 417,
+            "output_tokens": 175,
+            "total_tokens": 592,
+            "model": "ep-20261007192246-pdxsw",
+            "usage_source": "api",
+            "version_id": "7b7d2dd824df41e1866c51d4190e0c0a",
+            "source": "human"
+          }
+        }
+      ],
+      "auto_revisions": 0
+    }
+  }
+}

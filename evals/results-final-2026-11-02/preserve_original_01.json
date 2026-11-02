@@ -1,0 +1,319 @@
+{
+  "id": "preserve_original_01",
+  "category": "preserve_original",
+  "input": {
+    "id": "preserve_original_01",
+    "category": "preserve_original",
+    "topic": "AI辅助周报整理",
+    "direction": "面向大学一年级学生介绍周报整理。语气务实友好，避免夸张承诺。控制在180—280个非空白字符。保留原文中的完整案例句。",
+    "previous_article": "# AI辅助周报整理\n周报案例甲：周五先归类10条记录，再人工核对。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+    "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。",
+    "brief": {
+      "audience": "大学一年级学生",
+      "tone": "务实友好，避免夸张承诺",
+      "min_chars": 180,
+      "max_chars": 280,
+      "required_sections": [],
+      "preserve_phrases": [
+        "周报案例甲：周五先归类10条记录，再人工核对。"
+      ]
+    },
+    "human_rubric": [
+      "读者能否理解并按步骤操作",
+      "原文案例与数字是否保留",
+      "反馈是否落实且未引入无依据承诺"
+    ]
+  },
+  "outputs": {
+    "legacy": {
+      "content": "# 救命！AI帮我把2小时周报压缩到8分钟😱\n家人们谁懂啊！上周三临下班被leader催周报，翻了37条工作群消息、12份项目文档、8条飞书待办，正头大到想摸鱼跑路，突然想起同事甩我的AI周报神器🤯\n\n亲测真的香到跺脚！\n✅ 把零散聊天记录/待办/文档片段直接丢进去，10秒自动归类「项目推进/问题卡点/下周计划」\n✅ 我上周做了4个项目跟进、2次跨部门沟通、1个bug修复，本来凑半天凑不出300字，AI直接帮我捋成逻辑清晰的3大模块，还自动标了「完成率85%」「提前1天交付」这种亮眼数据\n✅ 语气还能调！想低调就选「务实风」，想刷存在感就选「成果突出风」，再也不怕写得太像邀功or太没存在感\n\n现在我每周五只花8分钟粘素材+微调，再也不用熬大夜憋周报了🥹\n\n你们平时写周报要花多久？有没有过憋到秃头的经历？评论区唠唠！",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": false,
+          "issue": "正文长度不符合要求",
+          "evidence": "非空白字符数=348，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "保留文本",
+          "passed": false,
+          "issue": "缺少：周报案例甲：周五先归类10条记录，再人工核对。",
+          "evidence": "",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：周报案例甲：周五先归类10条记录，再人工核对。",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 7131.89,
+      "total_tokens": 433,
+      "calls": 1,
+      "usage": [
+        {
+          "input_tokens": 167,
+          "output_tokens": 266,
+          "total_tokens": 433,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api"
+        }
+      ]
+    },
+    "upgraded": {
+      "content": "# AI辅助周报整理\n刚上大一的小伙伴有没有被社团、班委的周报整得手忙脚乱？别愁，用AI搭把手能省不少功夫～\n\n周报案例甲：周五先归类10条记录，再人工核对。\n大家平时可以先把本周的作业进度、社团任务、活动记录零散收集好，丢给AI帮你按类别归整，最后一定要自己过一遍核对细节，也别把学号、身份证这类隐私信息传上去哦，踏实又省时间😉\n\n你们平时写周报最头疼啥部分呀？",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": false,
+          "issue": "正文长度不符合要求",
+          "evidence": "非空白字符数=175，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "保留文本",
+          "passed": true,
+          "issue": "",
+          "evidence": "周报案例甲：周五先归类10条记录，再人工核对。",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：周报案例甲：周五先归类10条记录，再人工核对。",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 17488.35,
+      "total_tokens": 3127,
+      "calls": 4,
+      "usage": [
+        {
+          "node_name": "write_draft",
+          "duration_ms": 4140.53,
+          "start_time": "2026-11-02T07:25:00.260218",
+          "end_time": "2026-11-02T07:25:04.400743",
+          "input_tokens": 370,
+          "output_tokens": 118,
+          "total_tokens": 488,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "6f89d98b5eeb4b668451a240f780466e",
+          "source": "human"
+        },
+        {
+          "node_name": "quality_check",
+          "duration_ms": 6257.78,
+          "start_time": "2026-11-02T07:25:04.400836",
+          "end_time": "2026-11-02T07:25:10.658615",
+          "input_tokens": 826,
+          "output_tokens": 189,
+          "total_tokens": 1015,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "6f89d98b5eeb4b668451a240f780466e"
+        },
+        {
+          "node_name": "write_draft",
+          "duration_ms": 3803.24,
+          "start_time": "2026-11-02T07:25:10.658700",
+          "end_time": "2026-11-02T07:25:14.461944",
+          "input_tokens": 472,
+          "output_tokens": 122,
+          "total_tokens": 594,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "81af04c9fab144aa9b7020e7b38d8827",
+          "source": "auto"
+        },
+        {
+          "node_name": "quality_check",
+          "duration_ms": 3286.41,
+          "start_time": "2026-11-02T07:25:14.462036",
+          "end_time": "2026-11-02T07:25:17.748449",
+          "input_tokens": 830,
+          "output_tokens": 200,
+          "total_tokens": 1030,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "81af04c9fab144aa9b7020e7b38d8827"
+        }
+      ],
+      "quality_history": [
+        {
+          "version_id": "6f89d98b5eeb4b668451a240f780466e",
+          "created_at": "2026-11-01T23:25:04.400776+00:00",
+          "checks": [
+            {
+              "criterion": "正文长度",
+              "passed": false,
+              "issue": "正文长度不符合要求",
+              "evidence": "非空白字符数=168，范围=180—280",
+              "evidence_id": 0,
+              "suggestion": "将正文控制在180—280个非空白字符",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "保留文本",
+              "passed": true,
+              "issue": "",
+              "evidence": "周报案例甲：周五先归类10条记录，再人工核对。",
+              "evidence_id": 0,
+              "suggestion": "原样保留或加入：周报案例甲：周五先归类10条记录，再人工核对。",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "受众匹配：内容贴合大学一年级学生的场景与认知",
+              "passed": true,
+              "issue": "",
+              "evidence": "刚上大一是不是总被社团、班委的周报整得头大？",
+              "evidence_id": 2,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "需求与修改意见落实：保留指定案例句与对应数字",
+              "passed": true,
+              "issue": "",
+              "evidence": "周报案例甲：周五先归类10条记录，再人工核对。",
+              "evidence_id": 4,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "建议可操作性：给出的AI辅助周报整理方法具体可落地",
+              "passed": true,
+              "issue": "",
+              "evidence": "大家可以先把本周的作业进度、社团任务、活动记录零散收集好，丢给AI帮你按类别归整，最后一定要自己过一遍核对细节，也别把学号、身份证这类隐私信息传上去哦，踏实又省时间😉",
+              "evidence_id": 5,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            }
+          ],
+          "status": "needs_revision",
+          "route": "auto",
+          "reason": ""
+        },
+        {
+          "version_id": "81af04c9fab144aa9b7020e7b38d8827",
+          "created_at": "2026-11-01T23:25:14.461978+00:00",
+          "checks": [
+            {
+              "criterion": "正文长度",
+              "passed": false,
+              "issue": "正文长度不符合要求",
+              "evidence": "非空白字符数=175，范围=180—280",
+              "evidence_id": 0,
+              "suggestion": "将正文控制在180—280个非空白字符",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "保留文本",
+              "passed": true,
+              "issue": "",
+              "evidence": "周报案例甲：周五先归类10条记录，再人工核对。",
+              "evidence_id": 0,
+              "suggestion": "原样保留或加入：周报案例甲：周五先归类10条记录，再人工核对。",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "受众匹配度：内容与语气贴合大学一年级学生的认知和阅读习惯",
+              "passed": true,
+              "issue": "",
+              "evidence": "刚上大一的小伙伴有没有被社团、班委的周报整得手忙脚乱？",
+              "evidence_id": 2,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "需求与修改意见落实：保留指定案例句及其中数字，语气务实友好无夸张承诺",
+              "passed": true,
+              "issue": "",
+              "evidence": "周报案例甲：周五先归类10条记录，再人工核对。",
+              "evidence_id": 4,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "建议可操作性：给出的AI辅助周报整理方法具体可落地",
+              "passed": true,
+              "issue": "",
+              "evidence": "大家平时可以先把本周的作业进度、社团任务、活动记录零散收集好，丢给AI帮你按类别归整，最后一定要自己过一遍核对细节，也别把学号、身份证这类隐私信息传上去哦，踏实又省时间😉",
+              "evidence_id": 5,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            }
+          ],
+          "status": "needs_revision",
+          "route": "manual",
+          "reason": "已达本轮自动修订上限，交人工审核"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "legacy",
+          "parent_version_id": null,
+          "content": "# AI辅助周报整理\n周报案例甲：周五先归类10条记录，再人工核对。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+          "source": "legacy",
+          "feedback": "",
+          "created_at": ""
+        },
+        {
+          "version_id": "6f89d98b5eeb4b668451a240f780466e",
+          "parent_version_id": "legacy",
+          "content": "# AI辅助周报整理\n刚上大一是不是总被社团、班委的周报整得头大？别慌，用AI搭把手效率能高不少～\n\n周报案例甲：周五先归类10条记录，再人工核对。\n大家可以先把本周的作业进度、社团任务、活动记录零散收集好，丢给AI帮你按类别归整，最后一定要自己过一遍核对细节，也别把学号、身份证这类隐私信息传上去哦，踏实又省时间😉\n\n你们平时写周报最头疼啥部分呀？",
+          "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。",
+          "source": "human",
+          "created_at": "2026-11-01T23:25:04.400764+00:00",
+          "metric": {
+            "node_name": "write_draft",
+            "duration_ms": 4140.53,
+            "start_time": "2026-11-02T07:25:00.260218",
+            "end_time": "2026-11-02T07:25:04.400743",
+            "input_tokens": 370,
+            "output_tokens": 118,
+            "total_tokens": 488,
+            "model": "ep-20261007192246-pdxsw",
+            "usage_source": "api",
+            "version_id": "6f89d98b5eeb4b668451a240f780466e",
+            "source": "human"
+          }
+        },
+        {
+          "version_id": "81af04c9fab144aa9b7020e7b38d8827",
+          "parent_version_id": "6f89d98b5eeb4b668451a240f780466e",
+          "content": "# AI辅助周报整理\n刚上大一的小伙伴有没有被社团、班委的周报整得手忙脚乱？别愁，用AI搭把手能省不少功夫～\n\n周报案例甲：周五先归类10条记录，再人工核对。\n大家平时可以先把本周的作业进度、社团任务、活动记录零散收集好，丢给AI帮你按类别归整，最后一定要自己过一遍核对细节，也别把学号、身份证这类隐私信息传上去哦，踏实又省时间😉\n\n你们平时写周报最头疼啥部分呀？",
+          "feedback": "用户修改意见：保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。\n质量检查建议：\n将正文控制在180—280个非空白字符",
+          "source": "auto",
+          "created_at": "2026-11-01T23:25:14.461963+00:00",
+          "metric": {
+            "node_name": "write_draft",
+            "duration_ms": 3803.24,
+            "start_time": "2026-11-02T07:25:10.658700",
+            "end_time": "2026-11-02T07:25:14.461944",
+            "input_tokens": 472,
+            "output_tokens": 122,
+            "total_tokens": 594,
+            "model": "ep-20261007192246-pdxsw",
+            "usage_source": "api",
+            "version_id": "81af04c9fab144aa9b7020e7b38d8827",
+            "source": "auto"
+          }
+        }
+      ],
+      "auto_revisions": 1
+    }
+  }
+}

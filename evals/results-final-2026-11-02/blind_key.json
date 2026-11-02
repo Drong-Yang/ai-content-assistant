@@ -1,0 +1,102 @@
+[
+  {
+    "id": "audience_tone_01",
+    "A": "upgraded",
+    "B": "legacy"
+  },
+  {
+    "id": "audience_tone_02",
+    "A": "legacy",
+    "B": "upgraded"
+  },
+  {
+    "id": "audience_tone_03",
+    "A": "upgraded",
+    "B": "legacy"
+  },
+  {
+    "id": "audience_tone_04",
+    "A": "upgraded",
+    "B": "legacy"
+  },
+  {
+    "id": "audience_tone_05",
+    "A": "legacy",
+    "B": "upgraded"
+  },
+  {
+    "id": "combined_feedback_01",
+    "A": "upgraded",
+    "B": "legacy"
+  },
+  {
+    "id": "combined_feedback_02",
+    "A": "upgraded",
+    "B": "legacy"
+  },
+  {
+    "id": "combined_feedback_03",
+    "A": "legacy",
+    "B": "upgraded"
+  },
+  {
+    "id": "combined_feedback_04",
+    "A": "legacy",
+    "B": "upgraded"
+  },
+  {
+    "id": "combined_feedback_05",
+    "A": "upgraded",
+    "B": "legacy"
+  },
+  {
+    "id": "preserve_original_01",
+    "A": "upgraded",
+    "B": "legacy"
+  },
+  {
+    "id": "preserve_original_02",
+    "A": "legacy",
+    "B": "upgraded"
+  },
+  {
+    "id": "preserve_original_03",
+    "A": "legacy",
+    "B": "upgraded"
+  },
+  {
+    "id": "preserve_original_04",
+    "A": "legacy",
+    "B": "upgraded"
+  },
+  {
+    "id": "preserve_original_05",
+    "A": "upgraded",
+    "B": "legacy"
+  },
+  {
+    "id": "structure_length_01",
+    "A": "upgraded",
+    "B": "legacy"
+  },
+  {
+    "id": "structure_length_02",
+    "A": "upgraded",
+    "B": "legacy"
+  },
+  {
+    "id": "structure_length_03",
+    "A": "upgraded",
+    "B": "legacy"
+  },
+  {
+    "id": "structure_length_04",
+    "A": "upgraded",
+    "B": "legacy"
+  },
+  {
+    "id": "structure_length_05",
+    "A": "upgraded",
+    "B": "legacy"
+  }
+]

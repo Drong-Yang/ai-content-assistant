@@ -1,0 +1,277 @@
+{
+  "id": "audience_tone_03",
+  "category": "audience_tone",
+  "input": {
+    "id": "audience_tone_03",
+    "category": "audience_tone",
+    "topic": "AI辅助学习笔记",
+    "direction": "面向刚毕业的职场新人介绍学习笔记。语气务实友好，避免夸张承诺。控制在180—280个非空白字符。",
+    "previous_article": "# AI辅助学习笔记\n学习案例丙：小陈用3张卡片回顾Python知识。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+    "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。",
+    "brief": {
+      "audience": "刚毕业的职场新人",
+      "tone": "务实友好，避免夸张承诺",
+      "min_chars": 180,
+      "max_chars": 280,
+      "required_sections": [],
+      "preserve_phrases": []
+    },
+    "human_rubric": [
+      "读者能否理解并按步骤操作",
+      "原文案例与数字是否保留",
+      "反馈是否落实且未引入无依据承诺"
+    ]
+  },
+  "outputs": {
+    "legacy": {
+      "content": "# 谁还在熬夜抄笔记啊🤯AI帮我把3小时网课浓缩成2页考点！\n上周期末周赶进度，3小时的宏观经济学网课，我开2倍速边听边抄笔记，手都快写断了还漏了好几个考点😅 后来被同寝学霸安利了AI笔记法，直接把录屏音频丢进去，5分钟就出了结构化笔记——\n\n✅ 自动标红32个高频考点\n✅ 按「定义-公式-例题」分好模块\n✅ 没听懂的部分直接点原文跳转对应时间轴\n\n我对着补了20分钟自己的理解，直接就拿去背了，那次模考选择题还多对了8道！真的别再死磕手写抄书了，AI当你的“笔记秘书”，省下来的时间多刷两道题不香吗🤣\n\n你们平时记笔记最头疼啥？是怕漏重点还是整理太费时间？评论区唠唠～",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": true,
+          "issue": "",
+          "evidence": "非空白字符数=272，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 16191.93,
+      "total_tokens": 382,
+      "calls": 1,
+      "usage": [
+        {
+          "input_tokens": 167,
+          "output_tokens": 215,
+          "total_tokens": 382,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api"
+        }
+      ]
+    },
+    "upgraded": {
+      "content": "刚毕业的职场新人朋友们看过来🙋‍♀️ 刚入职场是不是总觉得要学的东西太多，笔记记了一大堆却找不到重点？给大家分享个亲测好用的AI辅助学习笔记小方法～\n\n就拿小陈的例子来说，他用3张卡片就高效回顾了Python知识。具体步骤很简单：先把平时攒的学习材料收集起来，用AI帮忙做分类整理，省掉自己手动归类的时间。最后一定要人工复核一遍哦，既能查漏补缺，也能避免不小心上传隐私信息。\n\n这个方法实操性较强，大家可以结合自身情况试试，也欢迎聊聊你用AI做笔记的小经验～",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": true,
+          "issue": "",
+          "evidence": "非空白字符数=224，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 21282.92,
+      "total_tokens": 3454,
+      "calls": 4,
+      "usage": [
+        {
+          "node_name": "write_draft",
+          "duration_ms": 5574.96,
+          "start_time": "2026-11-02T07:23:38.755739",
+          "end_time": "2026-11-02T07:23:44.330696",
+          "input_tokens": 347,
+          "output_tokens": 153,
+          "total_tokens": 500,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "75f82af8c7214d579682bc6bc89c6f82",
+          "source": "human"
+        },
+        {
+          "node_name": "quality_check",
+          "duration_ms": 5907.3,
+          "start_time": "2026-11-02T07:23:44.330782",
+          "end_time": "2026-11-02T07:23:50.238077",
+          "input_tokens": 854,
+          "output_tokens": 329,
+          "total_tokens": 1183,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "75f82af8c7214d579682bc6bc89c6f82"
+        },
+        {
+          "node_name": "write_draft",
+          "duration_ms": 4908.6,
+          "start_time": "2026-11-02T07:23:50.238176",
+          "end_time": "2026-11-02T07:23:55.146776",
+          "input_tokens": 548,
+          "output_tokens": 144,
+          "total_tokens": 692,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "4c55fb5377ab4633b101014d983d937a",
+          "source": "auto"
+        },
+        {
+          "node_name": "quality_check",
+          "duration_ms": 4891.7,
+          "start_time": "2026-11-02T07:23:55.146861",
+          "end_time": "2026-11-02T07:24:00.038562",
+          "input_tokens": 835,
+          "output_tokens": 244,
+          "total_tokens": 1079,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "4c55fb5377ab4633b101014d983d937a"
+        }
+      ],
+      "quality_history": [
+        {
+          "version_id": "75f82af8c7214d579682bc6bc89c6f82",
+          "created_at": "2026-11-01T23:23:44.330731+00:00",
+          "checks": [
+            {
+              "criterion": "正文长度",
+              "passed": true,
+              "issue": "",
+              "evidence": "非空白字符数=229，范围=180—280",
+              "evidence_id": 0,
+              "suggestion": "将正文控制在180—280个非空白字符",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "受众匹配度：内容贴合刚毕业职场新人的职场学习痛点与认知水平",
+              "passed": true,
+              "issue": "",
+              "evidence": "刚毕业的职场新人宝子们看过来🙋‍♀️ 刚入职场是不是总觉得要学的东西太多，笔记记了一大堆却找不到重点？",
+              "evidence_id": 1,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "需求与修改意见落实：保留原文案例与数字，语气务实友好无夸张承诺，字符数符合要求",
+              "passed": false,
+              "issue": "存在夸张性表述“亲测不踩雷”，属于绝对化的效果承诺，不符合务实、避免夸张承诺的语气要求；另外结尾互动引导占比偏高，对方法本身的务实说明可进一步强化。",
+              "evidence": "这个方法亲测不踩雷，大家可以试试看～你们平时用AI做笔记有啥小技巧吗？",
+              "evidence_id": 6,
+              "suggestion": "将“这个方法亲测不踩雷，大家可以试试看～你们平时用AI做笔记有啥小技巧吗？”调整为“这个方法实操性较强，大家可以结合自身情况试试，也欢迎聊聊你用AI做笔记的小经验～”，既保留互动感，又避免绝对化承诺，同时让语气更贴合务实的要求。",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "建议可操作性：修改建议具体明确，可直接落地调整",
+              "passed": true,
+              "issue": "",
+              "evidence": "",
+              "evidence_id": 0,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            }
+          ],
+          "status": "needs_revision",
+          "route": "auto",
+          "reason": ""
+        },
+        {
+          "version_id": "4c55fb5377ab4633b101014d983d937a",
+          "created_at": "2026-11-01T23:23:55.146812+00:00",
+          "checks": [
+            {
+              "criterion": "正文长度",
+              "passed": true,
+              "issue": "",
+              "evidence": "非空白字符数=224，范围=180—280",
+              "evidence_id": 0,
+              "suggestion": "将正文控制在180—280个非空白字符",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "受众匹配度：内容贴合刚毕业职场新人的学习痛点与需求",
+              "passed": true,
+              "issue": "",
+              "evidence": "刚毕业的职场新人朋友们看过来🙋‍♀️ 刚入职场是不是总觉得要学的东西太多，笔记记了一大堆却找不到重点？",
+              "evidence_id": 1,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "需求与修改意见落实：保留原文案例与数字，语气务实友好无夸张承诺，字符数符合要求",
+              "passed": true,
+              "issue": "",
+              "evidence": "就拿小陈的例子来说，他用3张卡片就高效回顾了Python知识。",
+              "evidence_id": 3,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "建议可操作性：AI辅助笔记方法步骤清晰可落地",
+              "passed": false,
+              "issue": "方法步骤表述不完整，仅提及收集材料、AI分类整理和人工复核，缺少中间核心的笔记加工环节（如AI提炼重点、生成知识卡片等），读者无法完整复现方法",
+              "evidence": "具体步骤很简单：先把平时攒的学习材料收集起来，用AI帮忙做分类整理，省掉自己手动归类的时间。",
+              "evidence_id": 4,
+              "suggestion": "补充AI辅助笔记的核心加工步骤，比如说明AI分类后可提炼核心知识点、生成结构化的知识卡片，对应小陈用3张卡片回顾Python知识的案例，让步骤形成完整闭环",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            }
+          ],
+          "status": "needs_revision",
+          "route": "manual",
+          "reason": "已达本轮自动修订上限，交人工审核"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "legacy",
+          "parent_version_id": null,
+          "content": "# AI辅助学习笔记\n学习案例丙：小陈用3张卡片回顾Python知识。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+          "source": "legacy",
+          "feedback": "",
+          "created_at": ""
+        },
+        {
+          "version_id": "75f82af8c7214d579682bc6bc89c6f82",
+          "parent_version_id": "legacy",
+          "content": "刚毕业的职场新人宝子们看过来🙋‍♀️ 刚入职场是不是总觉得要学的东西太多，笔记记了一大堆却找不到重点？给大家分享个亲测好用的AI辅助学习笔记小方法～\n\n就拿小陈的例子来说，他用3张卡片就高效回顾了Python知识。具体步骤很简单：先把平时攒的学习材料收集起来，用AI帮忙做分类整理，省掉自己手动归类的时间。最后一定要人工复核一遍哦，既能查漏补缺，也能避免不小心上传隐私信息。\n\n这个方法亲测不踩雷，大家可以试试看～你们平时用AI做笔记有啥小技巧吗？欢迎在评论区分享呀～",
+          "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。",
+          "source": "human",
+          "created_at": "2026-11-01T23:23:44.330719+00:00",
+          "metric": {
+            "node_name": "write_draft",
+            "duration_ms": 5574.96,
+            "start_time": "2026-11-02T07:23:38.755739",
+            "end_time": "2026-11-02T07:23:44.330696",
+            "input_tokens": 347,
+            "output_tokens": 153,
+            "total_tokens": 500,
+            "model": "ep-20261007192246-pdxsw",
+            "usage_source": "api",
+            "version_id": "75f82af8c7214d579682bc6bc89c6f82",
+            "source": "human"
+          }
+        },
+        {
+          "version_id": "4c55fb5377ab4633b101014d983d937a",
+          "parent_version_id": "75f82af8c7214d579682bc6bc89c6f82",
+          "content": "刚毕业的职场新人朋友们看过来🙋‍♀️ 刚入职场是不是总觉得要学的东西太多，笔记记了一大堆却找不到重点？给大家分享个亲测好用的AI辅助学习笔记小方法～\n\n就拿小陈的例子来说，他用3张卡片就高效回顾了Python知识。具体步骤很简单：先把平时攒的学习材料收集起来，用AI帮忙做分类整理，省掉自己手动归类的时间。最后一定要人工复核一遍哦，既能查漏补缺，也能避免不小心上传隐私信息。\n\n这个方法实操性较强，大家可以结合自身情况试试，也欢迎聊聊你用AI做笔记的小经验～",
+          "feedback": "用户修改意见：保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。\n质量检查建议：\n将“这个方法亲测不踩雷，大家可以试试看～你们平时用AI做笔记有啥小技巧吗？”调整为“这个方法实操性较强，大家可以结合自身情况试试，也欢迎聊聊你用AI做笔记的小经验～”，既保留互动感，又避免绝对化承诺，同时让语气更贴合务实的要求。",
+          "source": "auto",
+          "created_at": "2026-11-01T23:23:55.146798+00:00",
+          "metric": {
+            "node_name": "write_draft",
+            "duration_ms": 4908.6,
+            "start_time": "2026-11-02T07:23:50.238176",
+            "end_time": "2026-11-02T07:23:55.146776",
+            "input_tokens": 548,
+            "output_tokens": 144,
+            "total_tokens": 692,
+            "model": "ep-20261007192246-pdxsw",
+            "usage_source": "api",
+            "version_id": "4c55fb5377ab4633b101014d983d937a",
+            "source": "auto"
+          }
+        }
+      ],
+      "auto_revisions": 1
+    }
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "id": "combined_feedback_05",
+  "category": "combined_feedback",
+  "input": {
+    "id": "combined_feedback_05",
+    "category": "combined_feedback",
+    "topic": "AI辅助求职材料整理",
+    "direction": "面向没有编程经验的运营人员介绍求职材料整理。语气务实友好，避免夸张承诺。控制在180—280个非空白字符。必须包含栏目：三步清单。保留原文中的完整案例句。",
+    "previous_article": "# AI辅助求职材料整理\n求职案例戊：小杨按岗位归档5份材料。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+    "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。改成三步清单，使用“三步清单”作为栏目标题。在有限篇幅里保留案例，优先给出操作步骤，删除空泛形容。",
+    "brief": {
+      "audience": "没有编程经验的运营人员",
+      "tone": "务实友好，避免夸张承诺",
+      "min_chars": 180,
+      "max_chars": 280,
+      "required_sections": [
+        "三步清单"
+      ],
+      "preserve_phrases": [
+        "求职案例戊：小杨按岗位归档5份材料。"
+      ]
+    },
+    "human_rubric": [
+      "读者能否理解并按步骤操作",
+      "原文案例与数字是否保留",
+      "反馈是否落实且未引入无依据承诺"
+    ]
+  },
+  "outputs": {
+    "legacy": {
+      "content": "# 三步清单｜AI整理求职材料，我帮学妹省了8小时\n上周帮投运营岗的学妹改材料，原来她攒了3段实习、12份项目文档，手动筛亮点改简历花了2天还没头绪，用AI整理完直接省出8小时跑面试，全靠这3步👇\n\n## 第一步：喂素材定方向\n把所有实习证明、项目复盘、获奖证书的文字版全丢给AI，直接说：「我投XX岗，帮我把所有材料按【岗位硬技能/项目成果/软实力】3类拆分，成果类全部保留具体数字」。\n学妹当时丢了12份文档，AI10分钟就拆完了，还标了3个她自己都忘了的数据亮点。\n\n## 第二步：套模板补细节\n找对应岗位的JD丢给AI，说：「对照这个JD的要求，从刚才拆分的素材里挑匹配度最高的5条，改成STAR法则的简历句式，每条控制在2行内，数据放最前面」。\n原来学妹写“负责社群运营”，AI直接改成「操盘3个500人用户社群，30天拉新1200人，转化率提升8%」，精准踩中JD要求。\n\n## 第三步：查漏洞做备份\n最后让AI做2件事：① 检查所有材料的时间、岗位、数据有没有前后矛盾；② 生成1页“材料索引表”，标注每段经历对应的证明文件存哪。\n学妹之前漏了一段实习的转正评价，AI直接提醒补上，面试找佐证材料10秒就能翻到。\n\n你们用AI整理求职材料踩过什么坑？评论区唠唠～",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": false,
+          "issue": "正文长度不符合要求",
+          "evidence": "非空白字符数=517，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "必含栏目",
+          "passed": true,
+          "issue": "",
+          "evidence": "三步清单",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：三步清单",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "保留文本",
+          "passed": false,
+          "issue": "缺少：求职案例戊：小杨按岗位归档5份材料。",
+          "evidence": "",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：求职案例戊：小杨按岗位归档5份材料。",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 10917.71,
+      "total_tokens": 576,
+      "calls": 1,
+      "usage": [
+        {
+          "input_tokens": 199,
+          "output_tokens": 377,
+          "total_tokens": 576,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api"
+        }
+      ]
+    },
+    "upgraded": {
+      "content": "# AI辅助求职材料整理\n求职案例戊：小杨按岗位归档5份材料。\n\n## 三步清单\n1. 先把手里所有求职相关材料（简历、作品集、项目复盘、获奖证明、背调资料）统一导出到同一个文件夹，不用提前分类，省出前期整理的时间。\n2. 把文件批量导入支持文档分类的AI工具（不用懂编程，普通在线工具就够用），输入指令“按运营岗位方向归档对应材料”，等它自动分好类。\n3. 最后人工过一遍分类结果，检查有没有漏放、错放的内容，同时删掉隐私敏感信息，确认没问题就可以对应岗位投递啦。\n\n你平时整理求职材料最头疼的是什么？评论区聊聊～",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": true,
+          "issue": "",
+          "evidence": "非空白字符数=245，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "必含栏目",
+          "passed": true,
+          "issue": "",
+          "evidence": "三步清单",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：三步清单",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "保留文本",
+          "passed": true,
+          "issue": "",
+          "evidence": "求职案例戊：小杨按岗位归档5份材料。",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：求职案例戊：小杨按岗位归档5份材料。",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 9463.61,
+      "total_tokens": 1722,
+      "calls": 2,
+      "usage": [
+        {
+          "node_name": "write_draft",
+          "duration_ms": 5129.22,
+          "start_time": "2026-11-02T07:26:21.817299",
+          "end_time": "2026-11-02T07:26:26.946520",
+          "input_tokens": 414,
+          "output_tokens": 164,
+          "total_tokens": 578,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "1e9aefddff7f43678290cb0b8db06d43",
+          "source": "human"
+        },
+        {
+          "node_name": "quality_check",
+          "duration_ms": 4334.17,
+          "start_time": "2026-11-02T07:26:26.946620",
+          "end_time": "2026-11-02T07:26:31.280788",
+          "input_tokens": 938,
+          "output_tokens": 206,
+          "total_tokens": 1144,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "1e9aefddff7f43678290cb0b8db06d43"
+        }
+      ],
+      "quality_history": [
+        {
+          "version_id": "1e9aefddff7f43678290cb0b8db06d43",
+          "created_at": "2026-11-01T23:26:26.946554+00:00",
+          "checks": [
+            {
+              "criterion": "正文长度",
+              "passed": true,
+              "issue": "",
+              "evidence": "非空白字符数=245，范围=180—280",
+              "evidence_id": 0,
+              "suggestion": "将正文控制在180—280个非空白字符",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "必含栏目",
+              "passed": true,
+              "issue": "",
+              "evidence": "三步清单",
+              "evidence_id": 0,
+              "suggestion": "原样保留或加入：三步清单",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "保留文本",
+              "passed": true,
+              "issue": "",
+              "evidence": "求职案例戊：小杨按岗位归档5份材料。",
+              "evidence_id": 0,
+              "suggestion": "原样保留或加入：求职案例戊：小杨按岗位归档5份材料。",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "受众匹配：内容适配无编程经验的运营人员，语言通俗无技术门槛",
+              "passed": true,
+              "issue": "",
+              "evidence": "2. 把文件批量导入支持文档分类的AI工具（不用懂编程，普通在线工具就够用），输入指令“按运营岗位方向归档对应材料”，等它自动分好类。",
+              "evidence_id": 5,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "需求与修改意见落实：包含三步清单栏目、保留指定案例句、优先给操作步骤、删除空泛形容",
+              "passed": true,
+              "issue": "",
+              "evidence": "求职案例戊：小杨按岗位归档5份材料。",
+              "evidence_id": 2,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "建议可操作性：三步清单步骤具体可落地，无模糊表述",
+              "passed": true,
+              "issue": "",
+              "evidence": "1. 先把手里所有求职相关材料（简历、作品集、项目复盘、获奖证明、背调资料）统一导出到同一个文件夹，不用提前分类，省出前期整理的时间。",
+              "evidence_id": 4,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            }
+          ],
+          "status": "passed",
+          "route": "manual",
+          "reason": ""
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "legacy",
+          "parent_version_id": null,
+          "content": "# AI辅助求职材料整理\n求职案例戊：小杨按岗位归档5份材料。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+          "source": "legacy",
+          "feedback": "",
+          "created_at": ""
+        },
+        {
+          "version_id": "1e9aefddff7f43678290cb0b8db06d43",
+          "parent_version_id": "legacy",
+          "content": "# AI辅助求职材料整理\n求职案例戊：小杨按岗位归档5份材料。\n\n## 三步清单\n1. 先把手里所有求职相关材料（简历、作品集、项目复盘、获奖证明、背调资料）统一导出到同一个文件夹，不用提前分类，省出前期整理的时间。\n2. 把文件批量导入支持文档分类的AI工具（不用懂编程，普通在线工具就够用），输入指令“按运营岗位方向归档对应材料”，等它自动分好类。\n3. 最后人工过一遍分类结果，检查有没有漏放、错放的内容，同时删掉隐私敏感信息，确认没问题就可以对应岗位投递啦。\n\n你平时整理求职材料最头疼的是什么？评论区聊聊～",
+          "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。改成三步清单，使用“三步清单”作为栏目标题。在有限篇幅里保留案例，优先给出操作步骤，删除空泛形容。",
+          "source": "human",
+          "created_at": "2026-11-01T23:26:26.946541+00:00",
+          "metric": {
+            "node_name": "write_draft",
+            "duration_ms": 5129.22,
+            "start_time": "2026-11-02T07:26:21.817299",
+            "end_time": "2026-11-02T07:26:26.946520",
+            "input_tokens": 414,
+            "output_tokens": 164,
+            "total_tokens": 578,
+            "model": "ep-20261007192246-pdxsw",
+            "usage_source": "api",
+            "version_id": "1e9aefddff7f43678290cb0b8db06d43",
+            "source": "human"
+          }
+        }
+      ],
+      "auto_revisions": 0
+    }
+  }
+}

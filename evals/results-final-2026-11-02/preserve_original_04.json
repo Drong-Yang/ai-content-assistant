@@ -1,0 +1,214 @@
+{
+  "id": "preserve_original_04",
+  "category": "preserve_original",
+  "input": {
+    "id": "preserve_original_04",
+    "category": "preserve_original",
+    "topic": "AI辅助客户反馈分类",
+    "direction": "面向大学一年级学生介绍客户反馈分类。语气务实友好，避免夸张承诺。控制在180—280个非空白字符。保留原文中的完整案例句。",
+    "previous_article": "# AI辅助客户反馈分类\n反馈案例丁：小周把12条意见分成3类。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+    "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。",
+    "brief": {
+      "audience": "大学一年级学生",
+      "tone": "务实友好，避免夸张承诺",
+      "min_chars": 180,
+      "max_chars": 280,
+      "required_sections": [],
+      "preserve_phrases": [
+        "反馈案例丁：小周把12条意见分成3类。"
+      ]
+    },
+    "human_rubric": [
+      "读者能否理解并按步骤操作",
+      "原文案例与数字是否保留",
+      "反馈是否落实且未引入无依据承诺"
+    ]
+  },
+  "outputs": {
+    "upgraded": {
+      "content": "# 大一商科入门｜AI辅助客户反馈分类小指南\n刚接触商科实践的大一小伙伴看过来🙋‍♀️ 客户反馈分类是市场调研、客服实习里超基础的实用小技能，用AI辅助能省不少整理时间，新手也能快速上手。\n\n反馈案例丁：小周把12条意见分成3类。\n大家实操时可以按这几步来：先收集好零散的反馈材料，用AI工具做初步分类，最后一定要人工复核结果，记得别上传包含隐私的信息哦。没有夸张的效率神话，就是帮刚入门的你少做点机械整理活～\n\n你们做课程作业时会用AI帮着整理资料吗？",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": true,
+          "issue": "",
+          "evidence": "非空白字符数=219，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "保留文本",
+          "passed": true,
+          "issue": "",
+          "evidence": "反馈案例丁：小周把12条意见分成3类。",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：反馈案例丁：小周把12条意见分成3类。",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 9442.81,
+      "total_tokens": 1587,
+      "calls": 2,
+      "usage": [
+        {
+          "node_name": "write_draft",
+          "duration_ms": 4728.67,
+          "start_time": "2026-11-02T07:25:17.749539",
+          "end_time": "2026-11-02T07:25:22.478212",
+          "input_tokens": 371,
+          "output_tokens": 150,
+          "total_tokens": 521,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "3bbebe16cefe40778d1bfdc48d77ab2c",
+          "source": "human"
+        },
+        {
+          "node_name": "quality_check",
+          "duration_ms": 4713.93,
+          "start_time": "2026-11-02T07:25:22.478301",
+          "end_time": "2026-11-02T07:25:27.192233",
+          "input_tokens": 859,
+          "output_tokens": 207,
+          "total_tokens": 1066,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "3bbebe16cefe40778d1bfdc48d77ab2c"
+        }
+      ],
+      "quality_history": [
+        {
+          "version_id": "3bbebe16cefe40778d1bfdc48d77ab2c",
+          "created_at": "2026-11-01T23:25:22.478245+00:00",
+          "checks": [
+            {
+              "criterion": "正文长度",
+              "passed": true,
+              "issue": "",
+              "evidence": "非空白字符数=219，范围=180—280",
+              "evidence_id": 0,
+              "suggestion": "将正文控制在180—280个非空白字符",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "保留文本",
+              "passed": true,
+              "issue": "",
+              "evidence": "反馈案例丁：小周把12条意见分成3类。",
+              "evidence_id": 0,
+              "suggestion": "原样保留或加入：反馈案例丁：小周把12条意见分成3类。",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "受众匹配度：内容与大学一年级学生的认知水平、场景需求匹配",
+              "passed": true,
+              "issue": "",
+              "evidence": "刚接触商科实践的大一小伙伴看过来🙋‍♀️ 客户反馈分类是市场调研、客服实习里超基础的实用小技能，用AI辅助能省不少整理时间，新手也能快速上手。",
+              "evidence_id": 2,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "需求与修改意见落实：保留指定完整案例句，语气务实友好无夸张承诺，符合字符范围要求",
+              "passed": true,
+              "issue": "",
+              "evidence": "反馈案例丁：小周把12条意见分成3类。",
+              "evidence_id": 3,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "建议可操作性：给出的AI辅助分类实操建议具体可落地，适合新手执行",
+              "passed": true,
+              "issue": "",
+              "evidence": "大家实操时可以按这几步来：先收集好零散的反馈材料，用AI工具做初步分类，最后一定要人工复核结果，记得别上传包含隐私的信息哦。",
+              "evidence_id": 4,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            }
+          ],
+          "status": "passed",
+          "route": "manual",
+          "reason": ""
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "legacy",
+          "parent_version_id": null,
+          "content": "# AI辅助客户反馈分类\n反馈案例丁：小周把12条意见分成3类。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+          "source": "legacy",
+          "feedback": "",
+          "created_at": ""
+        },
+        {
+          "version_id": "3bbebe16cefe40778d1bfdc48d77ab2c",
+          "parent_version_id": "legacy",
+          "content": "# 大一商科入门｜AI辅助客户反馈分类小指南\n刚接触商科实践的大一小伙伴看过来🙋‍♀️ 客户反馈分类是市场调研、客服实习里超基础的实用小技能，用AI辅助能省不少整理时间，新手也能快速上手。\n\n反馈案例丁：小周把12条意见分成3类。\n大家实操时可以按这几步来：先收集好零散的反馈材料，用AI工具做初步分类，最后一定要人工复核结果，记得别上传包含隐私的信息哦。没有夸张的效率神话，就是帮刚入门的你少做点机械整理活～\n\n你们做课程作业时会用AI帮着整理资料吗？",
+          "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。",
+          "source": "human",
+          "created_at": "2026-11-01T23:25:22.478232+00:00",
+          "metric": {
+            "node_name": "write_draft",
+            "duration_ms": 4728.67,
+            "start_time": "2026-11-02T07:25:17.749539",
+            "end_time": "2026-11-02T07:25:22.478212",
+            "input_tokens": 371,
+            "output_tokens": 150,
+            "total_tokens": 521,
+            "model": "ep-20261007192246-pdxsw",
+            "usage_source": "api",
+            "version_id": "3bbebe16cefe40778d1bfdc48d77ab2c",
+            "source": "human"
+          }
+        }
+      ],
+      "auto_revisions": 0
+    },
+    "legacy": {
+      "content": "# 救命！客户反馈堆成山我居然准点下班了🤯\n上周做客服运营的闺蜜找我哭：3000+条用户反馈，3个人分到吐，分类错了还要被运营部追着改，连续加班一周快疯了😫\n\n我直接甩给她我私藏的AI分类方法，她当天就准点走了！\n\n## 亲测好用的AI分类法💡\n就用普通AI工具，先把你家的分类标准（比如产品问题/物流/售后/建议）喂给它，再丢10条典型样本当参考，最后把整份反馈表导进去就行。\n\n我们之前测过：3000条反馈人工分类要12小时，AI只用8分钟，准确率92%！剩下那8%的模糊项，人工过一遍就行，省了90%的功夫🙌\n\n## 避坑提醒⚠️\n别直接丢 raw 数据！一定要先给AI喂你们公司的分类规则+样本，不然分类逻辑会乱。\n\n你们平时处理客户反馈要花多久？有没有更绝的偷懒技巧？评论区唠唠👇",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": false,
+          "issue": "正文长度不符合要求",
+          "evidence": "非空白字符数=327，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "保留文本",
+          "passed": false,
+          "issue": "缺少：反馈案例丁：小周把12条意见分成3类。",
+          "evidence": "",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：反馈案例丁：小周把12条意见分成3类。",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 7480.52,
+      "total_tokens": 420,
+      "calls": 1,
+      "usage": [
+        {
+          "input_tokens": 168,
+          "output_tokens": 252,
+          "total_tokens": 420,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api"
+        }
+      ]
+    }
+  }
+}

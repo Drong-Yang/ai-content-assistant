@@ -1,0 +1,214 @@
+{
+  "id": "preserve_original_05",
+  "category": "preserve_original",
+  "input": {
+    "id": "preserve_original_05",
+    "category": "preserve_original",
+    "topic": "AI辅助求职材料整理",
+    "direction": "面向大学一年级学生介绍求职材料整理。语气务实友好，避免夸张承诺。控制在180—280个非空白字符。保留原文中的完整案例句。",
+    "previous_article": "# AI辅助求职材料整理\n求职案例戊：小杨按岗位归档5份材料。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+    "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。",
+    "brief": {
+      "audience": "大学一年级学生",
+      "tone": "务实友好，避免夸张承诺",
+      "min_chars": 180,
+      "max_chars": 280,
+      "required_sections": [],
+      "preserve_phrases": [
+        "求职案例戊：小杨按岗位归档5份材料。"
+      ]
+    },
+    "human_rubric": [
+      "读者能否理解并按步骤操作",
+      "原文案例与数字是否保留",
+      "反馈是否落实且未引入无依据承诺"
+    ]
+  },
+  "outputs": {
+    "legacy": {
+      "content": "# 找实习改了3版简历还石沉大海？我用AI3天收了5个面试🥹\n上周帮学妹改简历才发现：90%的同学投简历石沉大海，根本不是能力不行，是**求职材料压根没踩中JD的点**！\n\n之前我海投20份只1个回复，后来用AI整理材料，3天就收了5个面试，其中还有字节的运营岗✨\n给你们说3个亲测有用的AI用法，小白也能直接抄：\n1. **JD关键词提取**：把岗位描述丢给AI，10秒扒出核心要求（比如用户增长/内容策划），直接对应到自己的经历里\n2. **经历量化包装**：把“做了社群运营”丢给AI，它会帮你改成「运营500人社群，转化率提升15%」这种HR一眼抓重点的表述\n3. **求职信定制**：不同公司一键生成专属版本，再也不用千篇一律发“您好我是XX”\n\n对了，别直接抄AI的内容！要把自己的真实经历填进去，不然很容易被HR看出来哦～\n\n你们投简历的时候最头疼啥？是不知道怎么写经历还是找不到匹配的岗位？评论区聊聊呀👇",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": false,
+          "issue": "正文长度不符合要求",
+          "evidence": "非空白字符数=395，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "保留文本",
+          "passed": false,
+          "issue": "缺少：求职案例戊：小杨按岗位归档5份材料。",
+          "evidence": "",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：求职案例戊：小杨按岗位归档5份材料。",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 8237.22,
+      "total_tokens": 452,
+      "calls": 1,
+      "usage": [
+        {
+          "input_tokens": 168,
+          "output_tokens": 284,
+          "total_tokens": 452,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api"
+        }
+      ]
+    },
+    "upgraded": {
+      "content": "# 大一新生必看｜AI帮你轻松整理求职材料\n刚上大一的小伙伴是不是还没意识到，求职材料准备得越早，后面找实习越省心呀😉\n\n求职案例戊：小杨按岗位归档5份材料。\n\n给大家分享个超实用的小方法：先把自己的奖状、社团经历、志愿证明这些材料都收集好，用AI工具帮忙分类归档，之后一定要自己再检查一遍哦，既能省不少整理时间，还能避免不小心上传隐私信息。\n\n不用追求完美，先从攒第一份材料开始就很棒啦～你们现在都攒了哪些求职相关的材料呀？",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": true,
+          "issue": "",
+          "evidence": "非空白字符数=205，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "保留文本",
+          "passed": true,
+          "issue": "",
+          "evidence": "求职案例戊：小杨按岗位归档5份材料。",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：求职案例戊：小杨按岗位归档5份材料。",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 10301.25,
+      "total_tokens": 1531,
+      "calls": 2,
+      "usage": [
+        {
+          "node_name": "write_draft",
+          "duration_ms": 5444.96,
+          "start_time": "2026-11-02T07:25:40.287256",
+          "end_time": "2026-11-02T07:25:45.732216",
+          "input_tokens": 367,
+          "output_tokens": 138,
+          "total_tokens": 505,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "781a4404e53a44adb50ead2949c49d76",
+          "source": "human"
+        },
+        {
+          "node_name": "quality_check",
+          "duration_ms": 4856.09,
+          "start_time": "2026-11-02T07:25:45.732308",
+          "end_time": "2026-11-02T07:25:50.588393",
+          "input_tokens": 834,
+          "output_tokens": 192,
+          "total_tokens": 1026,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "781a4404e53a44adb50ead2949c49d76"
+        }
+      ],
+      "quality_history": [
+        {
+          "version_id": "781a4404e53a44adb50ead2949c49d76",
+          "created_at": "2026-11-01T23:25:45.732249+00:00",
+          "checks": [
+            {
+              "criterion": "正文长度",
+              "passed": true,
+              "issue": "",
+              "evidence": "非空白字符数=205，范围=180—280",
+              "evidence_id": 0,
+              "suggestion": "将正文控制在180—280个非空白字符",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "保留文本",
+              "passed": true,
+              "issue": "",
+              "evidence": "求职案例戊：小杨按岗位归档5份材料。",
+              "evidence_id": 0,
+              "suggestion": "原样保留或加入：求职案例戊：小杨按岗位归档5份材料。",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "受众匹配：内容贴合大学一年级学生的认知与求职阶段需求",
+              "passed": true,
+              "issue": "",
+              "evidence": "刚上大一的小伙伴是不是还没意识到，求职材料准备得越早，后面找实习越省心呀😉",
+              "evidence_id": 2,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "需求与修改意见落实：保留指定案例句与对应数字",
+              "passed": true,
+              "issue": "",
+              "evidence": "求职案例戊：小杨按岗位归档5份材料。",
+              "evidence_id": 3,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "建议可操作性：给出的AI辅助求职材料整理方法具体可落地",
+              "passed": true,
+              "issue": "",
+              "evidence": "给大家分享个超实用的小方法：先把自己的奖状、社团经历、志愿证明这些材料都收集好，用AI工具帮忙分类归档，之后一定要自己再检查一遍哦，既能省不少整理时间，还能避免不小心上传隐私信息。",
+              "evidence_id": 4,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            }
+          ],
+          "status": "passed",
+          "route": "manual",
+          "reason": ""
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "legacy",
+          "parent_version_id": null,
+          "content": "# AI辅助求职材料整理\n求职案例戊：小杨按岗位归档5份材料。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+          "source": "legacy",
+          "feedback": "",
+          "created_at": ""
+        },
+        {
+          "version_id": "781a4404e53a44adb50ead2949c49d76",
+          "parent_version_id": "legacy",
+          "content": "# 大一新生必看｜AI帮你轻松整理求职材料\n刚上大一的小伙伴是不是还没意识到，求职材料准备得越早，后面找实习越省心呀😉\n\n求职案例戊：小杨按岗位归档5份材料。\n\n给大家分享个超实用的小方法：先把自己的奖状、社团经历、志愿证明这些材料都收集好，用AI工具帮忙分类归档，之后一定要自己再检查一遍哦，既能省不少整理时间，还能避免不小心上传隐私信息。\n\n不用追求完美，先从攒第一份材料开始就很棒啦～你们现在都攒了哪些求职相关的材料呀？",
+          "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。",
+          "source": "human",
+          "created_at": "2026-11-01T23:25:45.732236+00:00",
+          "metric": {
+            "node_name": "write_draft",
+            "duration_ms": 5444.96,
+            "start_time": "2026-11-02T07:25:40.287256",
+            "end_time": "2026-11-02T07:25:45.732216",
+            "input_tokens": 367,
+            "output_tokens": 138,
+            "total_tokens": 505,
+            "model": "ep-20261007192246-pdxsw",
+            "usage_source": "api",
+            "version_id": "781a4404e53a44adb50ead2949c49d76",
+            "source": "human"
+          }
+        }
+      ],
+      "auto_revisions": 0
+    }
+  }
+}

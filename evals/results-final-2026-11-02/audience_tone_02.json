@@ -1,0 +1,277 @@
+{
+  "id": "audience_tone_02",
+  "category": "audience_tone",
+  "input": {
+    "id": "audience_tone_02",
+    "category": "audience_tone",
+    "topic": "AI辅助会议纪要",
+    "direction": "面向刚毕业的职场新人介绍会议纪要。语气务实友好，避免夸张承诺。控制在180—280个非空白字符。",
+    "previous_article": "# AI辅助会议纪要\n会议案例乙：小林把6项决定逐条标注负责人。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+    "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。",
+    "brief": {
+      "audience": "刚毕业的职场新人",
+      "tone": "务实友好，避免夸张承诺",
+      "min_chars": 180,
+      "max_chars": 280,
+      "required_sections": [],
+      "preserve_phrases": []
+    },
+    "human_rubric": [
+      "读者能否理解并按步骤操作",
+      "原文案例与数字是否保留",
+      "反馈是否落实且未引入无依据承诺"
+    ]
+  },
+  "outputs": {
+    "upgraded": {
+      "content": "# 职场新人必看｜AI帮你搞定会议纪要✨\n\n刚毕业的小伙伴是不是总怕写不好会议纪要？别慌，用AI辅助真的能省不少力～\n\n新人小林刚入职时，每次开完会整理纪要都要熬到很晚。后来他学会用AI帮忙，把6项决定逐条标注负责人，效率一下子提上来了。\n\n具体怎么做呢？先收集好会议相关材料，用AI按会议议题、行动项、待办任务做初步分类整理，最后一定要人工复核，重点核对决议内容、负责人和截止时间是否准确哦。特别提醒：上传前记得检查，别把公司隐私信息传上去啦。\n\n你平时写会议纪要有什么小技巧吗？评论区聊聊～",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": true,
+          "issue": "",
+          "evidence": "非空白字符数=238，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 14603.91,
+      "total_tokens": 3397,
+      "calls": 4,
+      "usage": [
+        {
+          "node_name": "write_draft",
+          "duration_ms": 3509.24,
+          "start_time": "2026-11-02T07:23:04.867277",
+          "end_time": "2026-11-02T07:23:08.376515",
+          "input_tokens": 347,
+          "output_tokens": 145,
+          "total_tokens": 492,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "15d63dfc410e4a9e958272890e83a8fb",
+          "source": "human"
+        },
+        {
+          "node_name": "quality_check",
+          "duration_ms": 5032.64,
+          "start_time": "2026-11-02T07:23:08.376669",
+          "end_time": "2026-11-02T07:23:13.409311",
+          "input_tokens": 878,
+          "output_tokens": 304,
+          "total_tokens": 1182,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "15d63dfc410e4a9e958272890e83a8fb"
+        },
+        {
+          "node_name": "write_draft",
+          "duration_ms": 2612.93,
+          "start_time": "2026-11-02T07:23:13.409404",
+          "end_time": "2026-11-02T07:23:16.022334",
+          "input_tokens": 514,
+          "output_tokens": 159,
+          "total_tokens": 673,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "4412f17b31e24658a2d7047e5377cde9",
+          "source": "auto"
+        },
+        {
+          "node_name": "quality_check",
+          "duration_ms": 3448.66,
+          "start_time": "2026-11-02T07:23:16.022415",
+          "end_time": "2026-11-02T07:23:19.471076",
+          "input_tokens": 892,
+          "output_tokens": 158,
+          "total_tokens": 1050,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "4412f17b31e24658a2d7047e5377cde9"
+        }
+      ],
+      "quality_history": [
+        {
+          "version_id": "15d63dfc410e4a9e958272890e83a8fb",
+          "created_at": "2026-11-01T23:23:08.376556+00:00",
+          "checks": [
+            {
+              "criterion": "正文长度",
+              "passed": true,
+              "issue": "",
+              "evidence": "非空白字符数=214，范围=180—280",
+              "evidence_id": 0,
+              "suggestion": "将正文控制在180—280个非空白字符",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "受众匹配度：内容贴合刚毕业职场新人的认知与需求",
+              "passed": true,
+              "issue": "",
+              "evidence": "刚毕业的小伙伴是不是总怕写不好会议纪要？",
+              "evidence_id": 2,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "需求与修改意见落实：保留原文案例与数字，语气务实友好无夸张承诺，字符数符合要求",
+              "passed": true,
+              "issue": "",
+              "evidence": "后来他学会用AI帮忙，把6项决定逐条标注负责人，效率一下子提上来了。",
+              "evidence_id": 5,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "建议可操作性：AI辅助会议纪要的操作指引具体可落地",
+              "passed": false,
+              "issue": "仅提及收集材料、AI初步分类、人工复核的大致步骤，未说明分类整理的具体维度（如按议题、行动项、待办等），也未明确人工复核的核心要点，新人实操时仍缺乏清晰指引",
+              "evidence": "先收集好会议相关材料，用AI做初步分类整理，最后一定要人工复核一遍哦。",
+              "evidence_id": 7,
+              "suggestion": "补充AI分类的具体方向，比如“按会议议题、行动项、待办任务做初步分类整理”，同时明确人工复核的重点，比如“重点核对决议内容、负责人和截止时间是否准确”，提升实操性",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            }
+          ],
+          "status": "needs_revision",
+          "route": "auto",
+          "reason": ""
+        },
+        {
+          "version_id": "4412f17b31e24658a2d7047e5377cde9",
+          "created_at": "2026-11-01T23:23:16.022371+00:00",
+          "checks": [
+            {
+              "criterion": "正文长度",
+              "passed": true,
+              "issue": "",
+              "evidence": "非空白字符数=238，范围=180—280",
+              "evidence_id": 0,
+              "suggestion": "将正文控制在180—280个非空白字符",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "受众匹配：内容贴合刚毕业职场新人的认知与场景需求",
+              "passed": true,
+              "issue": "",
+              "evidence": "刚毕业的小伙伴是不是总怕写不好会议纪要？",
+              "evidence_id": 2,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "需求与修改意见落实：保留原文案例与数字，语气务实友好无夸张承诺，字符数符合要求",
+              "passed": true,
+              "issue": "",
+              "evidence": "后来他学会用AI帮忙，把6项决定逐条标注负责人，效率一下子提上来了。",
+              "evidence_id": 5,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "建议可操作性：AI辅助会议纪要的操作步骤清晰可落地",
+              "passed": true,
+              "issue": "",
+              "evidence": "先收集好会议相关材料，用AI按会议议题、行动项、待办任务做初步分类整理，最后一定要人工复核，重点核对决议内容、负责人和截止时间是否准确哦。",
+              "evidence_id": 7,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            }
+          ],
+          "status": "passed",
+          "route": "manual",
+          "reason": ""
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "legacy",
+          "parent_version_id": null,
+          "content": "# AI辅助会议纪要\n会议案例乙：小林把6项决定逐条标注负责人。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+          "source": "legacy",
+          "feedback": "",
+          "created_at": ""
+        },
+        {
+          "version_id": "15d63dfc410e4a9e958272890e83a8fb",
+          "parent_version_id": "legacy",
+          "content": "# 职场新人必看｜AI帮你搞定会议纪要✨\n\n刚毕业的小伙伴是不是总怕写不好会议纪要？别慌，用AI辅助真的能省不少力～\n\n给大家举个真实例子：新人小林刚入职时，每次开完会整理纪要都要熬到很晚。后来他学会用AI帮忙，把6项决定逐条标注负责人，效率一下子提上来了。\n\n具体怎么做呢？先收集好会议相关材料，用AI做初步分类整理，最后一定要人工复核一遍哦。特别提醒：上传前记得检查，别把公司隐私信息传上去啦。\n\n你平时写会议纪要有什么小技巧吗？评论区聊聊～",
+          "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。",
+          "source": "human",
+          "created_at": "2026-11-01T23:23:08.376541+00:00",
+          "metric": {
+            "node_name": "write_draft",
+            "duration_ms": 3509.24,
+            "start_time": "2026-11-02T07:23:04.867277",
+            "end_time": "2026-11-02T07:23:08.376515",
+            "input_tokens": 347,
+            "output_tokens": 145,
+            "total_tokens": 492,
+            "model": "ep-20261007192246-pdxsw",
+            "usage_source": "api",
+            "version_id": "15d63dfc410e4a9e958272890e83a8fb",
+            "source": "human"
+          }
+        },
+        {
+          "version_id": "4412f17b31e24658a2d7047e5377cde9",
+          "parent_version_id": "15d63dfc410e4a9e958272890e83a8fb",
+          "content": "# 职场新人必看｜AI帮你搞定会议纪要✨\n\n刚毕业的小伙伴是不是总怕写不好会议纪要？别慌，用AI辅助真的能省不少力～\n\n新人小林刚入职时，每次开完会整理纪要都要熬到很晚。后来他学会用AI帮忙，把6项决定逐条标注负责人，效率一下子提上来了。\n\n具体怎么做呢？先收集好会议相关材料，用AI按会议议题、行动项、待办任务做初步分类整理，最后一定要人工复核，重点核对决议内容、负责人和截止时间是否准确哦。特别提醒：上传前记得检查，别把公司隐私信息传上去啦。\n\n你平时写会议纪要有什么小技巧吗？评论区聊聊～",
+          "feedback": "用户修改意见：保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。\n质量检查建议：\n补充AI分类的具体方向，比如“按会议议题、行动项、待办任务做初步分类整理”，同时明确人工复核的重点，比如“重点核对决议内容、负责人和截止时间是否准确”，提升实操性",
+          "source": "auto",
+          "created_at": "2026-11-01T23:23:16.022355+00:00",
+          "metric": {
+            "node_name": "write_draft",
+            "duration_ms": 2612.93,
+            "start_time": "2026-11-02T07:23:13.409404",
+            "end_time": "2026-11-02T07:23:16.022334",
+            "input_tokens": 514,
+            "output_tokens": 159,
+            "total_tokens": 673,
+            "model": "ep-20261007192246-pdxsw",
+            "usage_source": "api",
+            "version_id": "4412f17b31e24658a2d7047e5377cde9",
+            "source": "auto"
+          }
+        }
+      ],
+      "auto_revisions": 1
+    },
+    "legacy": {
+      "content": "# 救命！3小时会的纪要我10分钟就交了😱\n上周部门周会开了2小时47分钟，换以前我得边听边敲字，会后还要捋1小时才能出纪要，次次加班到脸垮😮‍💨\n\n结果这次我直接开了AI纪要工具，全程摸鱼听讨论就行，会后一键导出：\n✅ 自动分了「决议/待办/风险」3大类\n✅ 连张总说的“下周三前要交Q3预算初稿”都精准标了责任人\n✅ 连我中途接水漏听的10分钟内容都没落下\n最后我只花8分钟调了下格式就发群里，领导私夸我“效率越来越高”🤫\n\n真的劝所有做会议纪要的打工人都试试，别再死磕手动记了！你们平时记纪要最头疼啥？评论区唠唠👇",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": true,
+          "issue": "",
+          "evidence": "非空白字符数=247，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 6298.37,
+      "total_tokens": 369,
+      "calls": 1,
+      "usage": [
+        {
+          "input_tokens": 167,
+          "output_tokens": 202,
+          "total_tokens": 369,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api"
+        }
+      ]
+    }
+  }
+}

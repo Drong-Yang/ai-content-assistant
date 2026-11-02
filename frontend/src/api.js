@@ -145,7 +145,7 @@ export async function deleteThread(threadId) {
  * @param {Object} callbacks - 回调函数对象
  * @param {string} streamMode - 流模式（此场景下忽略，使用普通 API）
  */
-export async function streamStartWorkflow(topicDirection, callbacks, streamMode = 'updates') {
+export async function streamStartWorkflow(topicDirection, callbacks, streamMode = 'updates', options = {}) {
   try {
     // 先生成一个临时 thread_id 用于初始化回调
     callbacks.onInit?.({ thread_id: 'loading...' })
@@ -153,7 +153,8 @@ export async function streamStartWorkflow(topicDirection, callbacks, streamMode 
     
     // 调用普通 API
     const res = await api.post('/workflow/start', {
-      topic_direction: topicDirection
+      topic_direction: topicDirection,
+      ...options
     })
     const data = res.data
     
@@ -226,6 +227,7 @@ export async function streamApproveArticle(threadId, callbacks, streamMode = 'up
       is_completed: data.is_completed,
       interrupt_info: data.interrupt_info,
       values: {
+        ...data.values,
         error: data.result?.error || '',
         article_content: data.result?.article_content || '',
         visual_points: data.result?.visual_points || [],
@@ -275,6 +277,13 @@ async function handleSSEStream(response, callbacks) {
           const { type, data } = event
           
           switch (type) {
+            case 'node_start':
+              callbacks.onNodeStart?.(data)
+              break
+            case 'node_end':
+              callbacks.onNodeEnd?.(data)
+              callbacks.onUpdate?.(data.node, data.output || {})
+              break
             case 'start':
               callbacks.onStart?.(data)
               break

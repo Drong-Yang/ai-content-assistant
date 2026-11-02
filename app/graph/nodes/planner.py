@@ -39,7 +39,8 @@ async def plan_topics_node(state: AgentState) -> Dict[str, Any]:
                 input_tokens=usage_info.input_tokens,
                 output_tokens=usage_info.output_tokens,
                 total_tokens=usage_info.total_tokens,
-                model=usage_info.model
+                model=usage_info.model,
+                usage_source=usage_info.usage_source
             ))
             
             if not topics_response.topics:

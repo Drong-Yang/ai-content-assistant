@@ -93,6 +93,8 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     try:
         await reset_graph()
         await close_checkpointer()
+        from app.services.llm_service import llm_service
+        await llm_service.close()
         await close_db()
         app_logger.db_disconnected()
         app_logger.service_stopped(app_name=settings.app_name)

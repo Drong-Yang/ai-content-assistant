@@ -1,0 +1,319 @@
+{
+  "id": "structure_length_01",
+  "category": "structure_length",
+  "input": {
+    "id": "structure_length_01",
+    "category": "structure_length",
+    "topic": "AI辅助周报整理",
+    "direction": "面向第一次接触AI的行政助理介绍周报整理。语气务实友好，避免夸张承诺。控制在180—280个非空白字符。必须包含栏目：三步清单。",
+    "previous_article": "# AI辅助周报整理\n周报案例甲：周五先归类10条记录，再人工核对。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+    "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。改成三步清单，使用“三步清单”作为栏目标题。",
+    "brief": {
+      "audience": "第一次接触AI的行政助理",
+      "tone": "务实友好，避免夸张承诺",
+      "min_chars": 180,
+      "max_chars": 280,
+      "required_sections": [
+        "三步清单"
+      ],
+      "preserve_phrases": []
+    },
+    "human_rubric": [
+      "读者能否理解并按步骤操作",
+      "原文案例与数字是否保留",
+      "反馈是否落实且未引入无依据承诺"
+    ]
+  },
+  "outputs": {
+    "legacy": {
+      "content": "# 打工人救命！AI整理周报我只花了3分钟✨\n\n上周赶周报到凌晨的苦谁懂啊😅 熬到两点交上去还被领导说“没重点”，这周用AI试了下，**3分钟搞定5天工作梳理，还直接生成领导爱看的成果版**，下班直接冲火锅！\n\n## 三步清单\n1. **喂素材**：把聊天记录、待办截图、项目文档碎碎念全丢给AI，不用整理语序，乱的也能识别\n2. **提要求**：说清「按项目分类+标成果数据+控制在300字内」，比如我上周的3个直播项目数据，AI自动归到对应模块\n3. **调细节**：把AI输出的套话删掉，加1句下周小计划，真实感直接拉满\n\n亲测比自己写快8倍，再也不用抠脑袋想话术了🤣 你们平时写周报要花多久？评论区报个数！",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": false,
+          "issue": "正文长度不符合要求",
+          "evidence": "非空白字符数=291，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "必含栏目",
+          "passed": true,
+          "issue": "",
+          "evidence": "三步清单",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：三步清单",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 6689.5,
+      "total_tokens": 401,
+      "calls": 1,
+      "usage": [
+        {
+          "input_tokens": 181,
+          "output_tokens": 220,
+          "total_tokens": 401,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api"
+        }
+      ]
+    },
+    "upgraded": {
+      "content": "# AI辅助周报整理\n刚接触AI的行政助理小伙伴别慌～咱用最务实的办法，实打实省点整理周报的时间，不搞花里胡哨的夸张承诺哦。\n\n## 三步清单\n1. **先攒素材**：周五先把本周10条零散工作记录（比如会议纪要、采购明细、活动反馈）归拢好，别漏关键信息。\n2. **AI帮分类**：把整理好的内容喂给AI，让它按「行政事务/活动支持/物资管理」这类常用维度归类，省得自己一条条捋。注意别上传公司隐私信息哦。\n3. **人工再核对**：最后自己过一遍分类结果，补点细节、调下表述，确保准确靠谱。\n\n刚上手可以先拿不重要的周报练手，慢慢就顺手啦～你们平时整理周报最头疼啥？",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": true,
+          "issue": "",
+          "evidence": "非空白字符数=272，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "必含栏目",
+          "passed": true,
+          "issue": "",
+          "evidence": "三步清单",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：三步清单",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 15934.2,
+      "total_tokens": 3504,
+      "calls": 4,
+      "usage": [
+        {
+          "node_name": "write_draft",
+          "duration_ms": 4356.96,
+          "start_time": "2026-11-02T07:24:06.729226",
+          "end_time": "2026-11-02T07:24:11.086183",
+          "input_tokens": 376,
+          "output_tokens": 197,
+          "total_tokens": 573,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "a587cc9c69b349679f2200e6b4dfbebb",
+          "source": "human"
+        },
+        {
+          "node_name": "quality_check",
+          "duration_ms": 3106.42,
+          "start_time": "2026-11-02T07:24:11.086265",
+          "end_time": "2026-11-02T07:24:14.192684",
+          "input_tokens": 931,
+          "output_tokens": 118,
+          "total_tokens": 1049,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "a587cc9c69b349679f2200e6b4dfbebb"
+        },
+        {
+          "node_name": "write_draft",
+          "duration_ms": 3569.62,
+          "start_time": "2026-11-02T07:24:14.192777",
+          "end_time": "2026-11-02T07:24:17.762398",
+          "input_tokens": 557,
+          "output_tokens": 189,
+          "total_tokens": 746,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "c1b2948fa05d46789ba3a47620bdece0",
+          "source": "auto"
+        },
+        {
+          "node_name": "quality_check",
+          "duration_ms": 4900.81,
+          "start_time": "2026-11-02T07:24:17.762495",
+          "end_time": "2026-11-02T07:24:22.663304",
+          "input_tokens": 923,
+          "output_tokens": 213,
+          "total_tokens": 1136,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "c1b2948fa05d46789ba3a47620bdece0"
+        }
+      ],
+      "quality_history": [
+        {
+          "version_id": "a587cc9c69b349679f2200e6b4dfbebb",
+          "created_at": "2026-11-01T23:24:11.086213+00:00",
+          "checks": [
+            {
+              "criterion": "正文长度",
+              "passed": false,
+              "issue": "正文长度不符合要求",
+              "evidence": "非空白字符数=283，范围=180—280",
+              "evidence_id": 0,
+              "suggestion": "将正文控制在180—280个非空白字符",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "必含栏目",
+              "passed": true,
+              "issue": "",
+              "evidence": "三步清单",
+              "evidence_id": 0,
+              "suggestion": "原样保留或加入：三步清单",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "受众匹配度",
+              "passed": true,
+              "issue": "",
+              "evidence": "刚接触AI的行政小伙伴别慌～咱用最务实的办法，把周报整理的麻烦事减一半，不搞花里胡哨的夸张效果，实打实省点时间。",
+              "evidence_id": 2,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "需求与修改意见落实",
+              "passed": true,
+              "issue": "",
+              "evidence": "## 三步清单",
+              "evidence_id": 3,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "建议可操作性",
+              "passed": true,
+              "issue": "",
+              "evidence": "1. **先攒素材**：跟之前一样，周五先把本周10条零散工作记录（比如会议纪要、采购明细、活动反馈）归拢好，别漏关键信息。",
+              "evidence_id": 4,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            }
+          ],
+          "status": "needs_revision",
+          "route": "auto",
+          "reason": ""
+        },
+        {
+          "version_id": "c1b2948fa05d46789ba3a47620bdece0",
+          "created_at": "2026-11-01T23:24:17.762434+00:00",
+          "checks": [
+            {
+              "criterion": "正文长度",
+              "passed": true,
+              "issue": "",
+              "evidence": "非空白字符数=272，范围=180—280",
+              "evidence_id": 0,
+              "suggestion": "将正文控制在180—280个非空白字符",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "必含栏目",
+              "passed": true,
+              "issue": "",
+              "evidence": "三步清单",
+              "evidence_id": 0,
+              "suggestion": "原样保留或加入：三步清单",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "受众匹配度：内容贴合第一次接触AI的行政助理的认知水平与工作场景",
+              "passed": true,
+              "issue": "",
+              "evidence": "刚接触AI的行政助理小伙伴别慌～咱用最务实的办法，实打实省点整理周报的时间，不搞花里胡哨的夸张承诺哦。",
+              "evidence_id": 2,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "需求与修改意见落实：包含“三步清单”栏目且使用该标题，保留案例与数字，语气务实友好无夸张承诺",
+              "passed": true,
+              "issue": "",
+              "evidence": "## 三步清单",
+              "evidence_id": 3,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "建议可操作性：三步清单的操作指引具体明确，新手可直接落地执行",
+              "passed": true,
+              "issue": "",
+              "evidence": "1. **先攒素材**：周五先把本周10条零散工作记录（比如会议纪要、采购明细、活动反馈）归拢好，别漏关键信息。",
+              "evidence_id": 4,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            }
+          ],
+          "status": "passed",
+          "route": "manual",
+          "reason": ""
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "legacy",
+          "parent_version_id": null,
+          "content": "# AI辅助周报整理\n周报案例甲：周五先归类10条记录，再人工核对。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+          "source": "legacy",
+          "feedback": "",
+          "created_at": ""
+        },
+        {
+          "version_id": "a587cc9c69b349679f2200e6b4dfbebb",
+          "parent_version_id": "legacy",
+          "content": "# AI辅助周报整理\n刚接触AI的行政小伙伴别慌～咱用最务实的办法，把周报整理的麻烦事减一半，不搞花里胡哨的夸张效果，实打实省点时间。\n\n## 三步清单\n1. **先攒素材**：跟之前一样，周五先把本周10条零散工作记录（比如会议纪要、采购明细、活动反馈）归拢好，别漏关键信息。\n2. **AI帮分类**：把整理好的内容喂给AI，让它按「行政事务/活动支持/物资管理」这类常用维度归类，省得自己一条条捋。注意别上传公司隐私信息哦。\n3. **人工再核对**：最后自己过一遍分类结果，补点细节、调下表述，确保准确靠谱。\n\n刚上手可以先拿不重要的周报练手，慢慢就顺手啦～你们平时整理周报最头疼啥？",
+          "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。改成三步清单，使用“三步清单”作为栏目标题。",
+          "source": "human",
+          "created_at": "2026-11-01T23:24:11.086202+00:00",
+          "metric": {
+            "node_name": "write_draft",
+            "duration_ms": 4356.96,
+            "start_time": "2026-11-02T07:24:06.729226",
+            "end_time": "2026-11-02T07:24:11.086183",
+            "input_tokens": 376,
+            "output_tokens": 197,
+            "total_tokens": 573,
+            "model": "ep-20261007192246-pdxsw",
+            "usage_source": "api",
+            "version_id": "a587cc9c69b349679f2200e6b4dfbebb",
+            "source": "human"
+          }
+        },
+        {
+          "version_id": "c1b2948fa05d46789ba3a47620bdece0",
+          "parent_version_id": "a587cc9c69b349679f2200e6b4dfbebb",
+          "content": "# AI辅助周报整理\n刚接触AI的行政助理小伙伴别慌～咱用最务实的办法，实打实省点整理周报的时间，不搞花里胡哨的夸张承诺哦。\n\n## 三步清单\n1. **先攒素材**：周五先把本周10条零散工作记录（比如会议纪要、采购明细、活动反馈）归拢好，别漏关键信息。\n2. **AI帮分类**：把整理好的内容喂给AI，让它按「行政事务/活动支持/物资管理」这类常用维度归类，省得自己一条条捋。注意别上传公司隐私信息哦。\n3. **人工再核对**：最后自己过一遍分类结果，补点细节、调下表述，确保准确靠谱。\n\n刚上手可以先拿不重要的周报练手，慢慢就顺手啦～你们平时整理周报最头疼啥？",
+          "feedback": "用户修改意见：保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。改成三步清单，使用“三步清单”作为栏目标题。\n质量检查建议：\n将正文控制在180—280个非空白字符",
+          "source": "auto",
+          "created_at": "2026-11-01T23:24:17.762420+00:00",
+          "metric": {
+            "node_name": "write_draft",
+            "duration_ms": 3569.62,
+            "start_time": "2026-11-02T07:24:14.192777",
+            "end_time": "2026-11-02T07:24:17.762398",
+            "input_tokens": 557,
+            "output_tokens": 189,
+            "total_tokens": 746,
+            "model": "ep-20261007192246-pdxsw",
+            "usage_source": "api",
+            "version_id": "c1b2948fa05d46789ba3a47620bdece0",
+            "source": "auto"
+          }
+        }
+      ],
+      "auto_revisions": 1
+    }
+  }
+}

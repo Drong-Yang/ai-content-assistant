@@ -63,6 +63,17 @@ class AgentState(TypedDict, total=False):
     review_feedback: str
     review_status: Literal["pending", "approved", "rejected"]
     revision_count: int
+    content_brief: Dict[str, Any]
+    article_versions: List[Dict[str, Any]]
+    quality_policy: Dict[str, Any]
+    quality_report: Dict[str, Any]
+    quality_history: List[Dict[str, Any]]
+    auto_revision_count: int
+    auto_revisions_this_review: int
+    pending_revision_source: str
+    auto_feedback: str
+    automation_stop_reason: str
+    quality_tokens_used: int
     
     # 视觉阶段
     visual_points: List[str]
@@ -85,6 +96,11 @@ INITIAL_STATE: AgentState = {
     "review_feedback": "",
     "review_status": "pending",
     "revision_count": 0,
+    "article_versions": [],
+    "quality_history": [],
+    "auto_revision_count": 0,
+    "auto_revisions_this_review": 0,
+    "quality_tokens_used": 0,
     "visual_points": [],
     "image_urls": [],
     "status": "initialized",

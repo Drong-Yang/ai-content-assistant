@@ -1,0 +1,246 @@
+{
+  "id": "combined_feedback_02",
+  "category": "combined_feedback",
+  "input": {
+    "id": "combined_feedback_02",
+    "category": "combined_feedback",
+    "topic": "AI辅助会议纪要",
+    "direction": "面向没有编程经验的运营人员介绍会议纪要。语气务实友好，避免夸张承诺。控制在180—280个非空白字符。必须包含栏目：三步清单。保留原文中的完整案例句。",
+    "previous_article": "# AI辅助会议纪要\n会议案例乙：小林把6项决定逐条标注负责人。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+    "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。改成三步清单，使用“三步清单”作为栏目标题。在有限篇幅里保留案例，优先给出操作步骤，删除空泛形容。",
+    "brief": {
+      "audience": "没有编程经验的运营人员",
+      "tone": "务实友好，避免夸张承诺",
+      "min_chars": 180,
+      "max_chars": 280,
+      "required_sections": [
+        "三步清单"
+      ],
+      "preserve_phrases": [
+        "会议案例乙：小林把6项决定逐条标注负责人。"
+      ]
+    },
+    "human_rubric": [
+      "读者能否理解并按步骤操作",
+      "原文案例与数字是否保留",
+      "反馈是否落实且未引入无依据承诺"
+    ]
+  },
+  "outputs": {
+    "upgraded": {
+      "content": "# AI辅助会议纪要\n做运营天天泡会，记纪要、追落实总耗掉大半天？不用懂编程，用AI就能省不少力，亲测靠谱👇\n\n## 三步清单\n1. 会前/会后收集好录音转写稿、讨论的文档片段，提前删掉涉及薪资、客户隐私的敏感内容，再导入AI工具\n2. 给AI发指令：「按待办、共识、待跟进分类整理，提取明确的行动项」，等AI生成初版纪要\n3. 人工复核内容准确性，重点核对行动项的负责人和截止时间\n\n会议案例乙：小林把6项决定逐条标注负责人。\n照着做，1小时的会20分钟就能出清晰纪要，还不容易漏事～\n\n你们平时记会议纪最头疼哪部分？评论区聊聊呀🙋",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": true,
+          "issue": "",
+          "evidence": "非空白字符数=251，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "必含栏目",
+          "passed": true,
+          "issue": "",
+          "evidence": "三步清单",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：三步清单",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "保留文本",
+          "passed": true,
+          "issue": "",
+          "evidence": "会议案例乙：小林把6项决定逐条标注负责人。",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：会议案例乙：小林把6项决定逐条标注负责人。",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 12049.23,
+      "total_tokens": 1798,
+      "calls": 2,
+      "usage": [
+        {
+          "node_name": "write_draft",
+          "duration_ms": 6212.64,
+          "start_time": "2026-11-02T07:25:50.589269",
+          "end_time": "2026-11-02T07:25:56.801913",
+          "input_tokens": 411,
+          "output_tokens": 181,
+          "total_tokens": 592,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "d07c66762439468cab41bef8378f37e2",
+          "source": "human"
+        },
+        {
+          "node_name": "quality_check",
+          "duration_ms": 5836.36,
+          "start_time": "2026-11-02T07:25:56.802015",
+          "end_time": "2026-11-02T07:26:02.638373",
+          "input_tokens": 986,
+          "output_tokens": 220,
+          "total_tokens": 1206,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "d07c66762439468cab41bef8378f37e2"
+        }
+      ],
+      "quality_history": [
+        {
+          "version_id": "d07c66762439468cab41bef8378f37e2",
+          "created_at": "2026-11-01T23:25:56.801946+00:00",
+          "checks": [
+            {
+              "criterion": "正文长度",
+              "passed": true,
+              "issue": "",
+              "evidence": "非空白字符数=251，范围=180—280",
+              "evidence_id": 0,
+              "suggestion": "将正文控制在180—280个非空白字符",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "必含栏目",
+              "passed": true,
+              "issue": "",
+              "evidence": "三步清单",
+              "evidence_id": 0,
+              "suggestion": "原样保留或加入：三步清单",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "保留文本",
+              "passed": true,
+              "issue": "",
+              "evidence": "会议案例乙：小林把6项决定逐条标注负责人。",
+              "evidence_id": 0,
+              "suggestion": "原样保留或加入：会议案例乙：小林把6项决定逐条标注负责人。",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "受众匹配：内容适配无编程经验的运营人员，语言通俗、无需技术背景即可理解",
+              "passed": true,
+              "issue": "",
+              "evidence": "不用懂编程，用AI就能省不少力，亲测靠谱👇",
+              "evidence_id": 3,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "需求与修改意见落实：包含“三步清单”栏目且使用该标题，保留指定完整案例句，优先给出操作步骤、删除空泛形容",
+              "passed": true,
+              "issue": "",
+              "evidence": "## 三步清单",
+              "evidence_id": 4,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "建议可操作性：三步清单的操作步骤具体明确，运营人员可直接参照执行",
+              "passed": true,
+              "issue": "",
+              "evidence": "1. 会前/会后收集好录音转写稿、讨论的文档片段，提前删掉涉及薪资、客户隐私的敏感内容，再导入AI工具",
+              "evidence_id": 5,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            }
+          ],
+          "status": "passed",
+          "route": "manual",
+          "reason": ""
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "legacy",
+          "parent_version_id": null,
+          "content": "# AI辅助会议纪要\n会议案例乙：小林把6项决定逐条标注负责人。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+          "source": "legacy",
+          "feedback": "",
+          "created_at": ""
+        },
+        {
+          "version_id": "d07c66762439468cab41bef8378f37e2",
+          "parent_version_id": "legacy",
+          "content": "# AI辅助会议纪要\n做运营天天泡会，记纪要、追落实总耗掉大半天？不用懂编程，用AI就能省不少力，亲测靠谱👇\n\n## 三步清单\n1. 会前/会后收集好录音转写稿、讨论的文档片段，提前删掉涉及薪资、客户隐私的敏感内容，再导入AI工具\n2. 给AI发指令：「按待办、共识、待跟进分类整理，提取明确的行动项」，等AI生成初版纪要\n3. 人工复核内容准确性，重点核对行动项的负责人和截止时间\n\n会议案例乙：小林把6项决定逐条标注负责人。\n照着做，1小时的会20分钟就能出清晰纪要，还不容易漏事～\n\n你们平时记会议纪最头疼哪部分？评论区聊聊呀🙋",
+          "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。改成三步清单，使用“三步清单”作为栏目标题。在有限篇幅里保留案例，优先给出操作步骤，删除空泛形容。",
+          "source": "human",
+          "created_at": "2026-11-01T23:25:56.801933+00:00",
+          "metric": {
+            "node_name": "write_draft",
+            "duration_ms": 6212.64,
+            "start_time": "2026-11-02T07:25:50.589269",
+            "end_time": "2026-11-02T07:25:56.801913",
+            "input_tokens": 411,
+            "output_tokens": 181,
+            "total_tokens": 592,
+            "model": "ep-20261007192246-pdxsw",
+            "usage_source": "api",
+            "version_id": "d07c66762439468cab41bef8378f37e2",
+            "source": "human"
+          }
+        }
+      ],
+      "auto_revisions": 0
+    },
+    "legacy": {
+      "content": "# 三步清单｜AI辅助会议纪要\n上周3小时跨部门项目会，我用AI10分钟出完纪要，同事追着要链接🤣\n\n✅ 第一步：会前埋钩子\n提前10分钟把会议议程、参会人名单、项目背景文档（比如上次的12页需求文档）喂给AI，设置输出格式：「决策项+待办+责任人+deadline」，别等开完才传，AI提前有上下文才不瞎编。\n\n✅ 第二步：会中抓素材\n不用全程记，只录关键节点：比如谁拍板了预算（张总批了15万推广费）、谁领了任务（运营李姐下周三出方案）、有争议的点（技术说排期要延后1周），散会后把录音转文字+你记的关键点一起丢给AI。\n\n✅ 第三步：会后秒校准\nAI出初稿后，重点核对3件事：数字对不对（比如15万别写成5万）、责任人有没有张冠李戴、争议点有没有写全，改完直接发群，比手动写快8倍都不止。\n\n你们平时写纪要最头疼啥？是记不全还是整理慢？评论区聊聊～",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": false,
+          "issue": "正文长度不符合要求",
+          "evidence": "非空白字符数=361，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "必含栏目",
+          "passed": true,
+          "issue": "",
+          "evidence": "三步清单",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：三步清单",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "保留文本",
+          "passed": false,
+          "issue": "缺少：会议案例乙：小林把6项决定逐条标注负责人。",
+          "evidence": "",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：会议案例乙：小林把6项决定逐条标注负责人。",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 8249.61,
+      "total_tokens": 467,
+      "calls": 1,
+      "usage": [
+        {
+          "input_tokens": 198,
+          "output_tokens": 269,
+          "total_tokens": 467,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api"
+        }
+      ]
+    }
+  }
+}

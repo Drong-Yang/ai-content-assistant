@@ -9,6 +9,7 @@ from langgraph.graph import StateGraph, START, END
 from langgraph.types import interrupt, Command
 
 from app.graph.state import AgentState
+from app.graph.nodes.quality_check import quality_check_node, route_quality
 from app.graph.nodes import (
     write_draft_node,
     extract_visuals_node,
@@ -62,6 +63,9 @@ async def human_review_node(state: AgentState) -> Command[Literal["extract_visua
             update={
                 "review_status": "rejected",
                 "review_feedback": feedback,
+                "pending_revision_source": "human",
+                "auto_revisions_this_review": 0,
+                "automation_stop_reason": "",
                 "status": "review_rejected",
             },
             goto="write_draft"
@@ -75,7 +79,7 @@ def build_workflow_graph() -> StateGraph:
     工作流逻辑：
     1. Start -> topic_selection (选题子图：AI 生成选题 + 人工选题)
     2. topic_selection -> write_draft (AI 写文章)
-    3. INTERRUPT: human_review (等待人工审稿，使用 interrupt())
+    3. quality_check -> 最多有限次自动修订 -> human_review 人工审稿
     4. human_review -> 条件路由:
        - approved: extract_visuals -> generate_images -> End
        - rejected: 回到 write_draft (重写)
@@ -93,6 +97,7 @@ def build_workflow_graph() -> StateGraph:
     # 使用子图作为节点：将选题相关逻辑封装为 topic_selection 子图
     workflow.add_node("topic_selection", topic_selection_subgraph)
     workflow.add_node("write_draft", write_draft_node)
+    workflow.add_node("quality_check", quality_check_node)
     workflow.add_node("human_review", human_review_node)
     workflow.add_node("extract_visuals", extract_visuals_node)
     workflow.add_node("generate_images", generate_images_node)
@@ -104,8 +109,10 @@ def build_workflow_graph() -> StateGraph:
     # topic_selection -> write_draft (子图完成后进入写作)
     workflow.add_edge("topic_selection", "write_draft")
     
-    # write_draft -> human_review
-    workflow.add_edge("write_draft", "human_review")
+    # Evaluator–optimizer loop, with a persistent per-workflow policy.
+    workflow.add_edge("write_draft", "quality_check")
+    workflow.add_conditional_edges("quality_check", route_quality,
+        {"write_draft": "write_draft", "human_review": "human_review"})
     
     # human_review 使用 Command 动态路由 (approved -> extract_visuals, rejected -> write_draft)
     

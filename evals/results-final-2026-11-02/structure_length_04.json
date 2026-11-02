@@ -1,0 +1,214 @@
+{
+  "id": "structure_length_04",
+  "category": "structure_length",
+  "input": {
+    "id": "structure_length_04",
+    "category": "structure_length",
+    "topic": "AI辅助客户反馈分类",
+    "direction": "面向第一次接触AI的行政助理介绍客户反馈分类。语气务实友好，避免夸张承诺。控制在180—280个非空白字符。必须包含栏目：三步清单。",
+    "previous_article": "# AI辅助客户反馈分类\n反馈案例丁：小周把12条意见分成3类。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+    "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。改成三步清单，使用“三步清单”作为栏目标题。",
+    "brief": {
+      "audience": "第一次接触AI的行政助理",
+      "tone": "务实友好，避免夸张承诺",
+      "min_chars": 180,
+      "max_chars": 280,
+      "required_sections": [
+        "三步清单"
+      ],
+      "preserve_phrases": []
+    },
+    "human_rubric": [
+      "读者能否理解并按步骤操作",
+      "原文案例与数字是否保留",
+      "反馈是否落实且未引入无依据承诺"
+    ]
+  },
+  "outputs": {
+    "upgraded": {
+      "content": "# AI辅助客户反馈分类\n行政的小伙伴们看过来🙋‍♀️刚接触AI也能轻松上手，像小周处理12条客户意见、分成3类的工作量，用对方法半小时就能搞定，不用硬熬加班啦～\n\n## 三步清单\n1. 先收集整理：把零散的客户反馈汇总成文档，提前删掉客户手机号、地址这类隐私信息，别上传敏感内容哦\n2. 再用AI分类：把整理好的内容发给AI，说明要按「投诉/建议/咨询」这类维度归类，AI会自动输出分类结果\n3. 最后人工复核：毕竟AI偶尔会有偏差，花5分钟过一遍分类结果，把错放的条目调整过来就ok\n\n大家平时处理客户反馈最头疼哪部分呀？评论区聊聊～",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": true,
+          "issue": "",
+          "evidence": "非空白字符数=256，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "必含栏目",
+          "passed": true,
+          "issue": "",
+          "evidence": "三步清单",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：三步清单",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 15752.9,
+      "total_tokens": 1673,
+      "calls": 2,
+      "usage": [
+        {
+          "node_name": "write_draft",
+          "duration_ms": 6683.81,
+          "start_time": "2026-11-02T07:24:27.101491",
+          "end_time": "2026-11-02T07:24:33.785300",
+          "input_tokens": 378,
+          "output_tokens": 177,
+          "total_tokens": 555,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "9c4e87325cc44a789b33967cdf62cde5",
+          "source": "human"
+        },
+        {
+          "node_name": "quality_check",
+          "duration_ms": 9068.9,
+          "start_time": "2026-11-02T07:24:33.785395",
+          "end_time": "2026-11-02T07:24:42.854294",
+          "input_tokens": 913,
+          "output_tokens": 205,
+          "total_tokens": 1118,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "9c4e87325cc44a789b33967cdf62cde5"
+        }
+      ],
+      "quality_history": [
+        {
+          "version_id": "9c4e87325cc44a789b33967cdf62cde5",
+          "created_at": "2026-11-01T23:24:33.785334+00:00",
+          "checks": [
+            {
+              "criterion": "正文长度",
+              "passed": true,
+              "issue": "",
+              "evidence": "非空白字符数=256，范围=180—280",
+              "evidence_id": 0,
+              "suggestion": "将正文控制在180—280个非空白字符",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "必含栏目",
+              "passed": true,
+              "issue": "",
+              "evidence": "三步清单",
+              "evidence_id": 0,
+              "suggestion": "原样保留或加入：三步清单",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "受众匹配度：内容贴合第一次接触AI的行政助理的认知水平与工作场景",
+              "passed": true,
+              "issue": "",
+              "evidence": "行政的小伙伴们看过来🙋‍♀️刚接触AI也能轻松上手，像小周处理12条客户意见、分成3类的工作量，用对方法半小时就能搞定，不用硬熬加班啦～",
+              "evidence_id": 2,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "需求与修改意见落实：已按要求设置“三步清单”栏目且保留原文案例与数字",
+              "passed": true,
+              "issue": "",
+              "evidence": "## 三步清单",
+              "evidence_id": 3,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "建议可操作性：三步清单的操作指引具体可落地，适合新手执行",
+              "passed": true,
+              "issue": "",
+              "evidence": "1. 先收集整理：把零散的客户反馈汇总成文档，提前删掉客户手机号、地址这类隐私信息，别上传敏感内容哦",
+              "evidence_id": 4,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            }
+          ],
+          "status": "passed",
+          "route": "manual",
+          "reason": ""
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "legacy",
+          "parent_version_id": null,
+          "content": "# AI辅助客户反馈分类\n反馈案例丁：小周把12条意见分成3类。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+          "source": "legacy",
+          "feedback": "",
+          "created_at": ""
+        },
+        {
+          "version_id": "9c4e87325cc44a789b33967cdf62cde5",
+          "parent_version_id": "legacy",
+          "content": "# AI辅助客户反馈分类\n行政的小伙伴们看过来🙋‍♀️刚接触AI也能轻松上手，像小周处理12条客户意见、分成3类的工作量，用对方法半小时就能搞定，不用硬熬加班啦～\n\n## 三步清单\n1. 先收集整理：把零散的客户反馈汇总成文档，提前删掉客户手机号、地址这类隐私信息，别上传敏感内容哦\n2. 再用AI分类：把整理好的内容发给AI，说明要按「投诉/建议/咨询」这类维度归类，AI会自动输出分类结果\n3. 最后人工复核：毕竟AI偶尔会有偏差，花5分钟过一遍分类结果，把错放的条目调整过来就ok\n\n大家平时处理客户反馈最头疼哪部分呀？评论区聊聊～",
+          "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。改成三步清单，使用“三步清单”作为栏目标题。",
+          "source": "human",
+          "created_at": "2026-11-01T23:24:33.785320+00:00",
+          "metric": {
+            "node_name": "write_draft",
+            "duration_ms": 6683.81,
+            "start_time": "2026-11-02T07:24:27.101491",
+            "end_time": "2026-11-02T07:24:33.785300",
+            "input_tokens": 378,
+            "output_tokens": 177,
+            "total_tokens": 555,
+            "model": "ep-20261007192246-pdxsw",
+            "usage_source": "api",
+            "version_id": "9c4e87325cc44a789b33967cdf62cde5",
+            "source": "human"
+          }
+        }
+      ],
+      "auto_revisions": 0
+    },
+    "legacy": {
+      "content": "# 三步清单｜AI帮你把客户反馈分类效率拉满💥\n做用户运营的姐妹谁懂啊！上周我司运营小妹蹲在工位哭——3000+条双11售后反馈，手动分类要熬3个大夜，眼睛都花了还错漏20%😅\n\n自从用AI做反馈分类，她当天就准点下班了！亲测有效，直接上可落地的三步：\n\n✅ **第一步：喂标准，给AI划好分类框**\n先把你们常用的分类维度（比如物流/产品质量/客服态度/功能建议）列清楚，每个分类补2-3条真实样例，别让AI瞎猜。我们当时列了8个大类，每个配3条历史反馈当参考，准确率直接飙92%。\n\n✅ **第二步：批量导，10分钟跑完3000条**\n把整理好的反馈表格（只要留反馈内容列就行）直接喂给AI工具，选「批量处理」模式。别一条一条发！我们用的是支持表格导入的AI工具，3000条数据跑了不到12分钟，比手动快150倍。\n\n✅ **第三步：人工核，揪出10%的“漏网之鱼”**\nAI分完别直接用！重点核对「模糊分类」的内容——比如既说物流慢又说产品坏的，我们一般抽10%的量人工复核，最后准确率能到98%以上，比纯手动准多了。\n\n对了，你们平时处理客户反馈最头疼啥？是量太大还是分类标准乱？评论区唠唠👇",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": false,
+          "issue": "正文长度不符合要求",
+          "evidence": "非空白字符数=482，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "必含栏目",
+          "passed": true,
+          "issue": "",
+          "evidence": "三步清单",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：三步清单",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 10272.61,
+      "total_tokens": 544,
+      "calls": 1,
+      "usage": [
+        {
+          "input_tokens": 182,
+          "output_tokens": 362,
+          "total_tokens": 544,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api"
+        }
+      ]
+    }
+  }
+}

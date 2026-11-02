@@ -1,0 +1,214 @@
+{
+  "id": "preserve_original_02",
+  "category": "preserve_original",
+  "input": {
+    "id": "preserve_original_02",
+    "category": "preserve_original",
+    "topic": "AI辅助会议纪要",
+    "direction": "面向大学一年级学生介绍会议纪要。语气务实友好，避免夸张承诺。控制在180—280个非空白字符。保留原文中的完整案例句。",
+    "previous_article": "# AI辅助会议纪要\n会议案例乙：小林把6项决定逐条标注负责人。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+    "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。",
+    "brief": {
+      "audience": "大学一年级学生",
+      "tone": "务实友好，避免夸张承诺",
+      "min_chars": 180,
+      "max_chars": 280,
+      "required_sections": [],
+      "preserve_phrases": [
+        "会议案例乙：小林把6项决定逐条标注负责人。"
+      ]
+    },
+    "human_rubric": [
+      "读者能否理解并按步骤操作",
+      "原文案例与数字是否保留",
+      "反馈是否落实且未引入无依据承诺"
+    ]
+  },
+  "outputs": {
+    "upgraded": {
+      "content": "# 新生必看｜AI辅助做会议纪要小技巧\n刚进大学的小伙伴是不是常被社团、小组作业的会议纪要难住？别慌，教你个务实好用的小方法～\n\n会议案例乙：小林把6项决定逐条标注负责人。\n你可以先收集好会议录音、手写要点这些材料，用AI工具帮你初步分类整理议题和待办，效率会高不少。\n\n记得最后一定要人工复核一遍内容准不准，上传材料前也要注意把个人隐私、敏感信息删掉哦，稳妥最重要～\n\n你们刚入学有遇到过写纪要的困扰吗？",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": true,
+          "issue": "",
+          "evidence": "非空白字符数=194，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "保留文本",
+          "passed": true,
+          "issue": "",
+          "evidence": "会议案例乙：小林把6项决定逐条标注负责人。",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：会议案例乙：小林把6项决定逐条标注负责人。",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 9978.65,
+      "total_tokens": 1532,
+      "calls": 2,
+      "usage": [
+        {
+          "node_name": "write_draft",
+          "duration_ms": 5434.52,
+          "start_time": "2026-11-02T07:24:57.237540",
+          "end_time": "2026-11-02T07:25:02.672055",
+          "input_tokens": 364,
+          "output_tokens": 131,
+          "total_tokens": 495,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "c3a8436d34cc4f1eb324f9d0df27171c",
+          "source": "human"
+        },
+        {
+          "node_name": "quality_check",
+          "duration_ms": 4543.95,
+          "start_time": "2026-11-02T07:25:02.672138",
+          "end_time": "2026-11-02T07:25:07.216088",
+          "input_tokens": 846,
+          "output_tokens": 191,
+          "total_tokens": 1037,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "c3a8436d34cc4f1eb324f9d0df27171c"
+        }
+      ],
+      "quality_history": [
+        {
+          "version_id": "c3a8436d34cc4f1eb324f9d0df27171c",
+          "created_at": "2026-11-01T23:25:02.672085+00:00",
+          "checks": [
+            {
+              "criterion": "正文长度",
+              "passed": true,
+              "issue": "",
+              "evidence": "非空白字符数=194，范围=180—280",
+              "evidence_id": 0,
+              "suggestion": "将正文控制在180—280个非空白字符",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "保留文本",
+              "passed": true,
+              "issue": "",
+              "evidence": "会议案例乙：小林把6项决定逐条标注负责人。",
+              "evidence_id": 0,
+              "suggestion": "原样保留或加入：会议案例乙：小林把6项决定逐条标注负责人。",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "受众匹配度：内容与语气贴合大学一年级学生的认知和场景",
+              "passed": true,
+              "issue": "",
+              "evidence": "刚进大学的小伙伴是不是常被社团、小组作业的会议纪要难住？",
+              "evidence_id": 2,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "需求与修改意见落实：保留指定案例句与对应数字",
+              "passed": true,
+              "issue": "",
+              "evidence": "会议案例乙：小林把6项决定逐条标注负责人。",
+              "evidence_id": 4,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "建议可操作性：AI辅助会议纪要的方法具体可落地",
+              "passed": true,
+              "issue": "",
+              "evidence": "你可以先收集好会议录音、手写要点这些材料，用AI工具帮你初步分类整理议题和待办，效率会高不少。",
+              "evidence_id": 5,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            }
+          ],
+          "status": "passed",
+          "route": "manual",
+          "reason": ""
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "legacy",
+          "parent_version_id": null,
+          "content": "# AI辅助会议纪要\n会议案例乙：小林把6项决定逐条标注负责人。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+          "source": "legacy",
+          "feedback": "",
+          "created_at": ""
+        },
+        {
+          "version_id": "c3a8436d34cc4f1eb324f9d0df27171c",
+          "parent_version_id": "legacy",
+          "content": "# 新生必看｜AI辅助做会议纪要小技巧\n刚进大学的小伙伴是不是常被社团、小组作业的会议纪要难住？别慌，教你个务实好用的小方法～\n\n会议案例乙：小林把6项决定逐条标注负责人。\n你可以先收集好会议录音、手写要点这些材料，用AI工具帮你初步分类整理议题和待办，效率会高不少。\n\n记得最后一定要人工复核一遍内容准不准，上传材料前也要注意把个人隐私、敏感信息删掉哦，稳妥最重要～\n\n你们刚入学有遇到过写纪要的困扰吗？",
+          "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。",
+          "source": "human",
+          "created_at": "2026-11-01T23:25:02.672074+00:00",
+          "metric": {
+            "node_name": "write_draft",
+            "duration_ms": 5434.52,
+            "start_time": "2026-11-02T07:24:57.237540",
+            "end_time": "2026-11-02T07:25:02.672055",
+            "input_tokens": 364,
+            "output_tokens": 131,
+            "total_tokens": 495,
+            "model": "ep-20261007192246-pdxsw",
+            "usage_source": "api",
+            "version_id": "c3a8436d34cc4f1eb324f9d0df27171c",
+            "source": "human"
+          }
+        }
+      ],
+      "auto_revisions": 0
+    },
+    "legacy": {
+      "content": "# 被领导夸爆的AI会议纪要，3分钟搞定2小时会！🤯\n上周跟运营部开2小时新品脑暴会，以前我整理纪要+扒行动项要熬1小时，这次用AI工具3分钟出初稿，5分钟改完交差，领导直接在群里@我问用的啥神器😎\n\n给你们说亲测好用的步骤，小白也能直接抄：\n1️⃣ 开会前开AI实时录音转写（飞书妙记/通义听悟都可），口音、中英文混说都能识别准\n2️⃣ 会后直接输指令：「整理成3部分：核心结论、各部门行动项+deadline+负责人、待讨论问题」\n3️⃣ 最后花2分钟核对人名、数字，改个口语化的开头就ok\n\n别再傻呵呵边开会边疯狂记笔记了！用AI省下来的时间摸鱼香不香？🤭\n你们平时整理会议纪要最头疼啥？评论区唠唠！",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": false,
+          "issue": "正文长度不符合要求",
+          "evidence": "非空白字符数=290，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "保留文本",
+          "passed": false,
+          "issue": "缺少：会议案例乙：小林把6项决定逐条标注负责人。",
+          "evidence": "",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：会议案例乙：小林把6项决定逐条标注负责人。",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 6106.38,
+      "total_tokens": 392,
+      "calls": 1,
+      "usage": [
+        {
+          "input_tokens": 167,
+          "output_tokens": 225,
+          "total_tokens": 392,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api"
+        }
+      ]
+    }
+  }
+}

@@ -195,6 +195,17 @@
       </div>
     </div>
 
+    <div v-if="currentStep === 0" class="card editorial-brief">
+      <div class="card-title">内容要求</div>
+      <label>目标读者<input v-model="contentBrief.audience" class="input" maxlength="200" placeholder="例如：刚毕业的职场新人" /></label>
+      <label>语气<input v-model="contentBrief.tone" class="input" maxlength="200" placeholder="例如：务实、清晰，避免夸张承诺" /></label>
+      <div class="brief-length"><label>最少字符<input v-model.number="contentBrief.min_chars" type="number" min="0" max="3000" class="input" /></label><label>最多字符<input v-model.number="contentBrief.max_chars" type="number" min="50" max="4000" class="input" /></label></div>
+      <small>统计非空白字符，包含标点；这里的篇幅要求优先于默认模板。</small>
+      <label>必含栏目（每行一个）<textarea v-model="requiredSections" class="textarea" placeholder="例如：三步操作清单" /></label>
+      <label>必须保留的文本（每行一个）<textarea v-model="preservePhrases" class="textarea" placeholder="例如：原稿中需逐字保留的案例名称" /></label>
+      <label><input v-model="qualityEnabled" type="checkbox" /> 写稿后检查质量，必要时自动修改一次，再交人工审核</label>
+    </div>
+
     <!-- 步骤 1: 选择选题 -->
     <div v-if="currentStep === 1" class="card">
       <div class="card-title">请选择一个选题</div>
@@ -244,6 +255,7 @@
     <!-- 步骤 2: 审核文章 -->
     <div v-if="currentStep === 2" class="card">
       <div class="card-title">审核文章草稿</div>
+      <p v-if="loading" role="status">{{ currentStage || "正在生成文章…" }}</p>
       <div v-if="loading && !articleContent" class="loading">
         <div class="loading-spinner"></div>
         <p style="margin-top: 12px;">AI 正在撰写文章...</p>
@@ -257,6 +269,7 @@
           <label>驳回反馈（可选）:</label>
           <textarea 
             v-model="feedback" 
+            maxlength="2000"
             class="textarea" 
             placeholder="如果需要驳回，请输入修改意见..."
             :disabled="loading"
@@ -339,6 +352,32 @@
       </div>
     </div>
 
+    <div v-if="qualityReport && articleContent" class="card" aria-label="内容质量检查">
+      <div class="card-title">内容质量检查 · {{ qualityLabel }}</div>
+      <p>{{ qualityReport.reason || '检查建议供审稿参考，最终由你确认。' }}</p>
+      <ul class="quality-checks"><li v-for="(check, index) in qualityReport.checks || []" :key="index">
+        <strong>{{ check.passed ? '通过' : '待改进' }} · {{ check.criterion }}</strong>
+        <p v-if="check.evidence">依据：{{ check.evidence }}</p>
+        <p v-if="!check.passed">{{ check.issue }} {{ check.suggestion }}</p>
+      </li></ul>
+      <details v-if="qualityHistory.length > 1"><summary>查看此前 {{ qualityHistory.length - 1 }} 次检查</summary>
+        <div v-for="report in qualityHistory.slice(0, -1)" :key="report.version_id">
+          <p>{{ report.reason || report.status }}</p><p v-for="(c, i) in report.checks" :key="i">{{ c.criterion }}：{{ c.passed ? '通过' : c.issue }}</p>
+        </div>
+      </details>
+      <small>质量建议不代表事实核验、平台合规认证或传播效果预测。</small>
+    </div>
+    <div v-if="articleVersions.length" class="card" aria-label="文章版本对比">
+      <div class="card-title">文章版本与修改记录</div>
+      <label>查看版本 <select v-model="selectedVersion"><option v-for="(v, i) in articleVersions" :key="v.version_id" :value="v.version_id">{{ versionLabel(v, i) }}</option></select></label>
+      <label>对比版本 <select v-model="compareBase"><option value="">无对比</option><option v-for="(v, i) in articleVersions" :key="v.version_id" :value="v.version_id">{{ versionLabel(v, i) }}</option></select></label>
+      <p>修改意见：{{ articleVersions.find(v => v.version_id === selectedVersion)?.feedback || '首稿 / 无修改意见' }}</p>
+      <div v-if="compareBase" class="version-diff"><small>＋新增　−删除　其余保留</small>
+        <div v-for="(line, i) in versionDiff" :key="i" :class="['diff-line', line.type]">{{ line.type === 'added' ? '＋ ' : line.type === 'removed' ? '− ' : '  ' }}{{ line.text }}</div>
+      </div>
+      <pre v-else class="version-text">{{ versionContent }}</pre>
+    </div>
+
     <!-- 节点执行指标面板 - 有数据就显示 -->
     <div v-if="nodeMetrics.length > 0" class="card">
       <div class="metrics-panel">
@@ -348,7 +387,7 @@
         <div class="metrics-summary">
           <div class="metrics-summary-item">
             <div class="metrics-summary-value">{{ totalDuration }}</div>
-            <div class="metrics-summary-label">总耗时</div>
+            <div class="metrics-summary-label">累计节点耗时</div>
           </div>
           <div class="metrics-summary-item">
             <div class="metrics-summary-value">{{ totalTokens.toLocaleString() }}</div>
@@ -356,7 +395,7 @@
           </div>
           <div class="metrics-summary-item">
             <div class="metrics-summary-value">{{ nodeMetrics.length }}</div>
-            <div class="metrics-summary-label">已执行节点</div>
+            <div class="metrics-summary-label">节点执行次数</div>
           </div>
         </div>
         
@@ -379,7 +418,7 @@
               </div>
               <div class="metrics-detail">
                 <span class="metrics-detail-label">总计:</span>
-                <span class="metrics-detail-value highlight">{{ metric.total_tokens || 0 }} tokens</span>
+                <span class="metrics-detail-value highlight">{{ metric.total_tokens || 0 }} tokens（{{ metric.usage_source === "api" ? "API返回" : metric.usage_source === "estimated" ? "估算" : "未提供" }}）</span>
               </div>
               <div v-if="metric.model" class="metrics-detail">
                 <span class="metrics-detail-label">模型:</span>
@@ -496,6 +535,8 @@ import {
   isLoggedIn as checkLoggedIn,
   getCurrentUser
 } from './api.js'
+
+import { lineDiff } from './version-diff.js'
 
 // ============== 认证状态 ==============
 const isLoggedIn = ref(false)
@@ -694,6 +735,33 @@ const selectedTopic = ref('')
 const streamingTopicsText = ref('') // 流式生成选题时的实时文本
 const articleContent = ref('')
 const feedback = ref('')
+const articleVersions = ref([])
+const qualityReport = ref(null)
+const qualityHistory = ref([])
+const selectedVersion = ref('')
+const compareBase = ref('')
+const qualityEnabled = ref(true)
+const contentBrief = ref({ audience: '', tone: '', min_chars: 800, max_chars: 1200 })
+const requiredSections = ref('')
+const preservePhrases = ref('')
+const currentStage = ref('')
+const versionContent = computed(() => articleVersions.value.find(v => v.version_id === selectedVersion.value)?.content || '')
+const baseContent = computed(() => articleVersions.value.find(v => v.version_id === compareBase.value)?.content || '')
+const versionDiff = computed(() => lineDiff(baseContent.value, versionContent.value))
+const qualityLabel = computed(() => ({ passed: '检查通过', needs_revision: '仍有建议，请人工确认', check_failed: '检查失败，草稿已保留', budget_exhausted: '预算不足，请人工确认', disabled: '未启用自动检查' }[qualityReport.value?.status] || ''))
+function syncEditorial(values) {
+  if (!values || !('article_versions' in values)) return
+  articleVersions.value = values.article_versions || []
+  qualityReport.value = values.quality_report || null
+  qualityHistory.value = values.quality_history || []
+  selectedVersion.value = articleVersions.value.at(-1)?.version_id || ''
+  compareBase.value = articleVersions.value.at(-2)?.version_id || ''
+  currentStage.value = ''
+}
+function versionLabel(v, index) {
+  return `第${index + 1}版 · ${ { initial: '首稿', human: '人工反馈修改', auto: '自动修订', legacy: '历史草稿' }[v.source] || v.source }`
+}
+
 const imageUrls = ref([])
 const visualPoints = ref([])
 const nodeMetrics = ref([])
@@ -721,6 +789,7 @@ function getNodeDisplayName(nodeName) {
   const nameMap = {
     'plan_topics': '选题规划',
     'write_draft': '文章写作',
+    'quality_check': '内容质量检查',
     'extract_visuals': '提取配图要点',
     'generate_images': '生成配图'
   }
@@ -743,6 +812,16 @@ function showMessage(msg, type = 'info') {
 // 选题阶段使用非流式结构化输出，但通过 SSE 获取进度更新
 async function handleStart() {
   if (!topicDirection.value.trim()) return
+  const { min_chars: minimum, max_chars: maximum } = contentBrief.value
+  if (!Number.isInteger(minimum) || !Number.isInteger(maximum) || minimum < 0 || minimum > 3000 || maximum < 50 || maximum > 4000 || minimum > maximum) {
+    showMessage('请填写有效篇幅范围：最少0—3000，最多50—4000，且最少不大于最多', 'error')
+    return
+  }
+  const lists = [requiredSections.value, preservePhrases.value].map(text => text.split('\n').map(s => s.trim()).filter(Boolean))
+  if (lists.some(items => items.length > 8 || items.some(item => item.length > 100))) {
+    showMessage('栏目和保留文本各最多8项，每项不超过100字符', 'error')
+    return
+  }
   
   loading.value = true
   message.value = ''
@@ -767,6 +846,7 @@ async function handleStart() {
       },
       // 节点开始事件 (events 模式)
       onNodeStart: (data) => {
+        currentStage.value = data.node === 'quality_check' ? '正在检查内容质量…' : '正在撰写或修订文章…'
         addStreamLog('node_start', data, 'start')
       },
       // 节点结束事件 (events 模式)
@@ -779,6 +859,7 @@ async function handleStart() {
       },
       // LLM 开始事件 (events 模式)
       onLlmStart: (data) => {
+        articleContent.value = ''
         addStreamLog('llm_start', data, 'start')
       },
       // LLM token 流式输出（events 模式）- 选题阶段是结构化输出，不会有 token
@@ -812,6 +893,7 @@ async function handleStart() {
       },
       // 完成事件
       onDone: (data) => {
+        syncEditorial(data.values)
         addStreamLog('done', data, 'start')
         workflowStatus.value = data.status
         fetchThreadList()
@@ -845,7 +927,7 @@ async function handleStart() {
         currentStep.value = 0
         showMessage(`启动失败: ${errorMsg}`, 'error')
       }
-    }, 'updates')  // 选题阶段使用 updates 模式（非流式结构化输出）
+    }, 'updates', { content_brief: { ...contentBrief.value, required_sections: requiredSections.value.split('\n').map(s => s.trim()).filter(Boolean), preserve_phrases: preservePhrases.value.split('\n').map(s => s.trim()).filter(Boolean) }, quality_enabled: qualityEnabled.value })  // 选题阶段使用 updates 模式（非流式结构化输出）
     
   } catch (error) {
     loading.value = false
@@ -876,6 +958,7 @@ async function handleSelectTopic() {
       },
       // 节点开始事件
       onNodeStart: (data) => {
+        currentStage.value = data.node === 'quality_check' ? '正在检查内容质量…' : '正在撰写或修订文章…'
         addStreamLog('node_start', data, 'select_topic')
       },
       // 节点结束事件
@@ -884,6 +967,7 @@ async function handleSelectTopic() {
       },
       // LLM 开始事件
       onLlmStart: (data) => {
+        articleContent.value = ''
         addStreamLog('llm_start', data, 'select_topic')
       },
       // LLM token 流式输出
@@ -908,6 +992,7 @@ async function handleSelectTopic() {
       },
       // 完成事件
       onDone: (data) => {
+        syncEditorial(data.values)
         addStreamLog('done', data, 'select_topic')
         workflowStatus.value = data.status
         fetchThreadList()
@@ -972,6 +1057,7 @@ async function handleApprove() {
       },
       // 完成
       onDone: (data) => {
+        syncEditorial(data.values)
         addStreamLog('done', data, 'approve')
         workflowStatus.value = data.status
         fetchThreadList()
@@ -1025,6 +1111,7 @@ async function handleReject() {
       },
       // 节点开始事件
       onNodeStart: (data) => {
+        currentStage.value = data.node === 'quality_check' ? '正在检查内容质量…' : '正在撰写或修订文章…'
         addStreamLog('node_start', data, 'reject')
       },
       // 节点结束事件
@@ -1033,6 +1120,7 @@ async function handleReject() {
       },
       // LLM 开始事件
       onLlmStart: (data) => {
+        articleContent.value = ''
         addStreamLog('llm_start', data, 'reject')
       },
       // LLM token 流式输出
@@ -1057,6 +1145,7 @@ async function handleReject() {
       },
       // 完成
       onDone: (data) => {
+        syncEditorial(data.values)
         addStreamLog('done', data, 'reject')
         workflowStatus.value = data.status
         fetchThreadList()
@@ -1115,6 +1204,12 @@ function handleReset() {
   imageUrls.value = []
   visualPoints.value = []
   nodeMetrics.value = []
+  articleVersions.value = []
+  qualityReport.value = null
+  qualityHistory.value = []
+  selectedVersion.value = ''
+  compareBase.value = ''
+  currentStage.value = ''
   message.value = ''
   streamLogs.value = []  // 清空流式日志
 }
@@ -1156,6 +1251,7 @@ async function handleSwitchThread(targetThreadId) {
     
     // 更新数据
     const values = state.values || {}
+    syncEditorial(values)
     topicDirection.value = values.topic_direction || ''
     generatedTopics.value = values.generated_topics || []
     selectedTopic.value = values.selected_topic || ''
@@ -1173,6 +1269,7 @@ async function handleSwitchThread(targetThreadId) {
     const rawMetrics = state.node_metrics || values.node_metrics || []
     // 确保转换为普通对象数组
     nodeMetrics.value = rawMetrics.map(m => ({
+      ...m,
       node_name: m.node_name || '',
       duration_ms: m.duration_ms || 0,
       input_tokens: m.input_tokens || 0,

@@ -1,0 +1,214 @@
+{
+  "id": "structure_length_05",
+  "category": "structure_length",
+  "input": {
+    "id": "structure_length_05",
+    "category": "structure_length",
+    "topic": "AI辅助求职材料整理",
+    "direction": "面向第一次接触AI的行政助理介绍求职材料整理。语气务实友好，避免夸张承诺。控制在180—280个非空白字符。必须包含栏目：三步清单。",
+    "previous_article": "# AI辅助求职材料整理\n求职案例戊：小杨按岗位归档5份材料。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+    "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。改成三步清单，使用“三步清单”作为栏目标题。",
+    "brief": {
+      "audience": "第一次接触AI的行政助理",
+      "tone": "务实友好，避免夸张承诺",
+      "min_chars": 180,
+      "max_chars": 280,
+      "required_sections": [
+        "三步清单"
+      ],
+      "preserve_phrases": []
+    },
+    "human_rubric": [
+      "读者能否理解并按步骤操作",
+      "原文案例与数字是否保留",
+      "反馈是否落实且未引入无依据承诺"
+    ]
+  },
+  "outputs": {
+    "legacy": {
+      "content": "# 三步清单｜AI帮你整理求职材料，我靠它3天投完20家拿了5个面邀😱\n上周帮我那投了半个月简历石沉大海的冤种闺蜜，用AI整理求职材料，3天搞定20家精准投递，直接拿了5个面试邀约！\n\n**第一步：素材一键归位**\n把你所有实习证明、项目报告、获奖证书、校园经历的文字/图片全丢给AI，让它按「实习经历/项目经验/技能证书/校园实践」4大类自动分类，还能自动提取时间、岗位、核心成果3个关键信息，比自己手动整理快10倍，再也不用翻遍文件夹找素材。\n\n**第二步：经历精准提纯**\n对着目标JD喂给AI，让它按「岗位关键词+量化成果」的逻辑改写经历，比如把“做了社群运营”改成「负责3个500人用户社群运营，3个月拉新1200人，转化率提升18%」，每段经历都精准踩中招聘方需求，再也不会写一堆没用的废话。\n\n**第三步：材料批量适配**\n投不同岗位不用从头改简历！把不同公司的JD丢给AI，1分钟就能生成适配版简历+自荐信，还能自动帮你检查有没有错别字、格式问题，20份简历半天就能全部搞定，省下的时间全用来练面试它不香吗？\n\n你们试过用AI整理求职材料吗？评论区聊聊踩过的坑👇",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": false,
+          "issue": "正文长度不符合要求",
+          "evidence": "非空白字符数=476，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "必含栏目",
+          "passed": true,
+          "issue": "",
+          "evidence": "三步清单",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：三步清单",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 7761.09,
+      "total_tokens": 514,
+      "calls": 1,
+      "usage": [
+        {
+          "input_tokens": 182,
+          "output_tokens": 332,
+          "total_tokens": 514,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api"
+        }
+      ]
+    },
+    "upgraded": {
+      "content": "# AI辅助求职材料整理\n作为第一次接触AI的行政助理们看过来呀👋 给大家分享个真实小例子：求职的小杨按岗位归档5份材料，用对AI搭把手省了超多整理的麻烦，还不容易乱～\n\n## 三步清单\n1. 先收集：把简历、过往行政工作证明、技能证书这些材料都拢到一起，按岗位初步分个大概堆\n2. AI分类：把非隐私的材料内容喂给AI，让它按岗位匹配度自动归好类\n3. 人工复核：最后自己过一遍，把隐私信息筛掉，确保上传的内容准确合规\n\n不用怕操作难，都是行政人上手超适配的小工具，试一次就知道有多省心啦～\n你们平时整理求职材料会不会嫌麻烦呀？",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": true,
+          "issue": "",
+          "evidence": "非空白字符数=250，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "必含栏目",
+          "passed": true,
+          "issue": "",
+          "evidence": "三步清单",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：三步清单",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 9473.59,
+      "total_tokens": 1666,
+      "calls": 2,
+      "usage": [
+        {
+          "node_name": "write_draft",
+          "duration_ms": 5493.35,
+          "start_time": "2026-11-02T07:24:47.763150",
+          "end_time": "2026-11-02T07:24:53.256504",
+          "input_tokens": 376,
+          "output_tokens": 177,
+          "total_tokens": 553,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "9d7c1df2d2b94a5f8f3e51c82b36712d",
+          "source": "human"
+        },
+        {
+          "node_name": "quality_check",
+          "duration_ms": 3980.02,
+          "start_time": "2026-11-02T07:24:53.256607",
+          "end_time": "2026-11-02T07:24:57.236630",
+          "input_tokens": 912,
+          "output_tokens": 201,
+          "total_tokens": 1113,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "9d7c1df2d2b94a5f8f3e51c82b36712d"
+        }
+      ],
+      "quality_history": [
+        {
+          "version_id": "9d7c1df2d2b94a5f8f3e51c82b36712d",
+          "created_at": "2026-11-01T23:24:53.256541+00:00",
+          "checks": [
+            {
+              "criterion": "正文长度",
+              "passed": true,
+              "issue": "",
+              "evidence": "非空白字符数=250，范围=180—280",
+              "evidence_id": 0,
+              "suggestion": "将正文控制在180—280个非空白字符",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "必含栏目",
+              "passed": true,
+              "issue": "",
+              "evidence": "三步清单",
+              "evidence_id": 0,
+              "suggestion": "原样保留或加入：三步清单",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "受众匹配：内容贴合第一次接触AI的行政助理的认知水平与需求",
+              "passed": true,
+              "issue": "",
+              "evidence": "1. 先收集：把简历、过往行政工作证明、技能证书这些材料都拢到一起，按岗位初步分个大概堆",
+              "evidence_id": 4,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "需求与修改意见落实：已设置“三步清单”栏目且保留原文案例与数字",
+              "passed": true,
+              "issue": "",
+              "evidence": "## 三步清单",
+              "evidence_id": 3,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "建议可操作性：三步清单的操作步骤具体明确，可直接落地执行",
+              "passed": true,
+              "issue": "",
+              "evidence": "2. AI分类：把非隐私的材料内容喂给AI，让它按岗位匹配度自动归好类",
+              "evidence_id": 5,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            }
+          ],
+          "status": "passed",
+          "route": "manual",
+          "reason": ""
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "legacy",
+          "parent_version_id": null,
+          "content": "# AI辅助求职材料整理\n求职案例戊：小杨按岗位归档5份材料。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+          "source": "legacy",
+          "feedback": "",
+          "created_at": ""
+        },
+        {
+          "version_id": "9d7c1df2d2b94a5f8f3e51c82b36712d",
+          "parent_version_id": "legacy",
+          "content": "# AI辅助求职材料整理\n作为第一次接触AI的行政助理们看过来呀👋 给大家分享个真实小例子：求职的小杨按岗位归档5份材料，用对AI搭把手省了超多整理的麻烦，还不容易乱～\n\n## 三步清单\n1. 先收集：把简历、过往行政工作证明、技能证书这些材料都拢到一起，按岗位初步分个大概堆\n2. AI分类：把非隐私的材料内容喂给AI，让它按岗位匹配度自动归好类\n3. 人工复核：最后自己过一遍，把隐私信息筛掉，确保上传的内容准确合规\n\n不用怕操作难，都是行政人上手超适配的小工具，试一次就知道有多省心啦～\n你们平时整理求职材料会不会嫌麻烦呀？",
+          "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。改成三步清单，使用“三步清单”作为栏目标题。",
+          "source": "human",
+          "created_at": "2026-11-01T23:24:53.256527+00:00",
+          "metric": {
+            "node_name": "write_draft",
+            "duration_ms": 5493.35,
+            "start_time": "2026-11-02T07:24:47.763150",
+            "end_time": "2026-11-02T07:24:53.256504",
+            "input_tokens": 376,
+            "output_tokens": 177,
+            "total_tokens": 553,
+            "model": "ep-20261007192246-pdxsw",
+            "usage_source": "api",
+            "version_id": "9d7c1df2d2b94a5f8f3e51c82b36712d",
+            "source": "human"
+          }
+        }
+      ],
+      "auto_revisions": 0
+    }
+  }
+}

@@ -1,0 +1,319 @@
+{
+  "id": "structure_length_02",
+  "category": "structure_length",
+  "input": {
+    "id": "structure_length_02",
+    "category": "structure_length",
+    "topic": "AI辅助会议纪要",
+    "direction": "面向第一次接触AI的行政助理介绍会议纪要。语气务实友好，避免夸张承诺。控制在180—280个非空白字符。必须包含栏目：三步清单。",
+    "previous_article": "# AI辅助会议纪要\n会议案例乙：小林把6项决定逐条标注负责人。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+    "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。改成三步清单，使用“三步清单”作为栏目标题。",
+    "brief": {
+      "audience": "第一次接触AI的行政助理",
+      "tone": "务实友好，避免夸张承诺",
+      "min_chars": 180,
+      "max_chars": 280,
+      "required_sections": [
+        "三步清单"
+      ],
+      "preserve_phrases": []
+    },
+    "human_rubric": [
+      "读者能否理解并按步骤操作",
+      "原文案例与数字是否保留",
+      "反馈是否落实且未引入无依据承诺"
+    ]
+  },
+  "outputs": {
+    "upgraded": {
+      "content": "# AI辅助会议纪要\n刚接触AI的行政小伙伴别慌呀～咱们用AI做会议纪要不复杂，还能省不少核对时间，就像小林整理的那场会，最后把6项决定逐条标注了负责人，用对方法效率很高哒。\n\n## 三步清单\n1. 先收集材料：把会议录音转写稿、纸质记录、附件都整理好，提前筛掉工资、隐私谈话这类敏感内容，别上传涉密信息\n2. 使用AI分类：把整理好的内容导入AI工具，让它按“待办、决议、讨论点”自动归类，不用自己一条条捋\n3. 再人工复核：重点核对分类准不准，像小林那样把6项决定逐条对应负责人，补全细节就搞定啦\n\n第一次用可以先拿短会议练手，不用追求一步到位～你们第一次用AI做纪要踩过什么小坑呀？",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": false,
+          "issue": "正文长度不符合要求",
+          "evidence": "非空白字符数=281，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "必含栏目",
+          "passed": true,
+          "issue": "",
+          "evidence": "三步清单",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：三步清单",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 18984.87,
+      "total_tokens": 3570,
+      "calls": 4,
+      "usage": [
+        {
+          "node_name": "write_draft",
+          "duration_ms": 5549.34,
+          "start_time": "2026-11-02T07:24:01.518727",
+          "end_time": "2026-11-02T07:24:07.068063",
+          "input_tokens": 373,
+          "output_tokens": 197,
+          "total_tokens": 570,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "a0d3b0f4bd3d4b0c8790ee2d56d9ae58",
+          "source": "human"
+        },
+        {
+          "node_name": "quality_check",
+          "duration_ms": 5560.8,
+          "start_time": "2026-11-02T07:24:07.068157",
+          "end_time": "2026-11-02T07:24:12.628955",
+          "input_tokens": 920,
+          "output_tokens": 205,
+          "total_tokens": 1125,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "a0d3b0f4bd3d4b0c8790ee2d56d9ae58"
+        },
+        {
+          "node_name": "write_draft",
+          "duration_ms": 4335.13,
+          "start_time": "2026-11-02T07:24:12.629060",
+          "end_time": "2026-11-02T07:24:16.964190",
+          "input_tokens": 557,
+          "output_tokens": 195,
+          "total_tokens": 752,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "5e6c47375cab4592bece3192071809f6",
+          "source": "auto"
+        },
+        {
+          "node_name": "quality_check",
+          "duration_ms": 3539.23,
+          "start_time": "2026-11-02T07:24:16.964285",
+          "end_time": "2026-11-02T07:24:20.503515",
+          "input_tokens": 918,
+          "output_tokens": 205,
+          "total_tokens": 1123,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api",
+          "version_id": "5e6c47375cab4592bece3192071809f6"
+        }
+      ],
+      "quality_history": [
+        {
+          "version_id": "a0d3b0f4bd3d4b0c8790ee2d56d9ae58",
+          "created_at": "2026-11-01T23:24:07.068096+00:00",
+          "checks": [
+            {
+              "criterion": "正文长度",
+              "passed": false,
+              "issue": "正文长度不符合要求",
+              "evidence": "非空白字符数=283，范围=180—280",
+              "evidence_id": 0,
+              "suggestion": "将正文控制在180—280个非空白字符",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "必含栏目",
+              "passed": true,
+              "issue": "",
+              "evidence": "三步清单",
+              "evidence_id": 0,
+              "suggestion": "原样保留或加入：三步清单",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "受众匹配度：内容与语气贴合第一次接触AI的行政助理的认知水平与需求",
+              "passed": true,
+              "issue": "",
+              "evidence": "刚接触AI的行政小伙伴别慌，咱们用AI做会议纪要不复杂，还能省不少核对时间～就像小林整理的那场会，最后把6项决定逐条标注了负责人，用对方法效率很高。",
+              "evidence_id": 2,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "需求与修改意见落实：包含指定栏目“三步清单”且作为栏目标题",
+              "passed": true,
+              "issue": "",
+              "evidence": "## 三步清单",
+              "evidence_id": 3,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "建议可操作性：三步清单的操作步骤具体明确，行政助理可直接参照执行",
+              "passed": true,
+              "issue": "",
+              "evidence": "1. 先收集材料：把会议录音转写稿、纸质记录、附件都整理好，提前筛掉工资、隐私谈话这类敏感内容，别上传涉密信息",
+              "evidence_id": 4,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            }
+          ],
+          "status": "needs_revision",
+          "route": "auto",
+          "reason": ""
+        },
+        {
+          "version_id": "5e6c47375cab4592bece3192071809f6",
+          "created_at": "2026-11-01T23:24:16.964226+00:00",
+          "checks": [
+            {
+              "criterion": "正文长度",
+              "passed": false,
+              "issue": "正文长度不符合要求",
+              "evidence": "非空白字符数=281，范围=180—280",
+              "evidence_id": 0,
+              "suggestion": "将正文控制在180—280个非空白字符",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "必含栏目",
+              "passed": true,
+              "issue": "",
+              "evidence": "三步清单",
+              "evidence_id": 0,
+              "suggestion": "原样保留或加入：三步清单",
+              "kind": "rule",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "受众匹配：内容贴合第一次接触AI的行政助理的认知水平与工作场景",
+              "passed": true,
+              "issue": "",
+              "evidence": "刚接触AI的行政小伙伴别慌呀～咱们用AI做会议纪要不复杂，还能省不少核对时间，就像小林整理的那场会，最后把6项决定逐条标注了负责人，用对方法效率很高哒。",
+              "evidence_id": 2,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "需求与修改意见落实：已设置“三步清单”栏目且保留原文案例与数字",
+              "passed": true,
+              "issue": "",
+              "evidence": "## 三步清单",
+              "evidence_id": 3,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            },
+            {
+              "criterion": "建议可操作性：三步清单的操作指引具体可落地，符合行政助理实际工作流程",
+              "passed": true,
+              "issue": "",
+              "evidence": "1. 先收集材料：把会议录音转写稿、纸质记录、附件都整理好，提前筛掉工资、隐私谈话这类敏感内容，别上传涉密信息",
+              "evidence_id": 4,
+              "suggestion": "",
+              "kind": "semantic",
+              "evidence_normalized_whitespace": false
+            }
+          ],
+          "status": "needs_revision",
+          "route": "manual",
+          "reason": "已达本轮自动修订上限，交人工审核"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "legacy",
+          "parent_version_id": null,
+          "content": "# AI辅助会议纪要\n会议案例乙：小林把6项决定逐条标注负责人。\n先收集材料，使用AI分类，再由人工复核，避免上传隐私信息。",
+          "source": "legacy",
+          "feedback": "",
+          "created_at": ""
+        },
+        {
+          "version_id": "a0d3b0f4bd3d4b0c8790ee2d56d9ae58",
+          "parent_version_id": "legacy",
+          "content": "# AI辅助会议纪要\n刚接触AI的行政小伙伴别慌，咱们用AI做会议纪要不复杂，还能省不少核对时间～就像小林整理的那场会，最后把6项决定逐条标注了负责人，用对方法效率很高。\n\n## 三步清单\n1. 先收集材料：把会议录音转写稿、纸质记录、附件都整理好，提前筛掉工资、隐私谈话这类敏感内容，别上传涉密信息\n2. 使用AI分类：把整理好的内容导入AI工具，让它按“待办、决议、讨论点”自动归类，不用自己一条条捋\n3. 再由人工复核：重点核对AI分的类准不准，像小林那样把6项决定逐条对应负责人，补全细节就搞定啦\n\n第一次用可以先拿短会议练手，不用追求一步到位～你们第一次用AI做纪要踩过什么小坑呀？",
+          "feedback": "保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。改成三步清单，使用“三步清单”作为栏目标题。",
+          "source": "human",
+          "created_at": "2026-11-01T23:24:07.068083+00:00",
+          "metric": {
+            "node_name": "write_draft",
+            "duration_ms": 5549.34,
+            "start_time": "2026-11-02T07:24:01.518727",
+            "end_time": "2026-11-02T07:24:07.068063",
+            "input_tokens": 373,
+            "output_tokens": 197,
+            "total_tokens": 570,
+            "model": "ep-20261007192246-pdxsw",
+            "usage_source": "api",
+            "version_id": "a0d3b0f4bd3d4b0c8790ee2d56d9ae58",
+            "source": "human"
+          }
+        },
+        {
+          "version_id": "5e6c47375cab4592bece3192071809f6",
+          "parent_version_id": "a0d3b0f4bd3d4b0c8790ee2d56d9ae58",
+          "content": "# AI辅助会议纪要\n刚接触AI的行政小伙伴别慌呀～咱们用AI做会议纪要不复杂，还能省不少核对时间，就像小林整理的那场会，最后把6项决定逐条标注了负责人，用对方法效率很高哒。\n\n## 三步清单\n1. 先收集材料：把会议录音转写稿、纸质记录、附件都整理好，提前筛掉工资、隐私谈话这类敏感内容，别上传涉密信息\n2. 使用AI分类：把整理好的内容导入AI工具，让它按“待办、决议、讨论点”自动归类，不用自己一条条捋\n3. 再人工复核：重点核对分类准不准，像小林那样把6项决定逐条对应负责人，补全细节就搞定啦\n\n第一次用可以先拿短会议练手，不用追求一步到位～你们第一次用AI做纪要踩过什么小坑呀？",
+          "feedback": "用户修改意见：保留原文案例与数字，针对目标读者改善语气；输出180—280个非空白字符。改成三步清单，使用“三步清单”作为栏目标题。\n质量检查建议：\n将正文控制在180—280个非空白字符",
+          "source": "auto",
+          "created_at": "2026-11-01T23:24:16.964211+00:00",
+          "metric": {
+            "node_name": "write_draft",
+            "duration_ms": 4335.13,
+            "start_time": "2026-11-02T07:24:12.629060",
+            "end_time": "2026-11-02T07:24:16.964190",
+            "input_tokens": 557,
+            "output_tokens": 195,
+            "total_tokens": 752,
+            "model": "ep-20261007192246-pdxsw",
+            "usage_source": "api",
+            "version_id": "5e6c47375cab4592bece3192071809f6",
+            "source": "auto"
+          }
+        }
+      ],
+      "auto_revisions": 1
+    },
+    "legacy": {
+      "content": "# 三步清单\n上周开3小时跨部门需求对齐会，我用AI10分钟出完精准纪要，比手动整理快18倍，还没漏半个待办😎\n给所有被会议纪要折磨的打工人整理了实操三步：\n1️⃣ 会前喂背景：把会议议程、参会人名单、往期相关纪要丢给AI，提前设定「按议题分块+高亮待办/责任人/ deadline」的输出格式\n2️⃣ 会中传素材：实时转文字的话开AI实时转录，录播的话直接上传音视频，支持10种以上方言识别准确率超95%\n3️⃣ 会后调细节：让AI先出初稿，再补「遗漏的口头共识」「删掉无关闲聊」，最后导出成飞书/Word格式直接发群\n\n你们平时整理纪要最头疼啥？是漏待办还是速度慢？评论区唠唠👇",
+      "checks": [
+        {
+          "criterion": "正文长度",
+          "passed": true,
+          "issue": "",
+          "evidence": "非空白字符数=279，范围=180—280",
+          "evidence_id": 0,
+          "suggestion": "将正文控制在180—280个非空白字符",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        },
+        {
+          "criterion": "必含栏目",
+          "passed": true,
+          "issue": "",
+          "evidence": "三步清单",
+          "evidence_id": 0,
+          "suggestion": "原样保留或加入：三步清单",
+          "kind": "rule",
+          "evidence_normalized_whitespace": false
+        }
+      ],
+      "duration_ms": 6596.93,
+      "total_tokens": 384,
+      "calls": 1,
+      "usage": [
+        {
+          "input_tokens": 181,
+          "output_tokens": 203,
+          "total_tokens": 384,
+          "model": "ep-20261007192246-pdxsw",
+          "usage_source": "api"
+        }
+      ]
+    }
+  }
+}

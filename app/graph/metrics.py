@@ -15,6 +15,7 @@ class LLMUsage:
     output_tokens: int = 0
     total_tokens: int = 0
     model: str = ""
+    usage_source: str = "unavailable"
 
 
 class NodeMetricsTracker:
@@ -61,6 +62,7 @@ class NodeMetricsTracker:
                 "output_tokens": self.llm_usage.output_tokens,
                 "total_tokens": self.llm_usage.total_tokens,
                 "model": self.llm_usage.model,
+                "usage_source": self.llm_usage.usage_source,
             })
         else:
             result.update({

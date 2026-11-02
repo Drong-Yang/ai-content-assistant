@@ -7,6 +7,7 @@ LangGraph 1.0+ 语法：使用 Command 模式恢复中断的工作流
 """
 import uuid
 import json
+from copy import deepcopy
 from typing import Optional, Dict, Any, List, Literal, AsyncGenerator
 from fastapi import APIRouter, HTTPException, status, Depends
 from fastapi.responses import StreamingResponse
@@ -16,6 +17,7 @@ import psycopg
 
 from app.graph.workflow import get_graph
 from app.graph.state import INITIAL_STATE
+from app.graph.quality import ContentBrief
 from app.graph.utils import get_checkpointer
 from app.core.config import settings
 from app.core.logger import app_logger
@@ -37,6 +39,10 @@ class NodeMetricInfo(BaseModel):
     start_time: str = Field(default="", description="开始时间")
     end_time: str = Field(default="", description="结束时间")
     model: str = Field(default="", description="使用的模型")
+    version_id: str = ""
+    source: str = ""
+    usage_source: str = "unavailable"
+    failed: bool = False
 
 
 class StartWorkflowRequest(BaseModel):
@@ -47,6 +53,8 @@ class StartWorkflowRequest(BaseModel):
         min_length=1,
         max_length=200
     )
+    content_brief: ContentBrief = Field(default_factory=ContentBrief)
+    quality_enabled: bool = True
 
 
 class StartWorkflowResponse(BaseModel):
@@ -90,6 +98,7 @@ class ResumeWorkflowResponse(BaseModel):
     next_nodes: List[str] = Field(default=[], description="下一个待执行节点")
     is_completed: bool = Field(default=False, description="是否已完成")
     result: Optional[Dict[str, Any]] = Field(default=None, description="完成时的结果")
+    values: Dict[str, Any] = Field(default_factory=dict, description="包含版本与质量报告的当前状态")
     interrupt_info: Optional[Dict[str, Any]] = Field(default=None, description="下一个中断信息")
     node_metrics: List[NodeMetricInfo] = Field(default=[], description="节点执行指标")
 
@@ -156,6 +165,15 @@ def validate_resume(snapshot, action, data):
         raise HTTPException(409, "当前阶段不支持此操作，请刷新状态")
     if action == "select_topic" and (not data or data.get("selected_topic") not in public_values(snapshot).get("generated_topics", [])):
         raise HTTPException(400, "请选择本工作流生成的有效选题")
+    if action == "reject":
+        feedback = (data or {}).get("feedback", "")
+        if not isinstance(feedback, str) or len(feedback) > 2000:
+            raise HTTPException(400, "修改意见须为不超过2000字符的文本")
+        values = public_values(snapshot)
+        context_size = sum(len(str(values.get(k, ""))) for k in
+                           ("article_content", "topic_direction", "content_brief", "selected_topic"))
+        if context_size + len(feedback) + 500 > 16000:
+            raise HTTPException(400, "原文与反馈上下文过长，请缩小范围")
 
 
 # ============== API 接口 ==============
@@ -195,8 +213,14 @@ async def start_workflow(
         
         # 初始输入
         initial_input = {
-            **INITIAL_STATE,
+            **deepcopy(INITIAL_STATE),
             "topic_direction": request.topic_direction,
+            "content_brief": request.content_brief.model_dump(),
+            "quality_policy": {"enabled": settings.quality_enabled and request.quality_enabled,
+                "max_auto_per_review": settings.quality_max_auto_per_review,
+                "max_auto_total": settings.quality_max_auto_total,
+                "token_budget": settings.quality_token_budget,
+                "timeout_seconds": settings.quality_timeout_seconds},
             "status": "started",
         }
         
@@ -449,6 +473,7 @@ async def resume_workflow(
             next_nodes=next_nodes,
             is_completed=is_completed,
             result=final_result,
+            values=public_values(updated_state),
             interrupt_info=interrupt_info,
             node_metrics=node_metrics
         )
@@ -687,98 +712,41 @@ def format_sse_event(event_type: str, data: Any) -> str:
     return f"data: {json.dumps(payload, ensure_ascii=False, default=str)}\n\n"
 
 
-async def stream_graph_updates(
-    graph, 
-    input_data: Any, 
-    config: Dict[str, Any]
-) -> AsyncGenerator[str, None]:
-    """
-    使用 LangGraph astream_events 流式输出文章生成过程
-    
-    专门用于文章生成场景，提供 token 级别的流式输出
-    
-    Args:
-        graph: 编译后的图
-        input_data: 输入数据 (Command 对象)
-        config: 配置 (包含 thread_id)
-        
-    Yields:
-        SSE格式的事件字符串
-    """
+async def stream_graph_updates(graph, input_data, config):
+    """Only writer tokens enter the article; checker JSON stays in its own panel."""
     try:
-        # 发送开始事件
         yield format_sse_event("start", {})
-        
-        # 用于收集 token 统计
-        token_stats = {
-            "input_tokens": 0,
-            "output_tokens": 0,
-            "total_tokens": 0
-        }
-        
-        # 使用 astream_events 获取 LLM token 级别的流式输出
         async for event in graph.astream_events(input_data, config, version="v2"):
-            event_kind = event.get("event", "")
-            event_name = event.get("name", "")
-            event_data = event.get("data", {})
-            
-            if event_kind == "on_chat_model_start":
-                yield format_sse_event("llm_start", {
-                    "model": event_name
-                })
-                
-            elif event_kind == "on_chat_model_stream":
-                # LLM token 级别的流式输出 - 文章生成的核心
-                chunk = event_data.get("chunk", {})
-                if hasattr(chunk, "content") and chunk.content:
-                    yield format_sse_event("llm_token", {
-                        "content": chunk.content
-                    })
-                    
-            elif event_kind == "on_chat_model_end":
-                output = event_data.get("output", {})
-                # 提取 token 使用信息
-                usage_info = {}
-                if hasattr(output, "usage_metadata") and output.usage_metadata:
-                    usage_info = {
-                        "input_tokens": output.usage_metadata.get("input_tokens", 0),
-                        "output_tokens": output.usage_metadata.get("output_tokens", 0),
-                        "total_tokens": output.usage_metadata.get("total_tokens", 0)
-                    }
-                    token_stats.update(usage_info)
-                elif hasattr(output, "response_metadata") and output.response_metadata:
-                    token_usage = output.response_metadata.get("token_usage", {})
-                    if token_usage:
-                        usage_info = {
-                            "input_tokens": token_usage.get("prompt_tokens", 0),
-                            "output_tokens": token_usage.get("completion_tokens", 0),
-                            "total_tokens": token_usage.get("total_tokens", 0)
-                        }
-                        token_stats.update(usage_info)
-                
-                yield format_sse_event("llm_end", {
-                    "model": event_name,
-                    "usage": usage_info if usage_info else token_stats
-                })
-        
-        # 获取最终状态
-        final_state = await graph.aget_state(config, subgraphs=True)
-        interrupt_info = extract_interrupt_info(final_state)
-        next_nodes = list(final_state.next) if final_state.next else []
-        is_completed = len(next_nodes) == 0 and not interrupt_info and public_values(final_state).get("status") == "completed"
-        
-        # 发送完成事件
-        yield format_sse_event("done", {
-            "status": public_values(final_state).get("status", "unknown") if public_values(final_state) else "unknown",
-            "next_nodes": next_nodes,
-            "is_completed": is_completed,
-            "interrupt_info": interrupt_info,
-            "values": dict(public_values(final_state)) if public_values(final_state) else {}
-        })
-        
-    except Exception as e:
-        # 发送错误事件
-        yield format_sse_event("error", {"message": str(e)})
+            kind, name = event.get("event"), event.get("name")
+            data = event.get("data", {})
+            metadata = event.get("metadata", {})
+            node = metadata.get("langgraph_node", "")
+            version_id = metadata.get("article_version_id", "")
+            if kind == "on_chain_start" and name in ("write_draft", "quality_check"):
+                yield format_sse_event("node_start", {"node": name})
+            elif kind == "on_chain_end" and name in ("write_draft", "quality_check"):
+                output = data.get("output", {})
+                if isinstance(output, dict):
+                    yield format_sse_event("node_end", {"node": name, "output": output})
+            elif node == "write_draft" and kind == "on_chat_model_start":
+                yield format_sse_event("llm_start", {"model": name, "node": node, "version_id": version_id})
+            elif node == "write_draft" and kind == "on_chat_model_stream":
+                chunk = data.get("chunk")
+                if getattr(chunk, "content", None):
+                    yield format_sse_event("llm_token", {"content": chunk.content,
+                        "node": node, "version_id": version_id})
+            elif node == "write_draft" and kind == "on_chat_model_end":
+                output = data.get("output")
+                yield format_sse_event("llm_end", {"model": name, "node": node,
+                    "version_id": version_id, "usage": getattr(output, "usage_metadata", {}) or {}})
+        final = await graph.aget_state(config, subgraphs=True)
+        values = public_values(final)
+        info = extract_interrupt_info(final)
+        yield format_sse_event("done", {"status": values.get("status", "unknown"),
+            "next_nodes": list(final.next or []), "is_completed": not final.next and not info
+                and values.get("status") == "completed", "interrupt_info": info, "values": values})
+    except Exception:
+        yield format_sse_event("error", {"message": "生成步骤失败，已保存的草稿可从历史恢复后重试"})
 
 
 @router.post("/stream/resume/{thread_id}")

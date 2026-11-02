@@ -1,82 +1,56 @@
-"""
-文章写作节点
-负责根据选定的选题生成文章内容
-使用流式输出（非结构化）+ token统计
-"""
-from typing import Dict, Any
+"""Generate or revise against the original brief and the previous article."""
+import asyncio
+import uuid
+from datetime import datetime, timezone
 from app.graph.state import AgentState
 from app.services import get_llm_service
 from app.graph.metrics import MetricsContext, LLMUsage, merge_metrics
+from app.graph.quality import remaining_tokens, input_estimate
 
 
-async def write_draft_node(state: AgentState) -> Dict[str, Any]:
-    """
-    文章写作节点（流式输出 + 非结构化）
-    
-    根据选定的选题，调用 LLM 流式生成文章草稿
-    如果有修改意见，则根据意见进行修订
-    
-    注意：这里使用流式方法调用 LLM，配合 graph.astream_events 可以
-    实现 token 级别的流式输出到客户端
-    
-    Args:
-        state: 当前工作流状态
-        
-    Returns:
-        更新后的状态字段，包含：
-        - article_content: 生成的文章内容
-        - node_metrics: 节点执行指标（包含 token 统计）
-    """
-    selected_topic = state.get("selected_topic", "")
-    review_feedback = state.get("review_feedback", "")
-    revision_count = state.get("revision_count", 0)
-    existing_metrics = state.get("node_metrics", [])
-    
-    if not selected_topic:
-        return {
-            "article_content": "",
-            "status": "error",
-            "error": "未选择选题，无法生成文章",
-        }
-    
+async def write_draft_node(state: AgentState) -> dict:
+    if not state.get("selected_topic"):
+        raise ValueError("未选择选题，无法生成文章")
+    source = state.get("pending_revision_source") or (
+        "human" if state.get("review_status") == "rejected" else "initial")
+    previous = state.get("article_content", "")
+    feedback = (state.get("auto_feedback", "") if source == "auto"
+                else state.get("review_feedback", ""))
+    human_count = state.get("revision_count", 0) + int(source == "human")
+    service = get_llm_service()
+    versions = list(state.get("article_versions", []))
+    if previous and not versions:
+        versions.append({"version_id": "legacy", "parent_version_id": None,
+            "content": previous, "source": "legacy", "feedback": "", "created_at": ""})
+    version_id = uuid.uuid4().hex
+    prompt = service._build_article_prompt(state["selected_topic"], feedback, human_count,
+        state.get("topic_direction", ""), previous, state.get("content_brief", {}))
+    output_limit = max(2600, state.get("content_brief", {}).get("max_chars", 1200) * 2 + 256)
+    if source == "auto":
+        output_limit = min(output_limit, remaining_tokens(state) - input_estimate(prompt + service.ARTICLE_SYSTEM_PROMPT))
+        if output_limit < 256:
+            return {"pending_revision_source": "", "automation_stop_reason": "自动修订预算不足", "quality_report": {
+                **state.get("quality_report", {}), "route": "manual", "reason": "自动修订预算不足"}}
     with MetricsContext("write_draft") as tracker:
-        try:
-            # 如果有修改意见，增加修订计数
-            if review_feedback:
-                revision_count += 1
-            
-            # 获取 LLM 服务
-            llm_service = get_llm_service()
-            
-            # 使用流式输出方法，收集完整内容并获取 token 统计
-            stream_result = await llm_service.stream_write_draft_with_usage(
-                topic=selected_topic,
-                feedback=review_feedback,
-                revision_count=revision_count
-            )
-            
-            article_content = stream_result.content
-            usage_info = stream_result.usage
-            
-            # 记录 LLM 使用信息
-            tracker.set_llm_usage(LLMUsage(
-                input_tokens=usage_info.input_tokens,
-                output_tokens=usage_info.output_tokens,
-                total_tokens=usage_info.total_tokens,
-                model=usage_info.model
-            ))
-            
-            result = {
-                "article_content": article_content,
-                "revision_count": revision_count,
-                "review_status": "pending",
-                "status": "draft_generated",
-                "error": "",
-            }
-            
-        except Exception as e:
-            raise RuntimeError("模型节点执行失败，请检查配置后重试") from e
-
-    # 在 with 块结束后（tracker.stop() 已被调用），再获取指标
-    result["node_metrics"] = merge_metrics(existing_metrics, tracker.to_dict())
-    return result
+        result = await asyncio.wait_for(service.stream_write_draft_with_usage(
+            topic=state["selected_topic"], feedback=feedback, revision_count=human_count,
+            topic_direction=state.get("topic_direction", ""), previous_article=previous,
+            content_brief=state.get("content_brief", {}), max_output_tokens=output_limit,
+            version_id=version_id), timeout=120)
+        if not result.content.strip():
+            raise ValueError("模型未生成正文，请重试")
+        usage = result.usage
+        tracker.set_llm_usage(LLMUsage(usage.input_tokens, usage.output_tokens, usage.total_tokens, usage.model))
+    metric = {**tracker.to_dict(), "version_id": version_id, "source": source,
+              "usage_source": usage.usage_source}
+    versions.append({"version_id": version_id,
+        "parent_version_id": versions[-1]["version_id"] if versions else None,
+        "content": result.content, "feedback": feedback, "source": source,
+        "created_at": datetime.now(timezone.utc).isoformat(), "metric": metric})
+    return {"article_content": result.content, "article_versions": versions,
+        "revision_count": human_count,
+        "auto_revision_count": state.get("auto_revision_count", 0) + int(source == "auto"),
+        "auto_revisions_this_review": state.get("auto_revisions_this_review", 0) + int(source == "auto"),
+        "quality_tokens_used": state.get("quality_tokens_used", 0) + (usage.total_tokens if source == "auto" else 0),
+        "pending_revision_source": "", "review_status": "pending", "status": "draft_generated", "error": "",
+        "node_metrics": merge_metrics(state.get("node_metrics", []), metric)}
